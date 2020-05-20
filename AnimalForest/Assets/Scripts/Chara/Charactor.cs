@@ -25,7 +25,7 @@ public abstract class Charactor : MonoBehaviour
         }
     }
 
-    protected AnimaionType type;
+    public AnimaionType type;
     protected GameObject target;    // 攻撃目標
     protected NavMeshAgent agent;   // 目標へのNavMesh
     protected Animator anim;       // アニメーション
@@ -47,7 +47,10 @@ public abstract class Charactor : MonoBehaviour
     protected virtual void Update()
     {
         AnimationControl();
-        agent.SetDestination(target.transform.position);
+        if(type == AnimaionType.walk)
+        {
+            agent.SetDestination(target.transform.position);
+        }
     }
 
 
