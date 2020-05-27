@@ -9,6 +9,16 @@ public class Human : Character
         // 最初のタワーの目標を決める
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        if(type == AnimaionType.death)
+        {
+            // ここでコストを増やす処理をする
+            // Costmanager.Instance.cost += status.cost;
+        }
+    }
+
     protected override void ChangeTarget()
     {
         //throw new System.NotImplementedException();
