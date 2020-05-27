@@ -1,13 +1,13 @@
-﻿// J.K. 2020
+﻿// K.Joudo. 2020
 using UnityEngine;
 using UnityEngine.AI;
 
 // キャラクターの基底クラス
 // 抽象クラスで作成
-public abstract class Charactor : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
     // アニメーションの状態
-    public enum AnimaionType { idol, walk, attack, death }
+    public enum AnimaionType { idol, walk, attack, damage, death }
     // 各種ステータスの構造体
     public struct Status
     {
@@ -83,6 +83,11 @@ public abstract class Charactor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ターゲットの変更を行うメソッド
+    /// </summary>
+    protected abstract void ChangeTarget();
+
     protected void OnCollisionEnter(Collision collision)
     {
         // 判定方法はとりあえずタグにしてある
@@ -91,7 +96,7 @@ public abstract class Charactor : MonoBehaviour
         {
             // ダメージの計算
             // ここうまく動くか不安なので要テスト
-            float enemy_power = collision.transform.GetComponent<Charactor>().status.power;
+            float enemy_power = collision.transform.GetComponent<Character>().status.power;
             float damage = enemy_power - status.defence;
             if(damage <= 0)
             {
