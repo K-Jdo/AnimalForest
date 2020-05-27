@@ -19,11 +19,5 @@ public class Animal : Character
             type = AnimaionType.walk;
             target = HumanManager.Instance.SearchNearHuman(transform.position);
         }
-        else if(type == AnimaionType.damage)
-        {
-            // 攻撃を受けたので反撃する
-            type = AnimaionType.attack;
-            target = HumanManager.Instance.SearchNearHuman(transform.position);
-        }
     }
 }

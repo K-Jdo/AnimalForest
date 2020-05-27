@@ -15,13 +15,15 @@ public abstract class Character : MonoBehaviour
         public float power;
         public float speed;
         public float defence;
+        public int cost;
 
-        public Status(float h, float p, float s, float d)
+        public Status(float h, float p, float s, float d, int c)
         {
             hp = h;
             power = p;
             speed = s;
             defence = d;
+            cost = c;
         }
     }
 
@@ -40,8 +42,6 @@ public abstract class Character : MonoBehaviour
         type = AnimaionType.idol;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        // TODO ステータスは各キャラクターが初期値をいれるため後で消すこと
-        status = new Status(100.0f, 50.0f, 10.0f, 30.0f);
     }
 
     protected virtual void Update()
@@ -88,6 +88,8 @@ public abstract class Character : MonoBehaviour
     /// </summary>
     protected abstract void ChangeTarget();
 
+    public Status GetStatus() { return status; }
+
     protected void OnCollisionEnter(Collision collision)
     {
         // 判定方法はとりあえずタグにしてある
@@ -96,7 +98,7 @@ public abstract class Character : MonoBehaviour
         {
             // ダメージの計算
             // ここうまく動くか不安なので要テスト
-            float enemy_power = collision.transform.GetComponent<Character>().status.power;
+            float enemy_power = collision.transform.GetComponent<Character>().GetStatus().power;
             float damage = enemy_power - status.defence;
             if(damage <= 0)
             {
