@@ -111,6 +111,11 @@ public abstract class Character : MonoBehaviour
             }
 
             status.hp -= damage;
+
+            if(type == AnimaionType.walk)
+            {
+                type = AnimaionType.damage;
+            }
         }
     }
 }
