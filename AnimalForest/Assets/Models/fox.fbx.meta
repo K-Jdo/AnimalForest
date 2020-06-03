@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 6141e156278e62642a55730a0f4f3ce8
+guid: 9755d07416e326f48917d606fd8105a6
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fox_ear
+    second: {fileID: 2100000, guid: b00cd28a00bea6c47b71815d29098696, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fox_palette1
+    second: {fileID: 2100000, guid: 69bee29b03edb874e8d4f235eedb9486, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

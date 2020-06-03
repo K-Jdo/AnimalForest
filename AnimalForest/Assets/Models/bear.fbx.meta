@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 266efce9aac979f4fb8c906786912366
+guid: 007abc35c85707d49a836b297a7f660f
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bear_palette1
+    second: {fileID: 2100000, guid: 69bee29b03edb874e8d4f235eedb9486, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
