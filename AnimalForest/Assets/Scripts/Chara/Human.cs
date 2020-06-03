@@ -1,18 +1,23 @@
 ﻿// K.Joudo. 2020
+using UnityEngine;
 
 // 人間に共通する動作を制御するクラス
 public class Human : Character
-{
+{    
     protected override void Start()
     {
         base.Start();
+        character_type = CharacterType.human;
         // 最初のタワーの目標を決める
+        target_object = TestManager.Instance.tower;
+        agent.SetDestination(target_object.transform.position);
     }
 
     protected override void Update()
     {
         base.Update();
-        if(type == AnimaionType.death)
+        ChangeTarget();
+        if(animation_type == AnimaionType.death)
         {
             // ここでコストを増やす処理をする
             // Costmanager.Instance.cost += status.cost;
@@ -24,15 +29,30 @@ public class Human : Character
         //throw new System.NotImplementedException();
         
         // ターゲットを撃破する、もしくは攻撃を受けると標的を変更
-        if(target == null)
+        if(target_object == null)
         {
-            type = AnimaionType.walk;
+            animation_type = AnimaionType.walk;
             // ここに新しいタワーの目標を決める
         }
-        else if(type == AnimaionType.damage)
+        else if(animation_type == AnimaionType.damage)
         {
-            type = AnimaionType.attack;
-            target = AnimalManager.Instance.SearchNearAnimal(transform.position);
+            animation_type = AnimaionType.attack;
+            target_object = AnimalManager.Instance.SearchNearAnimal(transform.position);
+            target_character = target_object.GetComponent<Character>();
         }
+    }
+
+    protected override void Attack()
+    {
+        // これはTowerを参照するようになったら消す
+        if(target_object.name == "wood1")
+        {
+            Debug.Log("木を狙っている");
+            return;
+        }
+
+        base.Attack();
+        Debug.Log("クマを狙っている");
+
     }
 }
