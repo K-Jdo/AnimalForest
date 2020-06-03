@@ -44,8 +44,6 @@ public abstract class Character : MonoBehaviour
     protected float attack_time;
 
     
-    // TODO ステージが出来たらNavmeshの動作を追加する
-
     protected virtual void Start()
     {
         // 共通の初期設定
