@@ -6,6 +6,13 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
 {
     List<GameObject> animals = new List<GameObject>();
     public int Counter {private get; set; }
+    [SerializeField] private GameObject obj = default;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        animals.Add(obj);
+    }
 
     void Update()
     {
@@ -19,18 +26,19 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
     /// <returns></returns>
     public GameObject SearchNearAnimal(Vector3 position)
     {
-        int count = 0;
-        float dis = Vector3.Distance(position, animals[0].transform.position);
-        for (int i = 1; i < animals.Count; i++)
-        {
-            float d = Vector3.Distance(position, animals[i].transform.position);
-            if (dis > d)
-            {
-                count = i;
-            }
-        }
+        return animals[0];
+        //int count = 0;
+        //float dis = Vector3.Distance(position, animals[0].transform.position);
+        //for (int i = 1; i < animals.Count; i++)
+        //{
+        //    float d = Vector3.Distance(position, animals[i].transform.position);
+        //    if (dis > d)
+        //    {
+        //        count = i;
+        //    }
+        //}
 
-        return animals[count];
+        //return animals[count];
     }
 
 }
