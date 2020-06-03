@@ -14,7 +14,7 @@ public class Tower : TowerManager
 {
     GameObject[] Obj;
     private TowerManager tower_manager;
-    //public UnityEngine.UI.Slider slider;
+    public UnityEngine.UI.Slider slider;
 
     void Awake()
     {
@@ -27,13 +27,13 @@ public class Tower : TowerManager
         Obj = GameObject.FindGameObjectsWithTag("Tower");
         Debug.Log("残りタワー数は :" + Obj.Length);
 
-        hp = hp - tower_manager.damage;
+        hp = hp - damage;
         //ADD  現在HP(ダメージが出来たら差し替え)
         Debug.Log("Start hp : " + hp);
 
         //HPバー模索中
-        //slider.maxValue = max_hp;
-        //slider.value = hp;
+        slider.maxValue = max_hp;
+        slider.value = hp;
 
 
 

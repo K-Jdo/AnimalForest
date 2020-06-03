@@ -1,5 +1,4 @@
-﻿// J.K. 2020
-
+﻿// K.Joud. 2020
 using UnityEngine;
 using System.Collections.Generic;
 // 人間を管理するクラス

@@ -1,13 +1,13 @@
-﻿// J.K. 2020
+﻿// K.Joudo. 2020
 using UnityEngine;
 using UnityEngine.AI;
 
 // キャラクターの基底クラス
 // 抽象クラスで作成
-public abstract class Charactor : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
     // アニメーションの状態
-    public enum AnimaionType { idol, walk, attack, death }
+    public enum AnimaionType { idol, walk, attack, damage, death }
     // 各種ステータスの構造体
     public struct Status
     {
@@ -15,13 +15,15 @@ public abstract class Charactor : MonoBehaviour
         public float power;
         public float speed;
         public float defence;
+        public int cost;
 
-        public Status(float h, float p, float s, float d)
+        public Status(float h, float p, float s, float d, int c)
         {
             hp = h;
             power = p;
             speed = s;
             defence = d;
+            cost = c;
         }
     }
 
@@ -40,8 +42,6 @@ public abstract class Charactor : MonoBehaviour
         type = AnimaionType.idol;
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        // TODO ステータスは各キャラクターが初期値をいれるため後で消すこと
-        status = new Status(100.0f, 50.0f, 10.0f, 30.0f);
     }
 
     protected virtual void Update()
@@ -83,6 +83,13 @@ public abstract class Charactor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ターゲットの変更を行うメソッド
+    /// </summary>
+    protected abstract void ChangeTarget();
+
+    public Status GetStatus() { return status; }
+
     protected void OnCollisionEnter(Collision collision)
     {
         // 判定方法はとりあえずタグにしてある
@@ -91,7 +98,7 @@ public abstract class Charactor : MonoBehaviour
         {
             // ダメージの計算
             // ここうまく動くか不安なので要テスト
-            float enemy_power = collision.transform.GetComponent<Charactor>().status.power;
+            float enemy_power = collision.transform.GetComponent<Character>().GetStatus().power;
             float damage = enemy_power - status.defence;
             if(damage <= 0)
             {
@@ -106,6 +113,11 @@ public abstract class Charactor : MonoBehaviour
             }
 
             status.hp -= damage;
+
+            if(type == AnimaionType.walk)
+            {
+                type = AnimaionType.damage;
+            }
         }
     }
 }

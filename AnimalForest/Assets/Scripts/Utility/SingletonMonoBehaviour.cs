@@ -1,4 +1,4 @@
-﻿// J.K. 2020
+﻿// K.Joudo. 2020
 using UnityEngine;
 using System;
 
