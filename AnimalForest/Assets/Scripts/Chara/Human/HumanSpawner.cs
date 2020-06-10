@@ -9,6 +9,12 @@ public class HumanSpawner : MonoBehaviour
 
     void Update()
     {
+        if (!HumanManager.Instance.Is_spawn)
+        {
+            // 数が上限に達すると何もしない
+            return;
+        }
+
         // 2秒毎にスポーン
         count += Time.deltaTime;
         if(count >= 2.0f)
