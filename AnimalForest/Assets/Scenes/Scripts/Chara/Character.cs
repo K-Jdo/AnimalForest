@@ -78,7 +78,7 @@ public abstract class Character : MonoBehaviour
             agent.velocity = Vector3.zero;
             Attack();
         }
-        Debug.Log($"{status.name}のタイプ{animation_type}");
+        //Debug.Log($"{status.name}のタイプ{animation_type}");
         //Debug.Log($"{status.name}のvelocity{agent.velocity}");
     }
 
@@ -108,7 +108,7 @@ public abstract class Character : MonoBehaviour
         }
 
         // 近づいたら攻撃
-        if(distance <= 2.0f)
+        if(distance <= 10.0f)
         {
             animation_type = AnimaionType.attack;
             // とりあえず仮

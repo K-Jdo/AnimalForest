@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // コストの管理
-public class CostManager : MonoBehaviour
+public class CostManager : SingletonMonoBehaviour<CostManager>
 {
     //初めから持っているコスト
     public int cost;
@@ -17,7 +17,10 @@ public class CostManager : MonoBehaviour
     private float cost_time;
     //コストを表示
     public Text cost_text;
+
     // Update is called once per frame
+
+
     void Update()
     {
         //何秒経ったか計測する
@@ -26,11 +29,11 @@ public class CostManager : MonoBehaviour
 
         if (cost_time >= time_out)
         {
-            //コストをプラスできるか確認
-            Debug.Log("Cost:"+(cost += cost_plus));
+            //コストをプラス
+            cost += cost_plus;
             //計測時間を0に戻す
             cost_time = 0.0f;
         }
-        cost_text.text = cost.ToString();
+        cost_text.text = "Cost:" + cost.ToString() + "P";
     }
 }
