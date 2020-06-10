@@ -45,5 +45,12 @@ public class Tower : TowerManager
 
         Debug.Log("x："+ worldpos.x +" y：" + worldpos.y + " z：" + worldpos.z);
 
+        
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //foreach(RaycastHit hit in Physics.RaycastAll(ray))
+        //{
+        //    Debug.Log(hit.collider.gameObject.transform.position);
+        //}
+
     }
 }

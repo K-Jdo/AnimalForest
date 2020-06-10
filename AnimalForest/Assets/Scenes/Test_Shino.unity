@@ -487,6 +487,7 @@ MonoBehaviour:
   cost: 0
   cost_plus: 1
   time_out: 1
+  cost_text: {fileID: 0}
 --- !u!4 &1456547394
 Transform:
   m_ObjectHideFlags: 0
@@ -544,4 +545,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c7d9c4445b57d42b7247bd51c4aa0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 6131966763761883908, guid: 516cc420979cb3345a9df8e89d4149ff, type: 3}
+  obj: {fileID: 2765933704252881848, guid: fb8cdc38b67a70e4690ee39a8fb7ceed, type: 3}
