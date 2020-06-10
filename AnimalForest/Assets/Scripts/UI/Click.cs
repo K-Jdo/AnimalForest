@@ -1,8 +1,8 @@
 ﻿// S.T.
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Click : MonoBehaviour
 {
@@ -10,25 +10,43 @@ public class Click : MonoBehaviour
     public GameObject obj;
     //クリックされたオブジェクトを入れる
     GameObject clicked_object;
-    // Update is called once per frame
+    //ボタンを押した
+    private bool trigger = false;
+    //使うコスト
+    public int use_cost;
+    //テキストを表示
+    public Text use_cost_text;
+
+    private void Start()
+    {
+        //ボタンにテキスト表示
+        use_cost_text.text = use_cost.ToString() + "P";
+    }
+    //ボタンを押したときの処理
+    public void OnClick()
+    {
+        trigger = true;
+    }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (trigger == true)
         {
-            OnClick();
+            if (Input.GetMouseButton(0))
+            {
+                OnClicked();
+            }
         }
     }
-
-    void OnClick()
+    public void OnClicked()
     {
         //スクリーンから見たマウスの座標を得る
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //クリックされた座標を格納する
         RaycastHit hit;
 
-        //レイヤーにrayが当たっていたら
+        //rayが当たっていたら
         if (Physics.Raycast(ray, out hit))
-        {   
+        {
             //クリックされた座標
             Vector3 pos = hit.point;
             //クリックされたゲームオブジェクト
@@ -36,9 +54,14 @@ public class Click : MonoBehaviour
             //クリックされたものが指定されたレイヤーなら
             if (clicked_object.layer == 8)
             {
-                //オブジェクトを複製
-                Instantiate(obj, pos, Quaternion.identity);
+                if (CostManager.Instance.cost >= use_cost)
+                {
+                    //オブジェクトを複製
+                    Instantiate(obj, pos, Quaternion.identity);
+                    CostManager.Instance.cost -= use_cost;
+                }
             }
         }
+        trigger = false;
     }
 }

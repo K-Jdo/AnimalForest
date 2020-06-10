@@ -1,6 +1,4 @@
-﻿//F.D.
-//ギミック：落とし穴の処理
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

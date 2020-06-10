@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//F.D.
+//ギミック：石の処理
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,4 +44,11 @@ public class Stone : GimmickManager
     {
         try_box.enabled = true;
     }
+
+    //void StanEffect()
+    //{
+    //    GameObject staneffect = Instantiate("エフェクト名") as GameObject;
+    //    staneffect.transform.position = gameObject.transform.position;
+    //}
+
 }

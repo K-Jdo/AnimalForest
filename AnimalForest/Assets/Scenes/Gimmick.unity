@@ -1319,6 +1319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 2647033559412165357, guid: 334fff76142d4944f9ea3a254e9ce173, type: 3}
+  use_cost: 0
+  use_cost_text: {fileID: 605024715}
 --- !u!4 &1392804555
 Transform:
   m_ObjectHideFlags: 0
