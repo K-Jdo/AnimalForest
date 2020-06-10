@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Pitfall : GimmickManager
 {
     private List<GameObject> hit_objects = new List<GameObject>();
     private Human human;
+
+    float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +29,8 @@ public class Pitfall : GimmickManager
                 gameObject.SetActive(false);
 
                 human = i.GetComponent<Human>();
-                human.enabled = false;
+                speed = human.GetStatus().speed;
+                human.SetSpeed(0);
 
                 Invoke("Release", stantime);
             }
@@ -38,7 +42,7 @@ public class Pitfall : GimmickManager
 
     void Release()
     {
-        human.enabled = true;
+        human.SetSpeed(speed);
     }
 
     //void StanEffect()
