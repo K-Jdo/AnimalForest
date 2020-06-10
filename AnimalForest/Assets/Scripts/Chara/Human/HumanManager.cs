@@ -7,12 +7,17 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     List<GameObject> humans = new List<GameObject>();
     [SerializeField] GameObject[] objects = default;
 
-    public int Counter { private get; set; }
+    // これ何に使うか忘れた
+    // 特に使わんのなら消す
+    //public int Counter { private get; set; }
+
+    public bool Is_spawn { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
-        Counter = 0;
+        //Counter = 0;
+        Is_spawn = true;
 
         // 初期配置のやつら
         foreach(GameObject obj in objects)
@@ -23,15 +28,23 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
 
     void Update()
     {
-        // 今はとりあえずここに置いとく
         // キャラクターが死んだらリストからも除外
-        //for(int i = humans.Count - 1; i >= 0; i--)
-        //{
-        //    if(humans[i].type == Charactor.AnimaionType.death)
-        //    {
-        //        humans.RemoveAt(i);
-        //    }
-        //}
+        for (int i = humans.Count - 1; i >= 0; i--)
+        {
+            if (humans[i] == null)
+            {
+                humans.RemoveAt(i);
+            }
+        }
+
+        if (humans.Count > 2)
+        {
+            Is_spawn = false;
+        }
+        else
+        {
+            Is_spawn = true;
+        }
     }
 
     /// <summary>

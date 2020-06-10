@@ -44,7 +44,7 @@ public abstract class Character : MonoBehaviour
     protected float attack_time;
 
     
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         // 共通の初期設定
         animation_type = AnimaionType.walk;
@@ -67,16 +67,18 @@ public abstract class Character : MonoBehaviour
             death_time += Time.deltaTime;
             if(death_time >= 3.0)
             {
-                Debug.Log("死んだ");
+                Debug.Log($"{status.name}が死んだ");
                 Destroy(gameObject);
             }
         }
 
         if(animation_type == AnimaionType.attack)
         {
+            // 攻撃中は移動しない
+            agent.velocity = Vector3.zero;
             Attack();
         }
-        Debug.Log($"{status.name}のタイプ{animation_type}");
+        //Debug.Log($"{status.name}のタイプ{animation_type}");
         //Debug.Log($"{status.name}のvelocity{agent.velocity}");
     }
 
@@ -86,16 +88,19 @@ public abstract class Character : MonoBehaviour
     /// </summary>
     void AnimationControl()
     {
+        if(status.hp <= 0.0f)
+        {
+            animation_type = AnimaionType.death;
+            // ここで死亡アニメーションを再生
+
+            return;
+        }
+
         // TODO ここのアニメーション処理はモデル完成後に作る
         // 今はタイプを変更するだけ
         float distance = Vector3.Distance(transform.position, target_object.transform.position);
         //Debug.Log($"{status.name}の対象との距離{distance}");
 
-        if(status.hp <= 0.0f)
-        {
-            animation_type = AnimaionType.death;
-            // ここで死亡アニメーションを再生
-        }
 
         if(animation_type == AnimaionType.damage)
         {
@@ -108,16 +113,14 @@ public abstract class Character : MonoBehaviour
             animation_type = AnimaionType.attack;
             // とりあえず仮
             //anim.SetBool("isAttack", true);
-            // 攻撃中は移動しない
-            agent.velocity = Vector3.zero;
         }
         // 離れれば再び追いかける
-        else if(distance > 10.0f)
-        {
-            animation_type = AnimaionType.walk;
-            // とりあえず仮
-            //anim.SetBool("isAttack", false);
-        }
+        //else if(distance > 10.0f)
+        //{
+        //    animation_type = AnimaionType.walk;
+        //    // とりあえず仮
+        //    //anim.SetBool("isAttack", false);
+        //}
 
     }
 
@@ -150,7 +153,10 @@ public abstract class Character : MonoBehaviour
                 damage += r;
             }
             target_character.SetDamege(damage);
-
+            //if(target_character.status.hp <= 0)
+            //{
+            //    target_object = null;
+            //}
             attack_time = 0.0f;
         }
     }
@@ -159,7 +165,7 @@ public abstract class Character : MonoBehaviour
     public void SetDamege(float d)
     {
         status.hp -= d;
-        Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
+        //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
         if(character_type == CharacterType.human)
         {
             animation_type = AnimaionType.damage;
