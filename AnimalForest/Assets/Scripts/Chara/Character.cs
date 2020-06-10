@@ -108,7 +108,7 @@ public abstract class Character : MonoBehaviour
         }
 
         // 近づいたら攻撃
-        if(distance <= 10.0f)
+        if(distance <= 2.0f)
         {
             animation_type = AnimaionType.attack;
             // とりあえず仮
@@ -170,5 +170,10 @@ public abstract class Character : MonoBehaviour
         {
             animation_type = AnimaionType.damage;
         }
+    }
+
+    public void SetSpeed(float s)
+    {
+        agent.speed = s;
     }
 }
