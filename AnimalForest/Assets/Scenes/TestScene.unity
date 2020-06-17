@@ -203,7 +203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418813062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.371254, y: 9.178362, z: 7.929861}
+  m_LocalPosition: {x: -5.41, y: 4.24, z: -5.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -332,6 +332,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3097499009143393995, guid: bc1b5198f1963cf47a78f083931c8a56,
+        type: 3}
+      propertyPath: obj
+      value: 
+      objectReference: {fileID: 2647033559412165357, guid: 334fff76142d4944f9ea3a254e9ce173,
+        type: 3}
     - target: {fileID: 3097499010207045400, guid: bc1b5198f1963cf47a78f083931c8a56,
         type: 3}
       propertyPath: obj
@@ -342,6 +348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3097499010346051916, guid: bc1b5198f1963cf47a78f083931c8a56,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3097499010346051918, guid: bc1b5198f1963cf47a78f083931c8a56,
         type: 3}
