@@ -9,7 +9,7 @@ public abstract class Character : MonoBehaviour
     // アニメーションの状態
     public enum AnimaionType { idol, walk, attack, damage, death }
 
-    protected enum CharacterType { animal, human}
+    protected enum CharacterType { animal, human }
     // 各種ステータスの構造体
     public struct Status
     {
@@ -45,7 +45,7 @@ public abstract class Character : MonoBehaviour
 
     public bool can_speed_change;
     public float debug_speed;
-    
+
     protected virtual void Awake()
     {
         // 共通の初期設定
@@ -76,17 +76,17 @@ public abstract class Character : MonoBehaviour
 
         // 死んだら死亡アニメーションが終わるとオブジェクトを消す
         // 今はアニメーションがないから時間経過で消している
-        if(animation_type == AnimaionType.death)
+        if (animation_type == AnimaionType.death)
         {
             death_time += Time.deltaTime;
-            if(death_time >= 3.0)
+            if (death_time >= 3.0)
             {
                 Debug.Log($"{status.name}が死んだ");
                 Destroy(gameObject);
             }
         }
 
-        if(animation_type == AnimaionType.attack)
+        if (animation_type == AnimaionType.attack)
         {
             // 攻撃中は移動しない
             agent.velocity = Vector3.zero;
@@ -102,7 +102,7 @@ public abstract class Character : MonoBehaviour
     /// </summary>
     void AnimationControl()
     {
-        if(status.hp <= 0.0f)
+        if (status.hp <= 0.0f)
         {
             animation_type = AnimaionType.death;
             // TODO ここで死亡アニメーションを再生
@@ -117,13 +117,13 @@ public abstract class Character : MonoBehaviour
         //Debug.Log($"{status.name}の対象との距離{distance}");
 
 
-        if(animation_type == AnimaionType.damage)
+        if (animation_type == AnimaionType.damage)
         {
             return;
         }
 
         // 近づいたら攻撃
-        if(distance <= 3.0f)
+        if (distance <= 3.0f)
         {
             animation_type = AnimaionType.attack;
             // とりあえず仮
@@ -154,20 +154,9 @@ public abstract class Character : MonoBehaviour
         // アニメーションが出来たらこの条件に変えておく
         //if(anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && 
         //    anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-        if(attack_time >= 1.5f)
+        if (attack_time >= 1.5f)
         {
-            float damage = status.power - target_character.GetStatus().defence;
-            if(damage <= 0)
-            {
-                damage = 1;
-            }
-            else
-            {
-                // 乱数によって振れ幅を付ける(-5, 5)
-                float r = Random.Range(-5.0f, 6.0f);
-                damage += r;
-            }
-            target_character.SetDamege(damage);
+            target_character.SetDamege(status.power);
             //if(target_character.status.hp <= 0)
             //{
             //    target_object = null;
@@ -177,9 +166,20 @@ public abstract class Character : MonoBehaviour
     }
 
     public Status GetStatus() { return status; }
-    public void SetDamege(float d)
+    public void SetDamege(float power)
     {
-        status.hp -= d;
+        float damage = power - status.defence;
+        if (damage <= 0)
+        {
+            damage = 1;
+        }
+        else
+        {
+            // 乱数によって振れ幅を付ける(-5, 5)
+            float r = Random.Range(-5.0f, 6.0f);
+            damage += r;
+        }
+        status.hp -= damage;
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
         if (character_type == CharacterType.human)
         {

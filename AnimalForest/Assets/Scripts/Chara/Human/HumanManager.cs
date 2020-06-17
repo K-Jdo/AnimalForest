@@ -20,7 +20,7 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
         Is_spawn = true;
 
         // 初期配置のやつら
-        // 初期配置するならいるいらないなら消す
+        // 初期配置するならいる。いらないなら消す
         //foreach(GameObject obj in objects)
         //{
         //    humans.Add(obj);
