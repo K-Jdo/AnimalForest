@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class GimmickManager : MonoBehaviour
 {
+    [System.NonSerialized]
     public int cost;
-    public float stantime;
+    [System.NonSerialized]
+    public float power;
+    [System.NonSerialized]
+    public float gimmicktime;
 }

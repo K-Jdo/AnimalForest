@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//F.D.
+//落とし穴の処理
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -14,7 +16,7 @@ public class Pitfall : GimmickManager
     void Start()
     {
         cost = 40;
-        stantime = 3;
+        gimmicktime = 3;
     }
     //ADD 範囲攻撃にする
     private void OnTriggerEnter(Collider collider)
@@ -32,7 +34,7 @@ public class Pitfall : GimmickManager
                 speed = human.GetStatus().speed;
                 human.SetSpeed(0);
 
-                Invoke("Release", stantime);
+                Invoke("Release", gimmicktime);
             }
             //StanEffect();
         }

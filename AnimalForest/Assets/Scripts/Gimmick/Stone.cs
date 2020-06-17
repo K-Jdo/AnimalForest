@@ -1,5 +1,6 @@
 ﻿//F.D.
 //ギミック：石の処理
+//ADD　humanとの兼ね合いを修正
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class Stone : GimmickManager
     void Start()
     {
         cost = 10;
-        stantime = 1;
+        gimmicktime = 1;
     }
     //ADD 範囲攻撃にする
     private void OnTriggerEnter(Collider collider)
@@ -32,7 +33,7 @@ public class Stone : GimmickManager
                 try_box = i.GetComponent<TryMove>();
                 try_box.enabled = false;
 
-                Invoke("Release", stantime);
+                Invoke("Release", gimmicktime);
             }
             //StanEffect();
         }
