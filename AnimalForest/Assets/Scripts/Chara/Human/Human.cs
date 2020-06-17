@@ -1,8 +1,8 @@
 ﻿// K.Joudo. 2020
-using UnityEngine;
 
-// 人間に共通する動作を制御するクラス
-public class Human : Character
+// 人間に共通する動作をする抽象クラス
+
+public abstract class Human : Character
 {    
     protected override void Awake()
     {
@@ -24,7 +24,7 @@ public class Human : Character
         if(animation_type == AnimaionType.death)
         {
             // ここでコストを増やす処理をする
-            // Costmanager.Instance.cost += status.cost;
+            //CostManager.Instance.cost += 50;
         }
     }
 
@@ -35,12 +35,17 @@ public class Human : Character
         {
             animation_type = AnimaionType.walk;
             // ここで新しいタワーの目標を決める
+            // とりあえず最初のタワーをいれておく
+            target_object = TestManager.Instance.tower;
         }
         else if(animation_type == AnimaionType.damage)
         {
             animation_type = AnimaionType.attack;
             target_object = AnimalManager.Instance.SearchNearAnimal(transform.position);
-            target_character = target_object.GetComponent<Character>();
+            if (target_object != null)
+            {
+                target_character = target_object.GetComponent<Character>();
+            }
         }
     }
 

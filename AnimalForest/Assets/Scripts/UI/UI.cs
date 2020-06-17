@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI : MonoBehaviour
@@ -17,6 +18,12 @@ public class UI : MonoBehaviour
     //ポーズUI
     [SerializeField]
     private GameObject pause_panel = null;
+    //遊び方UI
+    [SerializeField]
+    private GameObject help_canvas = null;
+    //読み込むシーン番号
+    private static int scene_num = 0;
+
     // Start is called before the first frame update
     public void ChangeClick()
     {
@@ -51,5 +58,32 @@ public class UI : MonoBehaviour
         pause_panel.SetActive(false);
         //ストップ解除
         Time.timeScale = 1;
+    }
+
+    public void ChangeNextScene()
+    {
+        //次のシーンをロード
+        scene_num++;
+        SceneManager.LoadSceneAsync(scene_num);
+        
+    }
+
+    public void EndScene()
+    {
+        //タイトルシーンロード
+        scene_num = 0;
+        SceneManager.LoadSceneAsync(scene_num);
+    }
+
+    public void HelpClick()
+    {
+        //遊び方表示
+        help_canvas.SetActive(true);
+    }
+
+    public void RemoveHelpClick()
+    {
+        //遊び方非表示
+        help_canvas.SetActive(false);
     }
 }
