@@ -4,21 +4,25 @@ using System.Collections.Generic;
 
 public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
 {
-    List<GameObject> animals = new List<GameObject>();
+    readonly List<GameObject> animals = new List<GameObject>();
     public int Counter {private get; set; }
-    //[SerializeField] private GameObject obj = default;
+    [SerializeField] private GameObject[] objects = default;
 
     protected override void Awake()
     {
         base.Awake();
         // デバッグ用に入れてある必要がなくなったら消す
         //animals.Add(obj);
+        foreach (GameObject obj in objects)
+        {
+            animals.Add(obj);
+        }
     }
 
-    void Update()
-    {
-        // TODO リストに動物が生成されるたびに追加する処理を書く
-    }
+    //void Update()
+    //{
+    //    // TODO リストに動物が生成されるたびに追加する処理を書く
+    //}
 
     /// <summary>
     /// 一番近い動物を探す(自分の座標）
@@ -30,6 +34,15 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
         if(animals.Count <= 0)
         {
             return null;
+        }
+
+        // キャラクターが死んだらリストからも除外
+        for (int i = animals.Count - 1; i >= 0; i--)
+        {
+            if (animals[i] == null)
+            {
+                animals.RemoveAt(i);
+            }
         }
 
         int count = 0;

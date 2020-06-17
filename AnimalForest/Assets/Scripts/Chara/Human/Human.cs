@@ -23,7 +23,7 @@ public abstract class Human : Character
         if(animation_type == AnimaionType.death)
         {
             // ここでコストを増やす処理をする
-            // Costmanager.Instance.cost += status.cost;
+            //CostManager.Instance.cost += 50;
         }
     }
 
@@ -34,6 +34,8 @@ public abstract class Human : Character
         {
             animation_type = AnimaionType.walk;
             // ここで新しいタワーの目標を決める
+            // とりあえず最初のタワーをいれておく
+            target_object = TestManager.Instance.tower;
         }
         else if(animation_type == AnimaionType.damage)
         {
