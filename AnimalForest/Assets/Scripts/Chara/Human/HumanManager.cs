@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class HumanManager : SingletonMonoBehaviour<HumanManager>
 {
     List<GameObject> humans = new List<GameObject>();
-    [SerializeField] GameObject[] objects = default;
+    //[SerializeField] GameObject[] objects = default;
 
     // これ何に使うか忘れた
     // 特に使わんのなら消す
@@ -20,10 +20,11 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
         Is_spawn = true;
 
         // 初期配置のやつら
-        foreach(GameObject obj in objects)
-        {
-            humans.Add(obj);
-        }
+        // 初期配置するならいるいらないなら消す
+        //foreach(GameObject obj in objects)
+        //{
+        //    humans.Add(obj);
+        //}
     }
 
     void Update()
@@ -54,6 +55,10 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     /// <returns></returns>
     public GameObject SearchNearHuman(Vector3 position)
     {
+        if (humans.Count <= 0)
+        {
+            return null;
+        }
         int count = 0;
         float dis = Vector3.Distance(position, humans[0].transform.position);
         for (int i = 1; i < humans.Count; i++)

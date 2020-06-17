@@ -43,6 +43,8 @@ public abstract class Character : MonoBehaviour
     protected float death_time;
     protected float attack_time;
 
+    public bool can_speed_change;
+    public float debug_speed;
     
     protected virtual void Awake()
     {
@@ -57,6 +59,18 @@ public abstract class Character : MonoBehaviour
 
     protected virtual void Update()
     {
+        // デバッグ用のスピード変更
+        if (can_speed_change)
+        {
+            SetSpeed(debug_speed);
+        }
+
+        // ターゲットがないなら何もしない
+        if (target_object == null)
+        {
+            return;
+        }
+
         agent.SetDestination(target_object.transform.position);
         AnimationControl();
 
@@ -91,7 +105,7 @@ public abstract class Character : MonoBehaviour
         if(status.hp <= 0.0f)
         {
             animation_type = AnimaionType.death;
-            // ここで死亡アニメーションを再生
+            // TODO ここで死亡アニメーションを再生
 
             return;
         }
