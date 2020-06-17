@@ -6,12 +6,13 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
 {
     List<GameObject> animals = new List<GameObject>();
     public int Counter {private get; set; }
-    [SerializeField] private GameObject obj = default;
+    //[SerializeField] private GameObject obj = default;
 
     protected override void Awake()
     {
         base.Awake();
-        animals.Add(obj);
+        // デバッグ用に入れてある必要がなくなったら消す
+        //animals.Add(obj);
     }
 
     void Update()

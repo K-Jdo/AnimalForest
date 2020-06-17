@@ -1,8 +1,7 @@
 ﻿// K.Joudo. 2020
-using UnityEngine;
 
-// 人間に共通する動作を制御するクラス
-public class Human : Character
+// 人間に共通する動作をする抽象クラス
+public abstract class Human : Character
 {    
     protected override void Awake()
     {
