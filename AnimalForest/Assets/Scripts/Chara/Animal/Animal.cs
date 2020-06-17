@@ -22,11 +22,6 @@ public abstract class Animal : Character
     protected override void Update()
     {
         ChangeTarget();
-        // 見つからなかったら何もしない
-        if (target_object == null)
-        {
-            return;
-        }
         base.Update();
         //if(animation_type == AnimaionType.attack)
         //{

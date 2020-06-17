@@ -65,6 +65,12 @@ public abstract class Character : MonoBehaviour
             SetSpeed(debug_speed);
         }
 
+        // ターゲットがないなら何もしない
+        if (target_object == null)
+        {
+            return;
+        }
+
         agent.SetDestination(target_object.transform.position);
         AnimationControl();
 

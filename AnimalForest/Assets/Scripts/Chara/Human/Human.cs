@@ -39,7 +39,10 @@ public abstract class Human : Character
         {
             animation_type = AnimaionType.attack;
             target_object = AnimalManager.Instance.SearchNearAnimal(transform.position);
-            target_character = target_object.GetComponent<Character>();
+            if (target_object != null)
+            {
+                target_character = target_object.GetComponent<Character>();
+            }
         }
     }
 
