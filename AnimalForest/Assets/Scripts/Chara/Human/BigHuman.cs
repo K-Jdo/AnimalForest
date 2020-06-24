@@ -1,12 +1,13 @@
 ﻿// K.Joudo 2020
 
-// 兵士のクラス
-public class Soldier : Human
+// 大人間のクラス
+
+public class BigHuman : Human
 {
     protected override void Awake()
     {
         base.Awake();
-        status = new Status(250, 20, 0, 1.0f, 50, "小人間");
+        status = new Status(800, 40, 5, 1.0f, 50, "大人間");
         SetSpeed(status.speed);
     }
 }

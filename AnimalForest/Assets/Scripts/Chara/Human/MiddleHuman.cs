@@ -1,12 +1,13 @@
 ﻿// K.Joudo 2020
 
-// 兵士のクラス
-public class Soldier : Human
+// 中人間のクラス
+
+public class MiddleHuman : Human
 {
     protected override void Awake()
     {
         base.Awake();
-        status = new Status(250, 20, 0, 1.0f, 50, "小人間");
+        status = new Status(500, 25, 5, 1.0f, 50, "中人間");
         SetSpeed(status.speed);
     }
 }

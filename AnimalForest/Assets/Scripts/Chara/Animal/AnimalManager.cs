@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
 {
-    readonly List<GameObject> animals = new List<GameObject>();
+    public List<GameObject> animals = new List<GameObject>();
     public int Counter {private get; set; }
     [SerializeField] private GameObject[] objects = default;
 
