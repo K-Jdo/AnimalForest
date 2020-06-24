@@ -9,8 +9,8 @@ public class Shit : GimmickManager
     private List<GameObject> hit_objects = new List<GameObject>();
     private Human human;
 
-    float defence;
-    float damage;
+    int defence;
+    int damage;
 
     void Start()
     {

@@ -13,8 +13,8 @@ public class Bee : GimmickManager
 
     bool flag = false;
 
-    float defence;
-    float damage;
+    int defence;
+    int damage;
 
     void Start()
     {
@@ -24,6 +24,7 @@ public class Bee : GimmickManager
 
     private void Update()
     {
+        // ADDマイナスHP問題
         if (flag == true)
         {
             timeElapsed += Time.deltaTime;
