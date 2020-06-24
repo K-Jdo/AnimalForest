@@ -1,5 +1,6 @@
 ﻿// K.Joudo. 2020
 
+using UnityEngine;
 // 人間に共通する動作をする抽象クラス
 
 public abstract class Human : Character
@@ -21,6 +22,8 @@ public abstract class Human : Character
     {
         base.Update();
         ChangeTarget();
+        Debug.Log($"{status.name}のタイプ:{animation_type}");
+        
         if(animation_type == AnimaionType.death)
         {
             // ここでコストを増やす処理をする
@@ -34,6 +37,7 @@ public abstract class Human : Character
         if(target_object == null)
         {
             animation_type = AnimaionType.walk;
+            SetSpeed(status.speed);
             // ここで新しいタワーの目標を決める
             // とりあえず最初のタワーをいれておく
             target_object = TestManager.Instance.tower;
@@ -41,6 +45,7 @@ public abstract class Human : Character
         else if(animation_type == AnimaionType.damage)
         {
             animation_type = AnimaionType.attack;
+            SetSpeed(0);
             target_object = AnimalManager.Instance.SearchNearAnimal(transform.position);
             if (target_object != null)
             {

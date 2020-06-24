@@ -37,6 +37,14 @@ public abstract class Character : MonoBehaviour
     protected Character target_character;
     protected NavMeshAgent agent;   // 目標へのNavMesh
     protected Animator anim;        // アニメーション
+
+    Renderer my_renderer;
+    [SerializeField] Material default_material = null;
+    [SerializeField] Material damage_material = null;
+    const float DAMAGE_TIME = 0.5f;
+    float damage_timer;
+    bool is_damage;
+
     protected Status status;        // 自分のステータス
 
     // アニメーションの代わりに死亡時間で判定
@@ -53,8 +61,12 @@ public abstract class Character : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
+        my_renderer = GetComponent<Renderer>();
+        
         death_time = 0.0f;
         attack_time = 20.0f;
+        damage_timer = 0.0f;
+        is_damage = false;
     }
 
     protected virtual void Update()
@@ -69,6 +81,15 @@ public abstract class Character : MonoBehaviour
         if (target_object == null)
         {
             return;
+        }
+
+        if (is_damage)
+        {
+            damage_timer += Time.deltaTime;
+            if(damage_timer >= DAMAGE_TIME)
+            {
+                my_renderer.material = default_material;
+            }
         }
 
         agent.SetDestination(target_object.transform.position);
@@ -168,7 +189,7 @@ public abstract class Character : MonoBehaviour
                 int r = Random.Range(-5, 6);
                 damage += r;
             }
-            target_character.SetDamege(damage);
+            target_character.SetDamage(damage);
             //if(target_character.status.hp <= 0)
             //{
             //    target_object = null;
@@ -178,9 +199,11 @@ public abstract class Character : MonoBehaviour
     }
 
     public Status GetStatus() { return status; }
-    public void SetDamege(int d)
+    public void SetDamage(int d)
     {
         Sound.Instance.PlaySound(Sound.SoundName.damage);
+        my_renderer.material = damage_material;
+        is_damage = true;
         status.hp -= d;
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
         if (character_type == CharacterType.human)

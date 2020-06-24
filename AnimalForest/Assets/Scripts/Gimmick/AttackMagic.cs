@@ -26,7 +26,7 @@ public class AttackMagic : GimmickManager
             if (i.gameObject.CompareTag("Enemy"))
             {
                 human = i.transform.GetComponent<Human>();
-                human.SetDamege(power);
+                human.SetDamage(power);
             }
         }
         //衝突する度にオブジェクトリストをリセットする
