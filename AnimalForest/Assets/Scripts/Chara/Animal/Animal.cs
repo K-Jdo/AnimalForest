@@ -1,8 +1,7 @@
 ﻿// K.Joudo. 2020
-using UnityEngine;
 
-// 動物に共通する動作を制御するクラス
-public class Animal : Character
+// 動物に共通する動作をする抽象クラス
+public abstract class Animal : Character
 {
     protected override void Awake()
     {
@@ -13,8 +12,11 @@ public class Animal : Character
     void Start()
     {
         target_object = HumanManager.Instance.SearchNearHuman(transform.position);
-        target_character = target_object.GetComponent<Character>();
-        agent.SetDestination(target_object.transform.position);
+        if (target_object != null)
+        {
+            target_character = target_object.GetComponent<Character>();
+            agent.SetDestination(target_object.transform.position);
+        }
     }
 
     protected override void Update()
@@ -29,12 +31,15 @@ public class Animal : Character
 
     protected override void ChangeTarget()
     {
-        if(target_object == null)
+        if (target_object == null)
         {
             // 敵を撃破すると次の敵を探す
             animation_type = AnimaionType.walk;
             target_object = HumanManager.Instance.SearchNearHuman(transform.position);
-            target_character = target_object.GetComponent<Character>();
+            if (target_object != null)
+            {
+                target_character = target_object.GetComponent<Character>();
+            }
         }
     }
 }

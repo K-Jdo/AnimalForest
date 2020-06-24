@@ -10,16 +10,17 @@ using UnityEngine.UIElements;
 using UnityEngine.XR.WSA;
 using Vector3 = UnityEngine.Vector3;
 
-public class Tower : TowerManager
+public class Tower : MonoBehaviour
 {
     GameObject[] Obj;
-    private TowerManager tower_manager;
     public UnityEngine.UI.Slider slider;
+    float hp = 800;
+    bool number;
+    float damage = 10;
+    float max_hp = 800;
+    private GameObject nearObj;
 
-    void Awake()
-    {
-        tower_manager = GetComponent<TowerManager>();
-    }
+
 
     private void Start()
     {
@@ -44,6 +45,13 @@ public class Tower : TowerManager
         Vector3 localpos = transform.localPosition;
 
         Debug.Log("x："+ worldpos.x +" y：" + worldpos.y + " z：" + worldpos.z);
+
+        
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //foreach(RaycastHit hit in Physics.RaycastAll(ray))
+        //{
+        //    Debug.Log(hit.collider.gameObject.transform.position);
+        //}
 
     }
 }

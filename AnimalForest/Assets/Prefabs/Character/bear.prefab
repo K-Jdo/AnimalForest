@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8121667245304031574}
   - component: {fileID: 1004007958977876832}
   - component: {fileID: 6832658275356471193}
-  - component: {fileID: 7143434890242518330}
   - component: {fileID: 5269775622293110427}
   - component: {fileID: 8916934580665160241}
   - component: {fileID: 865451562504842081}
@@ -30,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5111212347290245957}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 23.08, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,19 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7143434890242518330
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5111212347290245957}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.034, y: 0.046, z: 0.062}
-  m_Center: {x: 0, y: 0.023237115, z: 0.009}
 --- !u!54 &5269775622293110427
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -147,3 +133,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation_type: 0
+  can_speed_change: 0
+  debug_speed: 0

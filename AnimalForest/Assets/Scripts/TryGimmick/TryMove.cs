@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//F.D.
+//試験用後で消す
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

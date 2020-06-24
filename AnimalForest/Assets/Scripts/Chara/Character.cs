@@ -43,6 +43,8 @@ public abstract class Character : MonoBehaviour
     protected float death_time;
     protected float attack_time;
 
+    public bool can_speed_change;
+    public float debug_speed;
     
     protected virtual void Awake()
     {
@@ -52,11 +54,23 @@ public abstract class Character : MonoBehaviour
         anim = GetComponent<Animator>();
 
         death_time = 0.0f;
-        attack_time = 0.0f;
+        attack_time = 20.0f;
     }
 
     protected virtual void Update()
     {
+        // デバッグ用のスピード変更
+        if (can_speed_change)
+        {
+            SetSpeed(debug_speed);
+        }
+
+        // ターゲットがないなら何もしない
+        if (target_object == null)
+        {
+            return;
+        }
+
         agent.SetDestination(target_object.transform.position);
         AnimationControl();
 
@@ -68,6 +82,7 @@ public abstract class Character : MonoBehaviour
             if(death_time >= 3.0)
             {
                 Debug.Log($"{status.name}が死んだ");
+                Sound.Instance.PlaySound(Sound.SoundName.death);
                 Destroy(gameObject);
             }
         }
@@ -91,8 +106,9 @@ public abstract class Character : MonoBehaviour
         if(status.hp <= 0.0f)
         {
             animation_type = AnimaionType.death;
-            // ここで死亡アニメーションを再生
-
+            // TODO ここで死亡アニメーションを再生
+            SetSpeed(0);
+            Destroy(gameObject);
             return;
         }
 
@@ -108,7 +124,7 @@ public abstract class Character : MonoBehaviour
         }
 
         // 近づいたら攻撃
-        if(distance <= 10.0f)
+        if(distance <= 3.0f)
         {
             animation_type = AnimaionType.attack;
             // とりあえず仮
@@ -164,11 +180,17 @@ public abstract class Character : MonoBehaviour
     public Status GetStatus() { return status; }
     public void SetDamege(float d)
     {
+        Sound.Instance.PlaySound(Sound.SoundName.damage);
         status.hp -= d;
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
-        if(character_type == CharacterType.human)
+        if (character_type == CharacterType.human)
         {
             animation_type = AnimaionType.damage;
         }
+    }
+
+    public void SetSpeed(float s)
+    {
+        agent.speed = s;
     }
 }
