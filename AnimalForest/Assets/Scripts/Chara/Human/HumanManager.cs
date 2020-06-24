@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class HumanManager : SingletonMonoBehaviour<HumanManager>
 {
     public List<GameObject> humans = new List<GameObject>();
-    //[SerializeField] GameObject[] objects = default;
+    [SerializeField] GameObject[] test_objects = default;
 
     // これ何に使うか忘れた
     // 特に使わんのなら消す
@@ -20,11 +20,11 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
         Is_spawn = true;
 
         // 初期配置のやつら
-        // 初期配置するならいる。いらないなら消す
-        //foreach(GameObject obj in objects)
-        //{
-        //    humans.Add(obj);
-        //}
+        // 初期配置はなしのなのでテスト用
+        foreach (GameObject obj in test_objects)
+        {
+            humans.Add(obj);
+        }
     }
 
     void Update()

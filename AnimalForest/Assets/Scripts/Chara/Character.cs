@@ -13,14 +13,14 @@ public abstract class Character : MonoBehaviour
     // 各種ステータスの構造体
     public struct Status
     {
-        public float hp;
-        public float power;
-        public float defence;
+        public int hp;
+        public int power;
+        public int defence;
         public float speed;
         public int cost;
         public string name;
 
-        public Status(float h, float p, float d, float s, int c, string n)
+        public Status(int h, int p, int d, float s, int c, string n)
         {
             hp = h;
             power = p;
@@ -157,7 +157,7 @@ public abstract class Character : MonoBehaviour
         //    anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         if(attack_time >= 1.5f)
         {
-            float damage = status.power - target_character.GetStatus().defence;
+            int damage = status.power - target_character.GetStatus().defence;
             if(damage <= 0)
             {
                 damage = 1;
@@ -165,7 +165,7 @@ public abstract class Character : MonoBehaviour
             else
             {
                 // 乱数によって振れ幅を付ける(-5, 5)
-                float r = Random.Range(-5.0f, 6.0f);
+                int r = Random.Range(-5, 6);
                 damage += r;
             }
             target_character.SetDamege(damage);
@@ -178,7 +178,7 @@ public abstract class Character : MonoBehaviour
     }
 
     public Status GetStatus() { return status; }
-    public void SetDamege(float d)
+    public void SetDamege(int d)
     {
         Sound.Instance.PlaySound(Sound.SoundName.damage);
         status.hp -= d;
