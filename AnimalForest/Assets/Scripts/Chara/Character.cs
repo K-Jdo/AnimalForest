@@ -178,6 +178,7 @@ public abstract class Character : MonoBehaviour
             // 乱数によって振れ幅を付ける(-5, 5)
             float r = Random.Range(-5.0f, 6.0f);
             damage += r;
+            Debug.Log($"{status.hp}");
         }
         status.hp -= damage;
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
