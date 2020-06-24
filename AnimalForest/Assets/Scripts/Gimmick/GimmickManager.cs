@@ -9,7 +9,7 @@ public class GimmickManager : MonoBehaviour
     [System.NonSerialized]
     public int cost;
     [System.NonSerialized]
-    public float power;
+    public int power;
     [System.NonSerialized]
     public float gimmicktime;
 }
