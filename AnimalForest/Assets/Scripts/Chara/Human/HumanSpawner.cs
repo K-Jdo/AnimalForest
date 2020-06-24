@@ -7,10 +7,10 @@ public class HumanSpawner : MonoBehaviour
     [SerializeField] private GameObject human = default;
     [SerializeField] float spwan_time = 3.0f; // デフォルトは3秒おきに出現
     // 各敵の出現率
-    [SerializeField] int small_spwan_rate;
-    [SerializeField] int middle_spwan_rate;
-    [SerializeField] int big_spwan_rate;
-    [SerializeField] int rare_spwan_rate;
+    //[SerializeField] int small_spwan_rate;
+    //[SerializeField] int middle_spwan_rate;
+    //[SerializeField] int big_spwan_rate;
+    //[SerializeField] int rare_spwan_rate;
 
     float count = 0;
 

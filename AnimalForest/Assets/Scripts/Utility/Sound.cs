@@ -9,7 +9,13 @@ public class Sound : SingletonMonoBehaviour<Sound>
 
     public enum SoundName
     {
-        // ここに鳴らす効果音の名前を書いていく
+        cansel,
+        damage,
+        death,
+        decieded,
+        karuizawa,
+        spawn,
+        tree_break
     }
 
     protected override void Awake()
