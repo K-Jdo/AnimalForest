@@ -1,19 +1,21 @@
-﻿using System.Collections;
+﻿//F.D.
+//ギミック：うんちの処理
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackMagic : GimmickManager
+public class Shit : GimmickManager
 {
     private List<GameObject> hit_objects = new List<GameObject>();
     private Human human;
 
-    float defence;
-    float damage;
+    int defence;
+    int damage;
 
     void Start()
     {
         cost = 30;
-        power = 60;
+        power = 10;
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -26,7 +28,9 @@ public class AttackMagic : GimmickManager
             if (i.gameObject.CompareTag("Enemy"))
             {
                 human = i.transform.GetComponent<Human>();
-                human.SetDamage(power);
+                defence = human.GetStatus().defence;
+                damage = power - defence;
+                human.SetDamege(damage);
             }
         }
         //衝突する度にオブジェクトリストをリセットする
