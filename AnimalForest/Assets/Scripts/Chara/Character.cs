@@ -168,7 +168,7 @@ public abstract class Character : MonoBehaviour
                 int r = Random.Range(-5, 6);
                 damage += r;
             }
-            target_character.SetDamege(damage);
+            target_character.SetDamage(damage);
             //if(target_character.status.hp <= 0)
             //{
             //    target_object = null;
@@ -178,7 +178,7 @@ public abstract class Character : MonoBehaviour
     }
 
     public Status GetStatus() { return status; }
-    public void SetDamege(int d)
+    public void SetDamage(int d)
     {
         Sound.Instance.PlaySound(Sound.SoundName.damage);
         status.hp -= d;
