@@ -24,14 +24,19 @@ public class Bee : GimmickManager
 
     private void Update()
     {
-        // ADDマイナスHP問題
+        //ADD マイナスHP問題
         if (flag == true)
         {
             timeElapsed += Time.deltaTime;
 
             for (int x = 0; x < 30; x++)
             {
-                if (timeElapsed >= 1.0f)
+                if(hit_objects == null)
+                {
+                    Debug.Log($"キャラは死にました。");
+                    flag = false;
+                }
+                else if (timeElapsed >= 1.0f)
                 {
                     defence = human.GetStatus().defence;
                     damage = power - defence;
@@ -48,7 +53,6 @@ public class Bee : GimmickManager
     {
         //衝突しているオブジェトをリストに登録
         hit_objects.Add(collider.gameObject);
-
         foreach (GameObject i in hit_objects)
         {
             if (i.gameObject.CompareTag("Enemy"))
@@ -57,5 +61,6 @@ public class Bee : GimmickManager
                 flag = true;
             }
         }
+        hit_objects.Clear();
     }
 }
