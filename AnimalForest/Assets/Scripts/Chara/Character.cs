@@ -39,11 +39,12 @@ public abstract class Character : MonoBehaviour
     protected Animator anim;        // アニメーション
 
     Renderer my_renderer;
-    [SerializeField] Material default_material = null;
+    Material default_material;
     [SerializeField] Material damage_material = null;
     const float DAMAGE_TIME = 0.5f;
     float damage_timer;
     bool is_damage;
+    protected float range;
 
     protected Status status;        // 自分のステータス
 
@@ -62,11 +63,16 @@ public abstract class Character : MonoBehaviour
         anim = GetComponent<Animator>();
 
         my_renderer = GetComponent<Renderer>();
-        
+        default_material = my_renderer.material;
+
+        range = 3.0f;
+
         death_time = 0.0f;
         attack_time = 20.0f;
         damage_timer = 0.0f;
         is_damage = false;
+
+        SetSpeed(status.speed);
     }
 
     protected virtual void Update()
@@ -89,6 +95,7 @@ public abstract class Character : MonoBehaviour
             if(damage_timer >= DAMAGE_TIME)
             {
                 my_renderer.material = default_material;
+                damage_timer = 0.0f;
             }
         }
 
@@ -122,7 +129,7 @@ public abstract class Character : MonoBehaviour
     /// <summary>
     /// アニメーションの変更を制御する
     /// </summary>
-    void AnimationControl()
+    private void AnimationControl()
     {
         if(status.hp <= 0.0f)
         {
@@ -145,7 +152,7 @@ public abstract class Character : MonoBehaviour
         }
 
         // 近づいたら攻撃
-        if(distance <= 3.0f)
+        if(distance <= range)
         {
             animation_type = AnimaionType.attack;
             // とりあえず仮
@@ -205,7 +212,7 @@ public abstract class Character : MonoBehaviour
         my_renderer.material = damage_material;
         is_damage = true;
         status.hp -= d;
-        Debug.Log($"{status.hp}");
+        //Debug.Log($"{status.hp}");
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
         if (character_type == CharacterType.human)
         {

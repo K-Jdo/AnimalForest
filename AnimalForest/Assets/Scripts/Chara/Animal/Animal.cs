@@ -1,5 +1,6 @@
 ﻿// K.Joudo. 2020
 
+using UnityEngine;
 // 動物に共通する動作をする抽象クラス
 public abstract class Animal : Character
 {
@@ -9,7 +10,7 @@ public abstract class Animal : Character
         character_type = CharacterType.animal;
     }
 
-    void Start()
+    private void Start()
     {
         target_object = HumanManager.Instance.SearchNearHuman(transform.position);
         if (target_object != null)

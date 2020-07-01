@@ -17,7 +17,7 @@ public class HumanSpawner : MonoBehaviour
     const int MAX_RATE = 99;
     float timer_count = 0;
 
-    void Update()
+    private void Update()
     {
         if (!HumanManager.Instance.Is_spawn)
         {

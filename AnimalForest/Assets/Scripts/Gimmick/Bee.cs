@@ -35,7 +35,7 @@ public class Bee : GimmickManager
                 {
                     defence = human.GetStatus().defence;
                     damage = power - defence;
-                    human.SetDamege(damage);
+                    human.SetDamage(damage);
 
                     timeElapsed = 0f;
 

@@ -5,8 +5,7 @@ public class BossHuman : Human
 {
     protected override void Awake()
     {
+        status = new Status(2000, 45, 10, 0.5f, 0, "BOSS");
         base.Awake();
-        status = new Status(2000, 80, 10, 0.5f, 0, "BOSS");
-        SetSpeed(status.speed);
     }
 }

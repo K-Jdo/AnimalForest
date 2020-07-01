@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5269775622293110427}
   - component: {fileID: 8916934580665160241}
   - component: {fileID: 865451562504842081}
+  - component: {fileID: 8636150501286066877}
   m_Layer: 0
   m_Name: bear
-  m_TagString: Untagged
+  m_TagString: CharaAnimal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,5 +134,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation_type: 0
+  damage_material: {fileID: 0}
   can_speed_change: 0
   debug_speed: 0
+--- !u!65 &8636150501286066877
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5111212347290245957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.85, y: 1.15, z: 1.55}
+  m_Center: {x: 0, y: 0.5809279, z: 0.225}

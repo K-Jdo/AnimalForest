@@ -5,8 +5,7 @@ public class Soldier : Human
 {
     protected override void Awake()
     {
-        base.Awake();
         status = new Status(250, 20, 0, 1.0f, 50, "小人間");
-        SetSpeed(status.speed);
+        base.Awake();
     }
 }
