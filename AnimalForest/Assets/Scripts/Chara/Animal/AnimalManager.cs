@@ -19,7 +19,7 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
         }
     }
 
-    //void Update()
+    //private void Update()
     //{
     //    // TODO リストに動物が生成されるたびに追加する処理を書く
     //}

@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 7273492323401405967}
   - component: {fileID: 5530919486063037710}
   - component: {fileID: 9144146376363905347}
+  - component: {fileID: 482441168558482077}
   m_Layer: 0
   m_Name: fox
-  m_TagString: Untagged
+  m_TagString: CharaAnimal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation_type: 0
+  damage_material: {fileID: 0}
   can_speed_change: 0
   debug_speed: 0
 --- !u!54 &5530919486063037710
@@ -136,3 +138,16 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &482441168558482077
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6462081442755656311}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.29999998, y: 0.44999996, z: 1.05}
+  m_Center: {x: 0, y: 0.22946493, z: 0}

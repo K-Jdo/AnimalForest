@@ -12,31 +12,19 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Tower : MonoBehaviour
 {
-    GameObject[] Obj;
+    static GameObject[] towers;
+    //static List<GameObject> towers = new List<GameObject>();
     public UnityEngine.UI.Slider slider;
-    float hp = 800;
-    bool number;
-    float damage = 10;
-    float max_hp = 800;
-    private GameObject nearObj;
+    int hp = 800;
+    int max_hp = 800;
+    int damage;
+    private Human human;
 
 
 
     private void Start()
     {
-        //ADD  1秒毎追加(体力メーターも)
-        Obj = GameObject.FindGameObjectsWithTag("Tower");
-        Debug.Log("残りタワー数は :" + Obj.Length);
-
-        hp = hp - damage;
-        //ADD  現在HP(ダメージが出来たら差し替え)
-        Debug.Log("Start hp : " + hp);
-
-        //HPバー模索中
-        slider.maxValue = max_hp;
-        slider.value = hp;
-
-
+        towers = GameObject.FindGameObjectsWithTag("Tower");
 
         //transformを取得
         Transform transform = this.transform;
@@ -44,14 +32,26 @@ public class Tower : MonoBehaviour
         Vector3 worldpos = transform.position;
         Vector3 localpos = transform.localPosition;
 
-        Debug.Log("x："+ worldpos.x +" y：" + worldpos.y + " z：" + worldpos.z);
+        Debug.Log("x：" + worldpos.x + " y：" + worldpos.y + " z：" + worldpos.z);
+    }
 
-        
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //foreach(RaycastHit hit in Physics.RaycastAll(ray))
-        //{
-        //    Debug.Log(hit.collider.gameObject.transform.position);
-        //}
+    private void Update()
+    {
 
+        //HPバー模索中
+        slider.maxValue = max_hp;
+        slider.value = hp;
+    }
+    //タワーダメージ計算
+    public void TowerDamage()
+    {
+        damage = human.GetStatus().power;
+        hp -= damage;
+        //HPが0になると破壊。
+        //ADD エフェクト処理追加する
+        if (hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
