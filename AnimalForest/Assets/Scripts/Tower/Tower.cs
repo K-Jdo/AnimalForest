@@ -12,13 +12,14 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Tower : MonoBehaviour
 {
+    private Human human;
+
     static GameObject[] towers;
     //static List<GameObject> towers = new List<GameObject>();
     public UnityEngine.UI.Slider slider;
-    int hp = 800;
-    int max_hp = 800;
+    protected int hp;
+    protected int max_hp;
     int damage;
-    private Human human;
 
 
 
@@ -45,6 +46,7 @@ public class Tower : MonoBehaviour
     //タワーダメージ計算
     public void TowerDamage()
     {
+        human = GetComponent<Human>();
         damage = human.GetStatus().power;
         hp -= damage;
         //HPが0になると破壊。

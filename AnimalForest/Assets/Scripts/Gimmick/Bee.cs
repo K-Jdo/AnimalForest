@@ -55,7 +55,7 @@ public class Bee : GimmickManager
         hit_objects.Add(collider.gameObject);
         foreach (GameObject i in hit_objects)
         {
-            if (i.gameObject.CompareTag("Enemy"))
+            if (i.gameObject.CompareTag("CharaEnemy"))
             {
                 human = i.transform.GetComponent<Human>();
                 flag = true;
