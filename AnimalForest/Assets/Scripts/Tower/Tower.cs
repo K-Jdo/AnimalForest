@@ -32,8 +32,6 @@ public class Tower : MonoBehaviour
 
         Vector3 worldpos = transform.position;
         Vector3 localpos = transform.localPosition;
-
-        Debug.Log("x：" + worldpos.x + " y：" + worldpos.y + " z：" + worldpos.z);
     }
 
     private void Update()
@@ -42,12 +40,15 @@ public class Tower : MonoBehaviour
         //HPバー模索中
         slider.maxValue = max_hp;
         slider.value = hp;
+        Debug.Log($"{hp}");
     }
     //タワーダメージ計算
     public void TowerDamage()
     {
         human = GetComponent<Human>();
         damage = human.GetStatus().power;
+        
+
         hp -= damage;
         //HPが0になると破壊。
         //ADD エフェクト処理追加する

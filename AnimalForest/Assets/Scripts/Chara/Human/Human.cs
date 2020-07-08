@@ -3,7 +3,7 @@
 // 人間に共通する動作をする抽象クラス
 
 public abstract class Human : Character
-{    
+{
     protected override void Awake()
     {
         base.Awake();
