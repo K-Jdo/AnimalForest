@@ -16,6 +16,10 @@ public class Click : MonoBehaviour
     public int use_cost;
     //テキストを表示
     public Text use_cost_text;
+    //配置上限数
+    public int max_num;
+    //現在配置している数
+    private int obj_num = 0;
 
     private void Start()
     {
@@ -56,9 +60,13 @@ public class Click : MonoBehaviour
             {
                 if (CostManager.Instance.cost >= use_cost)
                 {
-                    //オブジェクトを複製
-                    Instantiate(obj, pos, Quaternion.identity);
-                    CostManager.Instance.cost -= use_cost;
+                    if (max_num >= obj_num)
+                    {
+                        //オブジェクトを複製
+                        AnimalManager.Instance.SetAnimal(Instantiate(obj, pos, Quaternion.identity));
+                        CostManager.Instance.cost -= use_cost;
+                        obj_num++;
+                    }
                 }
             }
         }
