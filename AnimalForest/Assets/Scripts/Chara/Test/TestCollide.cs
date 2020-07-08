@@ -13,10 +13,10 @@ public class TestCollide : MonoBehaviour
 
     private void Update()
     {
-        if(character.animation_type != Character.AnimaionType.attack)
-        {
-            transform.position = obj.transform.transform.position;
-            transform.rotation = obj.transform.rotation;
-        }
+        //if(character.animation_type != Character.AnimaionType.attack)
+        //{
+        //    transform.position = obj.transform.transform.position;
+        //    transform.rotation = obj.transform.rotation;
+        //}
     }
 }

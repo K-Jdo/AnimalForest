@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &5053745800937668919
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484953667495676320}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14caea37a7ac25d4a8a75765177a1611, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4614741750945398156
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,7 +43,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4614741750945398156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.111232, y: 6.275729, z: -4.112927}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4614741751612912251}
@@ -59,7 +78,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4614741751612912255}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.078768, y: -1.6357293, z: -0.3270731}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4614741750945398155}
@@ -121,17 +140,17 @@ PrefabInstance:
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.078768
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6357293
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.51707315
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}
