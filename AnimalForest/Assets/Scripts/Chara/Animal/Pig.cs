@@ -5,8 +5,7 @@ public class Pig : Animal
 {
     protected override void Awake()
     {
-        base.Awake();
         status = new Status(90, 15, 15, 1.0f, 300, "ブタ");
-        SetSpeed(status.speed);
+        base.Awake();
     }
 }

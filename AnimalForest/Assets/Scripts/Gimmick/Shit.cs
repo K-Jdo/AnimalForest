@@ -25,7 +25,7 @@ public class Shit : GimmickManager
 
         foreach (GameObject i in hit_objects)
         {
-            if (i.gameObject.CompareTag("Enemy"))
+            if (i.gameObject.CompareTag("CharaEnemy"))
             {
                 human = i.transform.GetComponent<Human>();
                 defence = human.GetStatus().defence;

@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tower
-  - Enemy
+  - CharaEnemy
+  - CharaAnimal
   layers:
   - Default
   - TransparentFX

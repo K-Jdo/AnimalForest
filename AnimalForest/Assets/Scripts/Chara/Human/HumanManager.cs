@@ -27,7 +27,7 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (humans.Count > 2)
         {

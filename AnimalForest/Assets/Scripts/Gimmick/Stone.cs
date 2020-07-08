@@ -26,7 +26,7 @@ public class Stone : GimmickManager
 
         foreach (GameObject i in hit_objects)
         {
-            if (i.gameObject.CompareTag("Enemy"))
+            if (i.gameObject.CompareTag("CharaEnemy"))
             {
                 gameObject.SetActive(false);
 

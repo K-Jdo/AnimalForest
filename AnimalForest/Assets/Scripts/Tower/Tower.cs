@@ -14,8 +14,7 @@ public class Tower : MonoBehaviour
 {
     private Human human;
 
-    static GameObject[] towers;
-    //static List<GameObject> towers = new List<GameObject>();
+    GameObject[] towers;
     public UnityEngine.UI.Slider slider;
     protected int hp;
     protected int max_hp;
@@ -26,12 +25,6 @@ public class Tower : MonoBehaviour
     private void Start()
     {
         towers = GameObject.FindGameObjectsWithTag("Tower");
-
-        //transformを取得
-        Transform transform = this.transform;
-
-        Vector3 worldpos = transform.position;
-        Vector3 localpos = transform.localPosition;
     }
 
     private void Update()
@@ -40,21 +33,34 @@ public class Tower : MonoBehaviour
         //HPバー模索中
         slider.maxValue = max_hp;
         slider.value = hp;
-        Debug.Log($"{hp}");
+        Debug.Log($"{towers}");
+
+        //Debug.Log($"{hp}");
     }
     //タワーダメージ計算
-    public void TowerDamage()
-    {
-        human = GetComponent<Human>();
-        damage = human.GetStatus().power;
-        
-
-        hp -= damage;
-        //HPが0になると破壊。
-        //ADD エフェクト処理追加する
-        if (hp <= 0)
+    //まだ上手くいっていない為、現在はコメント
+    /*    public void TowerDamage()
         {
-            Destroy(gameObject);
-        }
+            human = GetComponent<Human>();
+            damage = human.GetStatus().power;
+            hp -= damage;
+            //HPが0になると破壊。
+            //ADD エフェクト処理追加する
+            if (hp <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }*/
+
+    //タワーの座標を返す処理
+    public Vector3 TowerPosition()
+    {
+        //transformを取得
+        Transform transform = this.transform;
+
+        Vector3 worldpos = transform.position;
+        //Vector3 localpos = transform.localPosition;
+
+        return worldpos;
     }
 }

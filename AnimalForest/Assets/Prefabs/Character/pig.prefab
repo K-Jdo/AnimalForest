@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6302737086852860140}
   m_Layer: 0
   m_Name: pig
-  m_TagString: Untagged
+  m_TagString: CharaAnimal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation_type: 0
+  damage_material: {fileID: 0}
+  can_speed_change: 0
+  debug_speed: 0
 --- !u!195 &6665600304040605215
 NavMeshAgent:
   m_ObjectHideFlags: 0

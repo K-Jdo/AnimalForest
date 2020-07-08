@@ -12,9 +12,9 @@ public class DrawGizmoEditor : MonoBehaviour
     private static readonly Color MESH_COLOR = new Color(1.0f, 1.0f, 0.0f, 0.7f);
 
     [DrawGizmo(GizmoType.NonSelected | GizmoType.Selected)]
-    private static void DrawPointGizmos(GizmoRange i_object, GizmoType i_gizmoType)
+    private static void DrawPointGizmos(RangeAttaker i_object, GizmoType i_gizmoType)
     {
-        if (i_object.Length <= 0.0f)
+        if (i_object.SearchRadius <= 0.0f)
         {
             return;
         }
@@ -24,25 +24,49 @@ public class DrawGizmoEditor : MonoBehaviour
         Transform transform = i_object.transform;
         Vector3 pos = transform.position + Vector3.up * 0.01f; // 0.01fは地面と高さだと見づらいので調整用。
         Quaternion rot = transform.rotation;
-        Vector3 scale = Vector3.one * i_object.Length;
+        Vector3 scale = Vector3.one * i_object.SearchRadius;
 
 
-        if (i_object.HeightAngle > 0.0f)
+        if (i_object.SearchAngle > 0.0f)
         {
-            Mesh fanMesh = CreateFanMesh(i_object.HeightAngle, TRIANGLE_COUNT);
-
-            Gizmos.DrawMesh(fanMesh, pos, rot * Quaternion.AngleAxis(90.0f, Vector3.forward), scale);
-            Gizmos.DrawMesh(fanMesh, pos, rot * Quaternion.AngleAxis(270.0f, Vector3.forward), scale);
-        }
-
-        if (i_object.WidthAngle > 0.0f)
-        {
-            Mesh fanMesh = CreateFanMesh(i_object.WidthAngle, TRIANGLE_COUNT);
+            Mesh fanMesh = CreateFanMesh(i_object.SearchAngle, TRIANGLE_COUNT);
 
             Gizmos.DrawMesh(fanMesh, pos, rot, scale);
-            Gizmos.DrawMesh(fanMesh, pos, rot * Quaternion.AngleAxis(180.0f, Vector3.forward), scale);
         }
     }
+
+    //[DrawGizmo(GizmoType.NonSelected | GizmoType.Selected)]
+    //private static void DrawPointGizmos(GizmoRange i_object, GizmoType i_gizmoType)
+    //{
+    //    if (i_object.Length <= 0.0f)
+    //    {
+    //        return;
+    //    }
+
+    //    Gizmos.color = MESH_COLOR;
+
+    //    Transform transform = i_object.transform;
+    //    Vector3 pos = transform.position + Vector3.up * 0.01f; // 0.01fは地面と高さだと見づらいので調整用。
+    //    Quaternion rot = transform.rotation;
+    //    Vector3 scale = Vector3.one * i_object.Length;
+
+
+    //    if (i_object.HeightAngle > 0.0f)
+    //    {
+    //        Mesh fanMesh = CreateFanMesh(i_object.HeightAngle, TRIANGLE_COUNT);
+
+    //        Gizmos.DrawMesh(fanMesh, pos, rot * Quaternion.AngleAxis(90.0f, Vector3.forward), scale);
+    //        Gizmos.DrawMesh(fanMesh, pos, rot * Quaternion.AngleAxis(270.0f, Vector3.forward), scale);
+    //    }
+
+    //    if (i_object.WidthAngle > 0.0f)
+    //    {
+    //        Mesh fanMesh = CreateFanMesh(i_object.WidthAngle, TRIANGLE_COUNT);
+
+    //        Gizmos.DrawMesh(fanMesh, pos, rot, scale);
+    //        Gizmos.DrawMesh(fanMesh, pos, rot * Quaternion.AngleAxis(180.0f, Vector3.forward), scale);
+    //    }
+    //}
     /// <summary>
     /// 頂点の配列を作成
     /// </summary>

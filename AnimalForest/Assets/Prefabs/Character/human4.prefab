@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3367155402952273700}
   m_Layer: 0
   m_Name: human4
-  m_TagString: Untagged
+  m_TagString: CharaEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,5 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation_type: 0
+  damage_material: {fileID: 2100000, guid: 39b3e77fb23186a41923f046a69d009d, type: 2}
   can_speed_change: 0
   debug_speed: 0

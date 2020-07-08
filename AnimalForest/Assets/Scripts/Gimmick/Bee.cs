@@ -35,6 +35,7 @@ public class Bee : GimmickManager
                 {
                     Debug.Log($"キャラは死にました。");
                     flag = false;
+                    x = 30;
                 }
                 else if (timeElapsed >= 1.0f)
                 {
