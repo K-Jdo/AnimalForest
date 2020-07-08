@@ -31,7 +31,7 @@ public class Liquid : GimmickManager
                 atk = animal.GetStatus().power;
                 atk += 10;
                 //実装
-                //ADD SetPower(atk)の追加;
+                //ADD SetPowerの追加;
                 //animal.SetPower(atk);
             }
             else if(timeElapsed > 10.0f)
