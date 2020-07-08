@@ -34,6 +34,7 @@ public class RangeAttaker : MonoBehaviour
         sphere_collider = GetComponent<SphereCollider>();
         ApplySearchAngle();
         my_type = Character.CharacterType.none;
+
     }
 
     private void Update()

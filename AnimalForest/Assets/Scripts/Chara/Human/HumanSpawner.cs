@@ -18,7 +18,7 @@ public class HumanSpawner : MonoBehaviour
     float timer_count = 0;
 
     Vector3 spawn_point;
-    Quaternion spaen_rotato;
+    Quaternion spawn_rotato;
 
     private void Awake()
     {
@@ -26,8 +26,10 @@ public class HumanSpawner : MonoBehaviour
         // 車の後部から出てくるようにスポーン場所の調整
         spawn_point = transform.position;
         spawn_point.z -= 1.3f;
-        spaen_rotato = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
+        spawn_rotato = transform.rotation;
+        spawn_rotato.y += 180.0f;
         Debug.Log(spawn_point);
+        Debug.Log(spawn_rotato);
     }
 
     private void Update()
@@ -49,15 +51,15 @@ public class HumanSpawner : MonoBehaviour
             //int rare = big + rare_spwan_rate;
             if (ram >= 0 && ram < 60)
             {
-                HumanManager.Instance.SetObject(Instantiate(humans[0], spawn_point, spaen_rotato));
+                HumanManager.Instance.SetObject(Instantiate(humans[0], spawn_point, spawn_rotato));
             }
             else if (ram >= small_spwan_rate && ram < middle)
             {
-                HumanManager.Instance.SetObject(Instantiate(humans[1], spawn_point, spaen_rotato));
+                HumanManager.Instance.SetObject(Instantiate(humans[1], spawn_point, spawn_rotato));
             }
             else if (ram >= middle /*&& rare_spwan_rate < big*/)
             {
-                HumanManager.Instance.SetObject(Instantiate(humans[2], spawn_point, spaen_rotato));
+                HumanManager.Instance.SetObject(Instantiate(humans[2], spawn_point, spawn_rotato));
             }
             //else if(ram >= big && ram < rare)
             //{
