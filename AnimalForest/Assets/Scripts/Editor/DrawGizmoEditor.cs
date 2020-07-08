@@ -67,6 +67,7 @@ public class DrawGizmoEditor : MonoBehaviour
     //        Gizmos.DrawMesh(fanMesh, pos, rot * Quaternion.AngleAxis(180.0f, Vector3.forward), scale);
     //    }
     //}
+
     /// <summary>
     /// 頂点の配列を作成
     /// </summary>

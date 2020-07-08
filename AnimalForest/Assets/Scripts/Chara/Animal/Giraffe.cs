@@ -2,17 +2,18 @@
 
 using UnityEngine;
 
-
+// シマウマの処理をするクラス
+// 範囲攻撃の実装対象
 public class Giraffe : Animal
 {
-    RangeAttaker my_range_attak;
+    RangeAttaker my_range_attack;
 
     protected override void Awake()
     {
         status = new Status(150, 25, 10, 1.5f, 1000, "キリン");
         base.Awake();
-        my_range_attak = GetComponent<RangeAttaker>();
-        range = my_range_attak.SearchRadius;
+        my_range_attack = GetComponent<RangeAttaker>();
+        range = my_range_attack.SearchRadius;
     }
 
     /// <summary>
@@ -28,8 +29,19 @@ public class Giraffe : Animal
         if (attack_time >= 1.5f)
         {
             // 範囲内にいる敵を攻撃
-            foreach (var target in my_range_attak.characters)
+            // 処理中に母数が変わる可能性があるためエラーがでる
+            foreach (var target in my_range_attack.characters)
             {
+                if (target == null)
+                {
+                    my_range_attack.characters.Remove(target);
+                }
+                // 自分と同じタイプだと味方なので攻撃しない
+                if (target.character_type == character_type)
+                {
+                    continue;
+                }
+
                 int damage = status.power - target.GetStatus().defence;
                 if (damage <= 0)
                 {

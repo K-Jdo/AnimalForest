@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation_type: 0
-  damage_material: {fileID: 0}
+  character_type: 0
+  damage_material: {fileID: 2100000, guid: 39b3e77fb23186a41923f046a69d009d, type: 2}
   can_speed_change: 0
   debug_speed: 0
 --- !u!195 &6665600304040605215

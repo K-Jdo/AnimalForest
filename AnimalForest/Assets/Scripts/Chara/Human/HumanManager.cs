@@ -4,13 +4,11 @@ using System.Collections.Generic;
 // 人間を管理するクラス
 public class HumanManager : SingletonMonoBehaviour<HumanManager>
 {
-    public List<GameObject> humans = new List<GameObject>();
-    [SerializeField] GameObject[] test_objects = default;
-
+    [SerializeField] GameObject[] test_objects = default;       // テスト用に初期配置するための
+    List<GameObject> humans = new List<GameObject>();
     // これ何に使うか忘れた
     // 特に使わんのなら消す
     //public int Counter { private get; set; }
-
     public bool Is_spawn { get; private set; }
 
     protected override void Awake()
@@ -40,11 +38,11 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     }
 
     /// <summary>
-    /// 一番近い人間を探す(自分の座標）
+    /// 引数の座標から管理しているなかで一番近いオブジェクトを返す(自分の座標）
     /// </summary>
     /// <param name="position"></param>
     /// <returns></returns>
-    public GameObject SearchNearHuman(Vector3 position)
+    public GameObject SearchNearObject(Vector3 position)
     {
         if (humans.Count <= 0)
         {
@@ -77,8 +75,8 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     /// <summary>
     /// リストにオブジェクトを追加
     /// </summary>
-    /// <param name="go"></param>
-    public void SetHuman(GameObject obj)
+    /// <param name="obj"></param>
+    public void SetObject(GameObject obj)
     {
         humans.Add(obj);
     }
