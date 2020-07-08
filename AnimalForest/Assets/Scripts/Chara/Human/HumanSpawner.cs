@@ -17,6 +17,19 @@ public class HumanSpawner : MonoBehaviour
     const int MAX_RATE = 99;
     float timer_count = 0;
 
+    Vector3 spawn_point;
+    Quaternion spaen_rotato;
+
+    private void Awake()
+    {
+        Debug.Log(transform.position);
+        // 車の後部から出てくるようにスポーン場所の調整
+        spawn_point = transform.position;
+        spawn_point.z -= 1.3f;
+        spaen_rotato = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
+        Debug.Log(spawn_point);
+    }
+
     private void Update()
     {
         if (!HumanManager.Instance.Is_spawn)
@@ -36,15 +49,15 @@ public class HumanSpawner : MonoBehaviour
             //int rare = big + rare_spwan_rate;
             if (ram >= 0 && ram < 60)
             {
-                HumanManager.Instance.SetObject(Instantiate(humans[0], transform.transform));
+                HumanManager.Instance.SetObject(Instantiate(humans[0], spawn_point, spaen_rotato));
             }
             else if (ram >= small_spwan_rate && ram < middle)
             {
-                HumanManager.Instance.SetObject(Instantiate(humans[1], transform.transform));
+                HumanManager.Instance.SetObject(Instantiate(humans[1], spawn_point, spaen_rotato));
             }
             else if (ram >= middle /*&& rare_spwan_rate < big*/)
             {
-                HumanManager.Instance.SetObject(Instantiate(humans[2], transform.transform));
+                HumanManager.Instance.SetObject(Instantiate(humans[2], spawn_point, spaen_rotato));
             }
             //else if(ram >= big && ram < rare)
             //{

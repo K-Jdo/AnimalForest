@@ -9,7 +9,7 @@ public abstract class Character : MonoBehaviour
     // アニメーションの状態
     public enum AnimaionType { idol, walk, attack, damage, death }
 
-    public enum CharacterType { animal, human}
+    public enum CharacterType { animal, human, none}
     // 各種ステータスの構造体
     public struct Status
     {

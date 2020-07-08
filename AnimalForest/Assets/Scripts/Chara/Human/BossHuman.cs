@@ -12,6 +12,7 @@ public class BossHuman : Human
         status = new Status(2000, 45, 10, 0.5f, 0, "BOSS");
         base.Awake();
         my_range_attack = GetComponent<RangeAttaker>();
+        my_range_attack.my_type = character_type;
         range = my_range_attack.SearchRadius;
     }
 

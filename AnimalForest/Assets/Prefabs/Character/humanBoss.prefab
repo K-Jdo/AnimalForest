@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation_type: 0
+  character_type: 0
   damage_material: {fileID: 2100000, guid: 39b3e77fb23186a41923f046a69d009d, type: 2}
   can_speed_change: 0
   debug_speed: 0
@@ -177,5 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8446caec927cb46bf36dafb28fe01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  search_angle: 0
+  search_angle: 75
   characters: []
