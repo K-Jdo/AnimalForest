@@ -1,12 +1,12 @@
-﻿using System.Collections;
+﻿//F.D.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerManager : SingletonMonoBehaviour<TowerManager>
 {
-    [SerializeField] private GameObject[] objects = default;
     List<GameObject> towers = new List<GameObject>();
-
 
     public GameObject SearchTowerObject(Vector3 position)
     {
@@ -36,5 +36,10 @@ public class TowerManager : SingletonMonoBehaviour<TowerManager>
         }
 
         return towers[count];
+    }
+
+    public void SetTower(GameObject obj)
+    {
+        towers.Add(obj);
     }
 }
