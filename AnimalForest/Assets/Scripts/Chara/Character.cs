@@ -9,7 +9,7 @@ public abstract class Character : MonoBehaviour
     // アニメーションの状態
     public enum AnimaionType { idol, walk, attack, damage, death }
 
-    protected enum CharacterType { animal, human}
+    public enum CharacterType { animal, human}
     // 各種ステータスの構造体
     public struct Status
     {
@@ -32,7 +32,7 @@ public abstract class Character : MonoBehaviour
     }
 
     public AnimaionType animation_type;
-    protected CharacterType character_type;
+    public CharacterType character_type;
     protected GameObject target_object;    // 攻撃目標
     protected Character target_character;
     protected NavMeshAgent agent;   // 目標へのNavMesh
@@ -65,7 +65,7 @@ public abstract class Character : MonoBehaviour
         my_renderer = GetComponent<Renderer>();
         default_material = my_renderer.material;
 
-        range = 3.0f;
+        range = 2.0f;
 
         death_time = 0.0f;
         attack_time = 20.0f;
@@ -96,6 +96,7 @@ public abstract class Character : MonoBehaviour
             {
                 my_renderer.material = default_material;
                 damage_timer = 0.0f;
+                is_damage = false;
             }
         }
 
@@ -159,12 +160,12 @@ public abstract class Character : MonoBehaviour
             //anim.SetBool("isAttack", true);
         }
         // 離れれば再び追いかける
-        //else if(distance > 10.0f)
-        //{
-        //    animation_type = AnimaionType.walk;
-        //    // とりあえず仮
-        //    //anim.SetBool("isAttack", false);
-        //}
+        else if (distance > 5.0f)
+        {
+            animation_type = AnimaionType.walk;
+            // とりあえず仮
+            //anim.SetBool("isAttack", false);
+        }
 
     }
 
@@ -208,13 +209,17 @@ public abstract class Character : MonoBehaviour
     public Status GetStatus() { return status; }
     public void SetDamage(int d)
     {
+        if(this == null)
+        {
+            return;
+        }
         Sound.Instance.PlaySound(Sound.SoundName.damage);
         my_renderer.material = damage_material;
         is_damage = true;
         status.hp -= d;
         //Debug.Log($"{status.hp}");
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
-        if (character_type == CharacterType.human)
+        if (character_type == CharacterType.human && animation_type != AnimaionType.attack)
         {
             animation_type = AnimaionType.damage;
         }

@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using MyScript;
 // 範囲攻撃のテスト
-// TODO 使い終わったら消す
+
 public class RangeAttaker : MonoBehaviour
 {
-    [SerializeField] Material test_material = default;
-    Material default_material;
-    Renderer my_renderer;
+    //[SerializeField] Material test_material = default;
+    //Material default_material;
+    //Renderer my_renderer;
 
     [SerializeField, Range(0.0f, 360.0f)]
     float search_angle = 0.0f;
@@ -26,18 +26,14 @@ public class RangeAttaker : MonoBehaviour
 
     private void Awake()
     {
-        my_renderer = GetComponent<Renderer>();
-        default_material = my_renderer.material;
+        //my_renderer = GetComponent<Renderer>();
+        //default_material = my_renderer.material;
         sphere_collider = GetComponent<SphereCollider>();
         ApplySearchAngle();
     }
 
     private void Update()
     {
-        if(target_list.Count >= 1)
-        {
-            Debug.Log(1);
-        }
         UpdateFoundObject();
         SearchRadius = sphere_collider.radius;
         Debug.Log($"target:{target_list.Count}");
@@ -65,6 +61,21 @@ public class RangeAttaker : MonoBehaviour
             {
                 OnLost(target);
             }
+        }
+
+        Queue<Character> queue = new Queue<Character>();
+        // 上の処理は範囲から出たものは消えるが、範囲内で破壊されたらnullで残っている場合がある
+        // その場合の後処理
+        foreach(Character character in characters)
+        {
+            if(character == null)
+            {
+                queue.Enqueue(character);
+            }
+        }
+        for(int i = 0; i < queue.Count; i++)
+        {
+            characters.Remove(queue.Dequeue());
         }
     }
 
@@ -102,14 +113,14 @@ public class RangeAttaker : MonoBehaviour
     {
         target_list.Add(found_object);
         characters.Add(found_object.GetComponent<Character>());
-        my_renderer.material = test_material;
+        //my_renderer.material = test_material;
     }
 
     private void OnLost(GameObject lost_object)
     {
-        target_list.Remove(lost_object);
         characters.Remove(lost_object.GetComponent<Character>());
-        my_renderer.material = default_material;
+        target_list.Remove(lost_object);
+        //my_renderer.material = default_material;
     }
 
     private void ApplySearchAngle()

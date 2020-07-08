@@ -36,15 +36,15 @@ public class HumanSpawner : MonoBehaviour
             //int rare = big + rare_spwan_rate;
             if (ram >= 0 && ram < 60)
             {
-                HumanManager.Instance.SetHuman(Instantiate(humans[0], transform.transform));
+                HumanManager.Instance.SetObject(Instantiate(humans[0], transform.transform));
             }
             else if (ram >= small_spwan_rate && ram < middle)
             {
-                HumanManager.Instance.SetHuman(Instantiate(humans[1], transform.transform));
+                HumanManager.Instance.SetObject(Instantiate(humans[1], transform.transform));
             }
             else if (ram >= middle /*&& rare_spwan_rate < big*/)
             {
-                HumanManager.Instance.SetHuman(Instantiate(humans[2], transform.transform));
+                HumanManager.Instance.SetObject(Instantiate(humans[2], transform.transform));
             }
             //else if(ram >= big && ram < rare)
             //{

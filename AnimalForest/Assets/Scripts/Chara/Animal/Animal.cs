@@ -12,7 +12,7 @@ public abstract class Animal : Character
 
     private void Start()
     {
-        target_object = HumanManager.Instance.SearchNearHuman(transform.position);
+        target_object = HumanManager.Instance.SearchNearObject(transform.position);
         if (target_object != null)
         {
             target_character = target_object.GetComponent<Character>();
@@ -36,7 +36,7 @@ public abstract class Animal : Character
         {
             // 敵を撃破すると次の敵を探す
             animation_type = AnimaionType.walk;
-            target_object = HumanManager.Instance.SearchNearHuman(transform.position);
+            target_object = HumanManager.Instance.SearchNearObject(transform.position);
             if (target_object != null)
             {
                 target_character = target_object.GetComponent<Character>();

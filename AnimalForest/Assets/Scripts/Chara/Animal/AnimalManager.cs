@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
 {
-    public List<GameObject> animals = new List<GameObject>();
     public int Counter {private get; set; }
     [SerializeField] private GameObject[] objects = default;
+    List<GameObject> animals = new List<GameObject>();
 
     protected override void Awake()
     {
@@ -25,13 +25,13 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
     //}
 
     /// <summary>
-    /// 一番近い動物を探す(自分の座標）
+    /// 引数の座標から管理しているなかで一番近いオブジェクトを返す(自分の座標）
     /// </summary>
     /// <param name="position"></param>
     /// <returns></returns>
-    public GameObject SearchNearAnimal(Vector3 position)
+    public GameObject SearchNearObject(Vector3 position)
     {
-        if(animals.Count <= 0)
+        if (animals.Count <= 0)
         {
             return null;
         }
@@ -57,8 +57,8 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
         }
 
         return animals[count];
-
     }
+
 
     public void SetAnimal(GameObject obj)
     {
