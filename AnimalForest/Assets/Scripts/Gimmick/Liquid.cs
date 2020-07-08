@@ -1,18 +1,58 @@
-﻿using System.Collections;
+﻿//F.D.
+//ギミック：謎の液体X
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Liquid : MonoBehaviour
+public class Liquid : GimmickManager
 {
-    // Start is called before the first frame update
-    void Start()
+    private List<GameObject> hit_objects = new List<GameObject>();
+    private Animal animal;
+
+    private float timeElapsed;
+
+    bool flag = false;
+
+    int atk;
+
+
+    private void Start()
     {
-        
+        cost = 500;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(flag == true)
+        {
+            timeElapsed += Time.deltaTime;
+            if(timeElapsed <= 10.0f)
+            {
+                atk = animal.GetStatus().power;
+                atk += 10;
+                //実装
+                //ADD SetPowerの追加;
+                //animal.SetPower(atk);
+            }
+            else if(timeElapsed > 10.0f)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        hit_objects.Add(collider.gameObject);
+
+        foreach(GameObject i in hit_objects)
+        {
+            if (i.gameObject.CompareTag("CharaAnimal"))
+            {
+                animal = i.transform.GetComponent<Animal>();
+                flag = true;                
+            }
+        }
+        hit_objects.Clear();
     }
 }

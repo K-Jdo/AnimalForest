@@ -35,6 +35,7 @@ public class Bee : GimmickManager
                 {
                     Debug.Log($"キャラは死にました。");
                     flag = false;
+                    x = 30;
                 }
                 else if (timeElapsed >= 1.0f)
                 {
@@ -55,7 +56,7 @@ public class Bee : GimmickManager
         hit_objects.Add(collider.gameObject);
         foreach (GameObject i in hit_objects)
         {
-            if (i.gameObject.CompareTag("Enemy"))
+            if (i.gameObject.CompareTag("CharaEnemy"))
             {
                 human = i.transform.GetComponent<Human>();
                 flag = true;

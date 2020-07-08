@@ -217,7 +217,7 @@ public abstract class Character : MonoBehaviour
         my_renderer.material = damage_material;
         is_damage = true;
         status.hp -= d;
-        //Debug.Log($"{status.hp}");
+        Debug.Log($"{status.hp}");
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
         if (character_type == CharacterType.human && animation_type != AnimaionType.attack)
         {
