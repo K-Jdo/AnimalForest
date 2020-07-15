@@ -24,7 +24,8 @@ public class Bee : GimmickManager
 
     private void Update()
     {
-        //ADD マイナスHP問題
+        //ADD オブジェクトを透過？追尾？をさせる
+        //ADD 一体当たったら次に通ったキャラには反応しないようにする
         if (flag == true)
         {
             timeElapsed += Time.deltaTime;
@@ -33,7 +34,6 @@ public class Bee : GimmickManager
             {
                 if(hit_objects == null)
                 {
-                    Debug.Log($"キャラは死にました。");
                     flag = false;
                     x = 30;
                 }
@@ -52,7 +52,7 @@ public class Bee : GimmickManager
 
     private void OnTriggerStay(Collider collider)
     {
-        //衝突しているオブジェトをリストに登録
+        //衝突しているオブジェクトをリストに登録
         hit_objects.Add(collider.gameObject);
         foreach (GameObject i in hit_objects)
         {

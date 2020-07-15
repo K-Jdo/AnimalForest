@@ -176,7 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c2ea2b8873d8346a9197968756ea51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animals: []
   objects: []
 --- !u!1001 &224912521
 PrefabInstance:
@@ -282,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3117af619fd4ff647bbcbffe2bb1f89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spwan_time: 10
+  spwan_time: 1
   humans:
   - {fileID: 5868579469622602602, guid: de9b089623cc2d04f90f91b048938803, type: 3}
   - {fileID: 1977952603837517437, guid: 9b9c673cecfd55841b7ef1795d25535c, type: 3}
@@ -810,7 +809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83749d0b8fe256f4b8313fd962eeb255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humans: []
   test_objects: []
 --- !u!1 &1826715339
 GameObject:

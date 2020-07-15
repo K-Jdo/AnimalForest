@@ -33,16 +33,13 @@ public class Tower : MonoBehaviour
         //HPバー模索中
         slider.maxValue = max_hp;
         slider.value = hp;
-        Debug.Log($"{towers}");
 
         //Debug.Log($"{hp}");
     }
     //タワーダメージ計算
     //まだ上手くいっていない為、現在はコメント
-    /*    public void TowerDamage()
+    /*  public void TowerDamage()
         {
-            human = GetComponent<Human>();
-            damage = human.GetStatus().power;
             hp -= damage;
             //HPが0になると破壊。
             //ADD エフェクト処理追加する
