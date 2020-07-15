@@ -9,7 +9,7 @@ public abstract class Character : MonoBehaviour
     // アニメーションの状態
     public enum AnimaionType { idol, walk, attack, damage, death }
 
-    public enum CharacterType { animal, human}
+    public enum CharacterType { animal, human, none}
     // 各種ステータスの構造体
     public struct Status
     {
@@ -217,7 +217,7 @@ public abstract class Character : MonoBehaviour
         my_renderer.material = damage_material;
         is_damage = true;
         status.hp -= d;
-        Debug.Log($"{status.hp}");
+        //Debug.Log($"{status.hp}");
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
         if (character_type == CharacterType.human && animation_type != AnimaionType.attack)
         {

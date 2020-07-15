@@ -8,7 +8,7 @@ public abstract class Human : Character
     public enum TargetType { tower, animal, notTarget }
 
     protected TargetType target_type;
-
+    protected Tower target_tower;
     protected override void Awake()
     {
         base.Awake();
@@ -19,7 +19,8 @@ public abstract class Human : Character
     private void Start()
     {
         // 最初のタワーの目標を決める
-        target_object = TestManager.Instance.tower;
+        target_object = TowerManager.Instance.SearchTowerObject(transform.position);
+        target_tower = target_object.GetComponent<Tower>();
         agent.SetDestination(target_object.transform.position);
     }
 
@@ -44,8 +45,10 @@ public abstract class Human : Character
             animation_type = AnimaionType.walk;
             SetSpeed(status.speed);
             // ここで新しいタワーの目標を決める
+            target_object = TowerManager.Instance.SearchTowerObject(transform.position);
             // とりあえず最初のタワーをいれておく
-            target_object = TestManager.Instance.tower;
+            target_tower = target_object.GetComponent<Tower>();
+            //target_object = TestManager.Instance.tower;
             target_type = TargetType.tower;
         }
         else if (animation_type == AnimaionType.damage)

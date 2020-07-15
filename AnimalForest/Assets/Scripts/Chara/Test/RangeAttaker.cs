@@ -3,10 +3,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MyScript;
-// 範囲攻撃のテスト
+using Boo.Lang.Environments;
+// 範囲攻撃
 
 public class RangeAttaker : MonoBehaviour
 {
+    // テスト用
     //[SerializeField] Material test_material = default;
     //Material default_material;
     //Renderer my_renderer;
@@ -23,6 +25,7 @@ public class RangeAttaker : MonoBehaviour
     float search_cos_theta = 0.0f;
 
     public List<Character> characters = new List<Character>();
+    public Character.CharacterType my_type;
 
     private void Awake()
     {
@@ -30,6 +33,8 @@ public class RangeAttaker : MonoBehaviour
         //default_material = my_renderer.material;
         sphere_collider = GetComponent<SphereCollider>();
         ApplySearchAngle();
+        my_type = Character.CharacterType.none;
+
     }
 
     private void Update()
@@ -66,9 +71,10 @@ public class RangeAttaker : MonoBehaviour
         Queue<Character> queue = new Queue<Character>();
         // 上の処理は範囲から出たものは消えるが、範囲内で破壊されたらnullで残っている場合がある
         // その場合の後処理
+        // もしくは範囲内にいても自分と同じタイプなら除外する
         foreach(Character character in characters)
         {
-            if(character == null)
+            if(character == null || character.character_type == my_type)
             {
                 queue.Enqueue(character);
             }

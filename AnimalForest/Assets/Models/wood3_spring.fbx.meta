@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 557a3be754796964f9dc2a984a3b5a7e
+guid: 6569f7adc489305428f7b4745a44bae6
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood3_spring_palette1
+    second: {fileID: 2100000, guid: 69bee29b03edb874e8d4f235eedb9486, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

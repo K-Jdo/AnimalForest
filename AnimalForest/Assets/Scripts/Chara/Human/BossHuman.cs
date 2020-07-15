@@ -6,12 +6,12 @@ using UnityEngine;
 public class BossHuman : Human
 {
     RangeAttaker my_range_attack;
-
     protected override void Awake()
     {
         status = new Status(2000, 45, 10, 0.5f, 0, "BOSS");
         base.Awake();
         my_range_attack = GetComponent<RangeAttaker>();
+        my_range_attack.my_type = character_type;
         range = my_range_attack.SearchRadius;
     }
 
@@ -23,8 +23,10 @@ public class BossHuman : Human
             animation_type = AnimaionType.walk;
             SetSpeed(status.speed);
             // ここで新しいタワーの目標を決める
+            target_object = TowerManager.Instance.SearchTowerObject(transform.position);
             // とりあえず最初のタワーをいれておく
-            target_object = TestManager.Instance.tower;
+            //target_object = TestManager.Instance.tower;
+            target_tower = target_object.GetComponent<Tower>();
             target_type = TargetType.tower;
         }
         else if (animation_type == AnimaionType.damage)

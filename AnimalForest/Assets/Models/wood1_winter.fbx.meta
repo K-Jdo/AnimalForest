@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 6141e156278e62642a55730a0f4f3ce8
+guid: e8ad7203fd6069a478e715e285e51c58
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood1_winter_palette1
+    second: {fileID: 2100000, guid: 69bee29b03edb874e8d4f235eedb9486, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

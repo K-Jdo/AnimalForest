@@ -7,12 +7,14 @@ using UnityEngine;
 public class Giraffe : Animal
 {
     RangeAttaker my_range_attack;
+    [SerializeField] GameObject test_obj = default;
 
     protected override void Awake()
     {
         status = new Status(150, 25, 10, 1.5f, 1000, "キリン");
         base.Awake();
-        my_range_attack = GetComponent<RangeAttaker>();
+        my_range_attack = test_obj.GetComponent<RangeAttaker>();
+        my_range_attack.my_type = character_type;
         range = my_range_attack.SearchRadius;
     }
 
