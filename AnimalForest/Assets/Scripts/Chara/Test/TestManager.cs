@@ -1,5 +1,4 @@
 ﻿// K.Joudo. 2020
-using System.Collections.Generic;
 using UnityEngine;
 
 // マネージャーをテストするクラス
