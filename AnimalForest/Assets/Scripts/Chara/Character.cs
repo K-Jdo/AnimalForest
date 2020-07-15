@@ -209,7 +209,8 @@ public abstract class Character : MonoBehaviour
     public Status GetStatus() { return status; }
     public void SetDamage(int d)
     {
-        if(this == null)
+        Debug.Log($"{status.name}が当たった。残りHP{status.hp}");
+        if (this == null)
         {
             return;
         }

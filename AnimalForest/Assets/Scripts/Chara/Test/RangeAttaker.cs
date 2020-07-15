@@ -41,8 +41,8 @@ public class RangeAttaker : MonoBehaviour
     {
         UpdateFoundObject();
         SearchRadius = sphere_collider.radius;
-        Debug.Log($"target:{target_list.Count}");
-        Debug.Log($"found:{found_list.Count}");
+        //Debug.Log($"target:{target_list.Count}");
+        //Debug.Log($"found:{found_list.Count}");
     }
 
     private void UpdateFoundObject()
