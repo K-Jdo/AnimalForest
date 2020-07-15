@@ -11,6 +11,7 @@ public class Bee : GimmickManager
 
     private float timeElapsed;
 
+    //bool triggerflag = true;
     bool flag = false;
 
     int defence;
@@ -52,16 +53,20 @@ public class Bee : GimmickManager
 
     private void OnTriggerStay(Collider collider)
     {
-        //衝突しているオブジェクトをリストに登録
-        hit_objects.Add(collider.gameObject);
-        foreach (GameObject i in hit_objects)
-        {
-            if (i.gameObject.CompareTag("CharaEnemy"))
+        //if (triggerflag)
+        //{
+            //triggerflag = false;
+            //衝突しているオブジェクトをリストに登録
+            hit_objects.Add(collider.gameObject);
+            foreach (GameObject i in hit_objects)
             {
-                human = i.transform.GetComponent<Human>();
-                flag = true;
+                if (i.gameObject.CompareTag("CharaEnemy"))
+                {
+                    human = i.transform.GetComponent<Human>();
+                    flag = true;
+                }
             }
-        }
-        hit_objects.Clear();
+            hit_objects.Clear();
+        //}
     }
 }
