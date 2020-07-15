@@ -22,14 +22,9 @@ public class HumanSpawner : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(transform.position);
         // 車の後部から出てくるようにスポーン場所の調整
-        spawn_point = transform.position;
-        spawn_point.z -= 1.3f;
-        spawn_rotato = transform.rotation;
+        spawn_point = new Vector3(0.0f, 0.0f, -1.2f);
         spawn_rotato.y += 180.0f;
-        Debug.Log(spawn_point);
-        Debug.Log(spawn_rotato);
     }
 
     private void Update()
@@ -49,25 +44,27 @@ public class HumanSpawner : MonoBehaviour
             int middle = small_spwan_rate + middle_spwan_rate;
             //int big = middle + big_spwan_rate;
             //int rare = big + rare_spwan_rate;
+            GameObject spawn_human;
             if (ram >= 0 && ram < 60)
             {
-                HumanManager.Instance.SetObject(Instantiate(humans[0], spawn_point, spawn_rotato));
+                spawn_human = Instantiate(humans[0]);
             }
             else if (ram >= small_spwan_rate && ram < middle)
             {
-                HumanManager.Instance.SetObject(Instantiate(humans[1], spawn_point, spawn_rotato));
+                spawn_human = Instantiate(humans[1]);
             }
-            else if (ram >= middle /*&& rare_spwan_rate < big*/)
+            else /*if (ram >= middle && rare_spwan_rate < big)*/
             {
-                HumanManager.Instance.SetObject(Instantiate(humans[2], spawn_point, spawn_rotato));
+                spawn_human = Instantiate(humans[2]);
             }
             //else if(ram >= big && ram < rare)
             //{
             //    HumanManager.Instance.SetHuman(Instantiate(human[3], transform.transform));
             //}
-
-
-            //HumanManager.Instance.SetHuman(Instantiate(human, transform.transform));
+            spawn_human.transform.parent = transform;
+            spawn_human.transform.localPosition = spawn_point;
+            spawn_human.transform.localRotation = spawn_rotato;
+            HumanManager.Instance.SetObject(spawn_human);
             timer_count = 0;
         }
     }

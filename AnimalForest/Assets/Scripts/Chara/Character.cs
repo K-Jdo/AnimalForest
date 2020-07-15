@@ -38,13 +38,16 @@ public abstract class Character : MonoBehaviour
     protected NavMeshAgent agent;   // 目標へのNavMesh
     protected Animator anim;        // アニメーション
 
+    protected GameObject parent;    // ここに書くの無駄かも
+
     Renderer my_renderer;
     Material default_material;
     [SerializeField] Material damage_material = null;
     const float DAMAGE_TIME = 0.5f;
     float damage_timer;
     bool is_damage;
-    protected float range;
+    //protected float range;
+    const float RANGE = 2.0f;
 
     protected Status status;        // 自分のステータス
 
@@ -62,10 +65,11 @@ public abstract class Character : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
+        parent = transform.root.gameObject;
+        Debug.Log($"{status.name}の親は{parent}");
+
         my_renderer = GetComponent<Renderer>();
         default_material = my_renderer.material;
-
-        range = 2.0f;
 
         death_time = 0.0f;
         attack_time = 20.0f;
@@ -112,7 +116,7 @@ public abstract class Character : MonoBehaviour
             {
                 Debug.Log($"{status.name}が死んだ");
                 Sound.Instance.PlaySound(Sound.SoundName.death);
-                Destroy(gameObject);
+                Destroy(parent);
             }
         }
 
@@ -137,7 +141,6 @@ public abstract class Character : MonoBehaviour
             animation_type = AnimaionType.death;
             // TODO ここで死亡アニメーションを再生
             SetSpeed(0);
-            Destroy(gameObject);
             return;
         }
 
@@ -153,7 +156,7 @@ public abstract class Character : MonoBehaviour
         }
 
         // 近づいたら攻撃
-        if(distance <= range)
+        if(distance <= RANGE)
         {
             animation_type = AnimaionType.attack;
             // とりあえず仮
@@ -207,7 +210,7 @@ public abstract class Character : MonoBehaviour
     }
 
     public Status GetStatus() { return status; }
-    public void SetDamage(int d)
+    public void SetDamage(int d, bool gimick = false)
     {
         if(this == null)
         {
@@ -219,6 +222,12 @@ public abstract class Character : MonoBehaviour
         status.hp -= d;
         //Debug.Log($"{status.hp}");
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
+
+        if (gimick)
+        {
+            return;
+        }
+
         if (character_type == CharacterType.human && animation_type != AnimaionType.attack)
         {
             animation_type = AnimaionType.damage;

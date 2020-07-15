@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 4614741751612912254}
   - component: {fileID: 4614741751612912253}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GiraffeCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,6 +137,11 @@ PrefabInstance:
       propertyPath: test_obj
       value: 
       objectReference: {fileID: 4614741751612912255}
+    - target: {fileID: 4350170977659050540, guid: d22b8c51a62165c4a92210eb5db274d5,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}
       propertyPath: m_LocalPosition.x

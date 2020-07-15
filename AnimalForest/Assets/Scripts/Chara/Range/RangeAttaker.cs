@@ -3,7 +3,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MyScript;
-using Boo.Lang.Environments;
 // 範囲攻撃
 
 public class RangeAttaker : MonoBehaviour
@@ -33,16 +32,14 @@ public class RangeAttaker : MonoBehaviour
         //default_material = my_renderer.material;
         sphere_collider = GetComponent<SphereCollider>();
         ApplySearchAngle();
-        my_type = Character.CharacterType.none;
-
     }
 
     private void Update()
     {
         UpdateFoundObject();
         SearchRadius = sphere_collider.radius;
-        Debug.Log($"target:{target_list.Count}");
-        Debug.Log($"found:{found_list.Count}");
+        //Debug.Log($"target:{target_list.Count}");
+        //Debug.Log($"found:{found_list.Count}");
     }
 
     private void UpdateFoundObject()
@@ -137,7 +134,7 @@ public class RangeAttaker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"トリガー発動:{other.name}");
+        //Debug.Log($"トリガー発動:{other.name}");
         // キャラクター以外は無視する
         if (!other.tag.Contains("Chara"))
         {
@@ -155,7 +152,7 @@ public class RangeAttaker : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log($"トリガー終了:{other.name}");
+        //Debug.Log($"トリガー終了:{other.name}");
         GameObject exit_object = other.gameObject;
         var found_date = found_list.Find(value => value.Obj == exit_object);
         if (found_date == null)
