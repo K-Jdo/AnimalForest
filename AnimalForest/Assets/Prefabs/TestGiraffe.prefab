@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4614741750945398156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.111232, y: 6.275729, z: -4.112927}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4614741751612912251}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 4614741751612912254}
   - component: {fileID: 4614741751612912253}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GiraffeCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4614741751612912255}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.078768, y: -1.6357293, z: -0.3270731}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4614741750945398155}
@@ -118,20 +118,25 @@ PrefabInstance:
       propertyPath: test_obj
       value: 
       objectReference: {fileID: 4614741751612912255}
+    - target: {fileID: 4350170977659050540, guid: d22b8c51a62165c4a92210eb5db274d5,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.078768
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6357293
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.51707315
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}

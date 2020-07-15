@@ -12,7 +12,7 @@ public class BossHuman : Human
         base.Awake();
         my_range_attack = GetComponent<RangeAttaker>();
         my_range_attack.my_type = character_type;
-        range = my_range_attack.SearchRadius;
+        //range = my_range_attack.SearchRadius;
     }
 
     protected override void ChangeTarget()

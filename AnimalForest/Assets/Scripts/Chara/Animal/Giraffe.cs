@@ -15,7 +15,6 @@ public class Giraffe : Animal
         base.Awake();
         my_range_attack = test_obj.GetComponent<RangeAttaker>();
         my_range_attack.my_type = character_type;
-        range = my_range_attack.SearchRadius;
     }
 
     /// <summary>
