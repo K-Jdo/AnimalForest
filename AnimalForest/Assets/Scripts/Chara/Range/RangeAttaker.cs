@@ -3,7 +3,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MyScript;
-using Boo.Lang.Environments;
 // 範囲攻撃
 
 public class RangeAttaker : MonoBehaviour
@@ -33,8 +32,6 @@ public class RangeAttaker : MonoBehaviour
         //default_material = my_renderer.material;
         sphere_collider = GetComponent<SphereCollider>();
         ApplySearchAngle();
-        my_type = Character.CharacterType.none;
-
     }
 
     private void Update()

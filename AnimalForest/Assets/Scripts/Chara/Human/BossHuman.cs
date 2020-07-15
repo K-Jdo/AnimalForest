@@ -18,7 +18,7 @@ public class BossHuman : Human
     protected override void ChangeTarget()
     {
         // ターゲットを撃破する、もしくは攻撃を受けると標的を変更
-        if (my_range_attack.characters.Count <= 0)
+        if (my_range_attack.characters.Count <= 0 || target_object == null)
         {
             animation_type = AnimaionType.walk;
             SetSpeed(status.speed);

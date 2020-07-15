@@ -210,7 +210,7 @@ public abstract class Character : MonoBehaviour
     }
 
     public Status GetStatus() { return status; }
-    public void SetDamage(int d)
+    public void SetDamage(int d, bool gimick = false)
     {
         if(this == null)
         {
@@ -222,6 +222,12 @@ public abstract class Character : MonoBehaviour
         status.hp -= d;
         //Debug.Log($"{status.hp}");
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
+
+        if (gimick)
+        {
+            return;
+        }
+
         if (character_type == CharacterType.human && animation_type != AnimaionType.attack)
         {
             animation_type = AnimaionType.damage;
