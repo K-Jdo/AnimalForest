@@ -12,8 +12,9 @@ public class Giraffe : Animal
     {
         status = new Status(150, 25, 10, 1.5f, 1000, "キリン");
         base.Awake();
-        range = 1;
-        my_renderer = transform.GetChild(0).gameObject.GetComponent<Renderer>();
+        GameObject obj = transform.GetChild(0).gameObject;
+        my_renderer = obj.GetComponent<Renderer>();
+        anim = obj.GetComponent<Animator>();
     }
 
     /// <summary>
