@@ -80,9 +80,4 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     {
         humans.Add(obj);
     }
-
-    public GameObject GetObject()
-    {
-        return humans[0];
-    }
 }

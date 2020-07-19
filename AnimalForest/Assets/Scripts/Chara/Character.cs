@@ -38,8 +38,8 @@ public abstract class Character : MonoBehaviour
     protected NavMeshAgent agent;   // 目標へのNavMesh
     protected Animator anim;        // アニメーション
 
-    Renderer my_renderer;
     Material default_material;
+    protected Renderer my_renderer;
     [SerializeField] Material damage_material = null;
     const float DAMAGE_TIME = 0.5f;
     float damage_timer;
@@ -207,9 +207,9 @@ public abstract class Character : MonoBehaviour
     }
 
     public Status GetStatus() { return status; }
-    public void SetDamage(int d)
+    public virtual void SetDamage(int d)
     {
-        Debug.Log($"{status.name}が当たった。残りHP{status.hp}");
+        //Debug.Log($"{status.name}が当たった。残りHP{status.hp}");
         if (this == null)
         {
             return;

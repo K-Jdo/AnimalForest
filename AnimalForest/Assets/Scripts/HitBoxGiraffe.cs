@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class test : MonoBehaviour
+public class HitBoxGiraffe : MonoBehaviour
 {
     BoxCollider boxCollider;
 
