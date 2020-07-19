@@ -38,8 +38,8 @@ public abstract class Character : MonoBehaviour
     protected NavMeshAgent agent;   // 目標へのNavMesh
     protected Animator anim;        // アニメーション
 
-    Renderer my_renderer;
     Material default_material;
+    protected Renderer my_renderer;
     [SerializeField] Material damage_material = null;
     const float DAMAGE_TIME = 0.5f;
     float damage_timer;
@@ -83,12 +83,7 @@ public abstract class Character : MonoBehaviour
             SetSpeed(debug_speed);
         }
 
-        // ターゲットがないなら何もしない
-        if (target_object == null)
-        {
-            return;
-        }
-
+        AnimationControl();
         if (is_damage)
         {
             damage_timer += Time.deltaTime;
@@ -100,8 +95,14 @@ public abstract class Character : MonoBehaviour
             }
         }
 
+        // ターゲットがないなら何もしない
+        if (target_object == null)
+        {
+            return;
+        }
+
+
         agent.SetDestination(target_object.transform.position);
-        AnimationControl();
 
         // 死んだら死亡アニメーションが終わるとオブジェクトを消す
         // 今はアニメーションがないから時間経過で消している
@@ -141,11 +142,19 @@ public abstract class Character : MonoBehaviour
             return;
         }
 
+        if(target_object == null)
+        {
+            animation_type = AnimaionType.idol;
+            anim.SetBool("isAttack", false);
+            anim.SetBool("isIdol", true);
+            return;
+        }
+
+
         // TODO ここのアニメーション処理はモデル完成後に作る
         // 今はタイプを変更するだけ
         float distance = Vector3.Distance(transform.position, target_object.transform.position);
-        //Debug.Log($"{status.name}の対象との距離{distance}");
-
+        Debug.Log($"{status.name}の対象との距離{distance}");
 
         if(animation_type == AnimaionType.damage)
         {
@@ -157,14 +166,14 @@ public abstract class Character : MonoBehaviour
         {
             animation_type = AnimaionType.attack;
             // とりあえず仮
-            //anim.SetBool("isAttack", true);
+            anim.SetBool("isAttack", true);
         }
         // 離れれば再び追いかける
-        else if (distance > 5.0f)
+        else if (distance > 5.0f || animation_type != AnimaionType.attack)
         {
             animation_type = AnimaionType.walk;
             // とりあえず仮
-            //anim.SetBool("isAttack", false);
+            anim.SetBool("isAttack", false);
         }
 
     }
@@ -182,9 +191,9 @@ public abstract class Character : MonoBehaviour
         attack_time += Time.deltaTime;
         // 攻撃のアニメーションが終わると攻撃が完了
         // アニメーションが出来たらこの条件に変えておく
-        //if(anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && 
+        //if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
         //    anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-        if(attack_time >= 1.5f)
+        if (attack_time >= 1.5f)
         {
             int damage = status.power - target_character.GetStatus().defence;
             if(damage <= 0)
@@ -207,9 +216,9 @@ public abstract class Character : MonoBehaviour
     }
 
     public Status GetStatus() { return status; }
-    public void SetDamage(int d)
+    public virtual void SetDamage(int d)
     {
-        Debug.Log($"{status.name}が当たった。残りHP{status.hp}");
+        //Debug.Log($"{status.name}が当たった。残りHP{status.hp}");
         if (this == null)
         {
             return;

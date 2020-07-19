@@ -44,10 +44,6 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     /// <returns></returns>
     public GameObject SearchNearObject(Vector3 position)
     {
-        if (humans.Count <= 0)
-        {
-            return null;
-        }
 
         // キャラクターが死んだらリストからも除外
         for (int i = humans.Count - 1; i >= 0; i--)
@@ -56,6 +52,10 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
             {
                 humans.RemoveAt(i);
             }
+        }
+        if (humans.Count <= 0)
+        {
+            return null;
         }
 
         int count = 0;
@@ -79,10 +79,5 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     public void SetObject(GameObject obj)
     {
         humans.Add(obj);
-    }
-
-    public GameObject GetObject()
-    {
-        return humans[0];
     }
 }

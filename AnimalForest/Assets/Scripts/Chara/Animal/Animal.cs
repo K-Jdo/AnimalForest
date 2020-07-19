@@ -36,6 +36,7 @@ public abstract class Animal : Character
         {
             // 敵を撃破すると次の敵を探す
             animation_type = AnimaionType.walk;
+            anim.SetBool("isIdol", false);
             target_object = HumanManager.Instance.SearchNearObject(transform.position);
             if (target_object != null)
             {
