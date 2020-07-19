@@ -17,6 +17,11 @@ public class Giraffe : Animal
         my_range_attack.my_type = character_type;
     }
 
+    protected override void Update()
+    {
+        base.Update();
+    }
+
     /// <summary>
     /// 範囲攻撃に上書き
     /// </summary>

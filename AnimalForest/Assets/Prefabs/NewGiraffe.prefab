@@ -29,7 +29,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4614741750945398155}
   m_Layer: 0
-  m_Name: TestGiraffe
+  m_Name: NewGiraffe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,8 +46,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4614741751612912251}
   - {fileID: 605338608202464179}
+  - {fileID: 4614741751612912251}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 4614741751612912252}
   - component: {fileID: 4614741751612912254}
   - component: {fileID: 4614741751612912253}
+  - component: {fileID: 5944780344171728670}
   m_Layer: 0
   m_Name: GiraffeCollision
   m_TagString: Untagged
@@ -82,7 +83,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4614741750945398155}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &4614741751612912252
 SphereCollider:
@@ -125,6 +126,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 4484953667495676320}
+--- !u!65 &5944780344171728670
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614741751612912255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36, y: 1.93652, z: 1.35}
+  m_Center: {x: -0.00000002980232, y: 0.9747314, z: 0.1150376}
 --- !u!1001 &4614741752253531468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -180,7 +194,7 @@ PrefabInstance:
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5218620206858960639, guid: d22b8c51a62165c4a92210eb5db274d5,
         type: 3}
@@ -205,6 +219,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1962847455742751334, guid: d22b8c51a62165c4a92210eb5db274d5, type: 3}
     - {fileID: 7867671206137012840, guid: d22b8c51a62165c4a92210eb5db274d5, type: 3}
+    - {fileID: 6687577721178313018, guid: d22b8c51a62165c4a92210eb5db274d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d22b8c51a62165c4a92210eb5db274d5, type: 3}
 --- !u!1 &4484953667495676320 stripped
 GameObject:

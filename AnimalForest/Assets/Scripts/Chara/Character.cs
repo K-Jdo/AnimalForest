@@ -66,7 +66,6 @@ public abstract class Character : MonoBehaviour
         anim = GetComponent<Animator>();
 
         parent = transform.root.gameObject;
-        Debug.Log($"{status.name}の親は{parent}");
 
         my_renderer = GetComponent<Renderer>();
         default_material = my_renderer.material;
