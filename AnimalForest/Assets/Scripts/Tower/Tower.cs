@@ -33,7 +33,7 @@ public class Tower : MonoBehaviour
         //HPバー模索中
         slider.maxValue = max_hp;
         slider.value = hp;
-        Debug.Log($"{towers}");
+        //Debug.Log($"{towers}");
 
         //Debug.Log($"{hp}");
     }
