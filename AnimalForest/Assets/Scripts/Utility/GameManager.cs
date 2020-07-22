@@ -3,8 +3,8 @@
 // ゲームを管理するクラス
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
-    public bool Is_clear { private get; set; }
-    public bool Is_boss_defeat { private get; set; }
+    public bool Is_clear { get; set; }
+    public bool Is_boss_defeat { get; set; }
     int tower_count = 3;
     int human_count = 0;
 
