@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
 {
-    public int Counter {private get; set; }
+    public int Counter { private get; set; }
     [SerializeField] private GameObject[] objects = default;
     List<GameObject> animals = new List<GameObject>();
 
@@ -17,12 +17,20 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
         {
             animals.Add(obj);
         }
+
     }
 
-    //private void Update()
-    //{
-    //    // TODO リストに動物が生成されるたびに追加する処理を書く
-    //}
+    private void Update()
+    {
+        // キャラクターが死んだらリストからも除外
+        for (int i = 0; i < animals.Count; i++)
+        {
+            if (animals[i] == null)
+            {
+                animals.RemoveAt(i);
+            }
+        }
+    }
 
     /// <summary>
     /// 引数の座標から管理しているなかで一番近いオブジェクトを返す(自分の座標）
@@ -37,13 +45,13 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
         }
 
         // キャラクターが死んだらリストからも除外
-        for (int i = animals.Count - 1; i >= 0; i--)
-        {
-            if (animals[i] == null)
-            {
-                animals.RemoveAt(i);
-            }
-        }
+        //for (int i = animals.Count - 1; i >= 0; i--)
+        //{
+        //    if (animals[i] == null)
+        //    {
+        //        animals.RemoveAt(i);
+        //    }
+        //}
 
         int count = 0;
         float dis = Vector3.Distance(position, animals[0].transform.position);
@@ -63,7 +71,7 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
     public void SetAnimal(GameObject obj)
     {
         // 子供がいれば当たり判定を分けているので一番上の子供を取得する
-        if(obj.transform.childCount > 0)
+        if (obj.transform.childCount > 0)
         {
             animals.Add(obj.transform.GetChild(0).gameObject);
         }

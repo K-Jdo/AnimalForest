@@ -101,7 +101,6 @@ public abstract class Character : MonoBehaviour
             return;
         }
 
-
         agent.SetDestination(target_object.transform.position);
 
         // 死んだら死亡アニメーションが終わるとオブジェクトを消す
@@ -154,7 +153,7 @@ public abstract class Character : MonoBehaviour
         // TODO ここのアニメーション処理はモデル完成後に作る
         // 今はタイプを変更するだけ
         float distance = Vector3.Distance(transform.position, target_object.transform.position);
-        Debug.Log($"{status.name}の対象との距離{distance}");
+        //Debug.Log($"{status.name}の対象との距離{distance}");
 
         if(animation_type == AnimaionType.damage)
         {

@@ -22,6 +22,7 @@ public class Sound : SingletonMonoBehaviour<Sound>
     {
         base.Awake();
         source = GetComponent<AudioSource>();
+        DontDestroyOnLoad(this);
     }
 
     public void PlaySound(SoundName name)

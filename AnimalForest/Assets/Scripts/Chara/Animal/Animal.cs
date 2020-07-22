@@ -8,6 +8,10 @@ public abstract class Animal : Character
     {
         base.Awake();
         character_type = CharacterType.animal;
+        // アニメーションのためにモデルを子供に置く
+        GameObject obj = transform.GetChild(0).gameObject;
+        my_renderer = obj.GetComponent<Renderer>();
+        anim = obj.GetComponent<Animator>();
     }
 
     private void Start()

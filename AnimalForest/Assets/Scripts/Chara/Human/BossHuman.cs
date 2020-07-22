@@ -90,6 +90,7 @@ public class BossHuman : Human
             else if (target_type == TargetType.tower)
             {
                 // TODO タワーのダメージが出来たら作る
+                //target_tower.TowerDamage(status.power);
             }
 
             attack_time = 0.0f;

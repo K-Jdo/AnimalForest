@@ -2,7 +2,7 @@
 using UnityEngine;
 
 // キリンの攻撃当たり判定
-public class Hitbox : MonoBehaviour
+public class HitBox : MonoBehaviour
 {
     int power;
 
@@ -17,7 +17,7 @@ public class Hitbox : MonoBehaviour
     {
         if (other.transform.tag.Contains("Enemy"))
         {
-            Debug.Log("当たったよ!");
+            //Debug.Log("当たったよ!");
             Character character = other.GetComponent<Character>();
             int damage = power - character.GetStatus().defence;
             if (damage <= 0)
