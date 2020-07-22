@@ -97,5 +97,8 @@ MonoBehaviour:
   - {fileID: 5868579469622602602, guid: de9b089623cc2d04f90f91b048938803, type: 3}
   - {fileID: 1977952603837517437, guid: 9b9c673cecfd55841b7ef1795d25535c, type: 3}
   - {fileID: 7005852563531978702, guid: fed3bca9f68552f4f872656457252182, type: 3}
+  - {fileID: 0}
+  - {fileID: 1862698541571973088, guid: 9048c29080f3807478a14db1398e5e82, type: 3}
   small_spwan_rate: 60
   middle_spwan_rate: 25
+  big_spwan_rate: 0

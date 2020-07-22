@@ -34,7 +34,11 @@ public class TowerManager : SingletonMonoBehaviour<TowerManager>
                 count = i;
             }
         }
-
         return towers[count];
+    }
+
+    public int GetTowerNumber()
+    {
+        return towers.Count;
     }
 }

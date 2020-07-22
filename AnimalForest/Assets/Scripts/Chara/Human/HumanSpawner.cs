@@ -11,7 +11,7 @@ public class HumanSpawner : MonoBehaviour
     // 各敵の出現率
     [SerializeField] int small_spwan_rate = 0;
     [SerializeField] int middle_spwan_rate = 0;
-    //[SerializeField] int big_spwan_rate = 0;
+    [SerializeField] int big_spwan_rate = 0;
     //[SerializeField] int rare_spwan_rate = 0;
 
     const int MAX_RATE = 99;
@@ -42,7 +42,7 @@ public class HumanSpawner : MonoBehaviour
             // ランダムで出現させる敵を決定
             int ram = Random.Range(0, MAX_RATE);
             int middle = small_spwan_rate + middle_spwan_rate;
-            //int big = middle + big_spwan_rate;
+            int big = middle + big_spwan_rate;
             //int rare = big + rare_spwan_rate;
             GameObject spawn_human;
             if (ram >= 0 && ram < 60)
@@ -53,7 +53,7 @@ public class HumanSpawner : MonoBehaviour
             {
                 spawn_human = Instantiate(humans[1]);
             }
-            else /*if (ram >= middle && rare_spwan_rate < big)*/
+            else/* if (ram >= middle && rare_spwan_rate < big)*/
             {
                 spawn_human = Instantiate(humans[2]);
             }
@@ -61,6 +61,19 @@ public class HumanSpawner : MonoBehaviour
             //{
             //    HumanManager.Instance.SetHuman(Instantiate(human[3], transform.transform));
             //}
+
+            // ここか一度しか通らない
+            if(HumanManager.Instance.Boss_spwan && HumanManager.Instance.Boss_check)
+            {
+                HumanManager.Instance.Boss_spwan = false;
+                HumanManager.Instance.Boss_check = false;
+                GameObject boss = Instantiate(humans[4]);
+                boss.transform.parent = transform;
+                boss.transform.localPosition = spawn_point;
+                boss.transform.localRotation = spawn_rotato;
+                HumanManager.Instance.SetObject(boss);
+            }
+
             spawn_human.transform.parent = transform;
             spawn_human.transform.localPosition = spawn_point;
             spawn_human.transform.localRotation = spawn_rotato;

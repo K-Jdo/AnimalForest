@@ -60,10 +60,14 @@ public abstract class Character : MonoBehaviour
         // 共通の初期設定
         animation_type = AnimaionType.walk;
         agent = GetComponent<NavMeshAgent>();
-        anim = GetComponent<Animator>();
 
-        my_renderer = GetComponent<Renderer>();
         default_material = my_renderer.material;
+
+        // アニメーションのためにモデルを子供に置く
+        GameObject obj = transform.GetChild(0).gameObject;
+        my_renderer = obj.GetComponent<Renderer>();
+        anim = obj.GetComponent<Animator>();
+
 
         range = 2.0f;
 
@@ -100,7 +104,6 @@ public abstract class Character : MonoBehaviour
         {
             return;
         }
-
 
         agent.SetDestination(target_object.transform.position);
 
@@ -154,7 +157,7 @@ public abstract class Character : MonoBehaviour
         // TODO ここのアニメーション処理はモデル完成後に作る
         // 今はタイプを変更するだけ
         float distance = Vector3.Distance(transform.position, target_object.transform.position);
-        Debug.Log($"{status.name}の対象との距離{distance}");
+        //Debug.Log($"{status.name}の対象との距離{distance}");
 
         if(animation_type == AnimaionType.damage)
         {
@@ -216,17 +219,21 @@ public abstract class Character : MonoBehaviour
     }
 
     public Status GetStatus() { return status; }
-    public virtual void SetDamage(int d)
+    public void SetDamage(int d, bool gimick = false)
     {
         //Debug.Log($"{status.name}が当たった。残りHP{status.hp}");
         if (this == null)
         {
             return;
         }
+        status.hp -= d;
+        if (gimick && character_type == CharacterType.human)
+        {
+            return;
+        }
         Sound.Instance.PlaySound(Sound.SoundName.damage);
         my_renderer.material = damage_material;
         is_damage = true;
-        status.hp -= d;
         //Debug.Log($"{status.hp}");
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
         if (character_type == CharacterType.human && animation_type != AnimaionType.attack)

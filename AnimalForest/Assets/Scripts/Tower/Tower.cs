@@ -12,24 +12,17 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Tower : MonoBehaviour
 {
-    private Human human;
-
-    GameObject[] towers;
+    private Sound sound;
     public UnityEngine.UI.Slider slider;
     protected int hp;
     protected int max_hp;
-    int damage;
-
-
 
     private void Start()
     {
-        towers = GameObject.FindGameObjectsWithTag("Tower");
     }
 
     private void Update()
     {
-
         //HPバー模索中
         slider.maxValue = max_hp;
         slider.value = hp;
@@ -37,20 +30,19 @@ public class Tower : MonoBehaviour
 
         //Debug.Log($"{hp}");
     }
+
     //タワーダメージ計算
-    //まだ上手くいっていない為、現在はコメント
-    /*    public void TowerDamage()
+    public void TowerDamage(int damage)
+    {
+        hp -= damage;
+        //HPが0になると破壊。
+        //ADD エフェクト処理追加する
+        if (hp <= 0)
         {
-            human = GetComponent<Human>();
-            damage = human.GetStatus().power;
-            hp -= damage;
-            //HPが0になると破壊。
-            //ADD エフェクト処理追加する
-            if (hp <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }*/
+            Destroy(gameObject);
+            sound.PlaySound(Sound.SoundName.tree_break);
+        }
+    }
 
     //タワーの座標を返す処理
     public Vector3 TowerPosition()

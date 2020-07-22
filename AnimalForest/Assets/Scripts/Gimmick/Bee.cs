@@ -11,6 +11,7 @@ public class Bee : GimmickManager
 
     private float timeElapsed;
 
+    bool triggerflag = true;
     bool flag = false;
 
     int defence;
@@ -24,16 +25,16 @@ public class Bee : GimmickManager
 
     private void Update()
     {
-        //ADD マイナスHP問題
+        //ADD オブジェクトを透過？追尾？をさせる
+        //ADD 一体当たったら次に通ったキャラには反応しないようにする
         if (flag == true)
         {
             timeElapsed += Time.deltaTime;
 
             for (int x = 0; x < 30; x++)
             {
-                if(hit_objects == null)
+                if (hit_objects == null)
                 {
-                    Debug.Log($"キャラは死にました。");
                     flag = false;
                     x = 30;
                 }
@@ -41,7 +42,7 @@ public class Bee : GimmickManager
                 {
                     defence = human.GetStatus().defence;
                     damage = power - defence;
-                    human.SetDamage(damage);
+                    human.SetDamage(damage, true);
 
                     timeElapsed = 0f;
 
@@ -52,16 +53,20 @@ public class Bee : GimmickManager
 
     private void OnTriggerStay(Collider collider)
     {
-        //衝突しているオブジェトをリストに登録
-        hit_objects.Add(collider.gameObject);
-        foreach (GameObject i in hit_objects)
+        if (triggerflag)
         {
-            if (i.gameObject.CompareTag("CharaEnemy"))
+            triggerflag = false;
+            //衝突しているオブジェクトをリストに登録
+            hit_objects.Add(collider.gameObject);
+            foreach (GameObject i in hit_objects)
             {
-                human = i.transform.GetComponent<Human>();
-                flag = true;
+                if (i.gameObject.CompareTag("CharaEnemy"))
+                {
+                    human = i.transform.GetComponent<Human>();
+                    flag = true;
+                }
             }
+            hit_objects.Clear();
         }
-        hit_objects.Clear();
     }
 }
