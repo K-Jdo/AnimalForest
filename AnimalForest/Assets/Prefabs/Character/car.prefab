@@ -122,7 +122,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4297206007641345867, guid: e4114b12656539140b54415bde6b1eea, type: 3}
   small_spwan_rate: 60
   middle_spwan_rate: 25
   big_spwan_rate: 14
