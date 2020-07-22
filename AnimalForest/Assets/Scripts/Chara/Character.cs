@@ -60,10 +60,14 @@ public abstract class Character : MonoBehaviour
         // 共通の初期設定
         animation_type = AnimaionType.walk;
         agent = GetComponent<NavMeshAgent>();
-        anim = GetComponent<Animator>();
 
-        my_renderer = GetComponent<Renderer>();
         default_material = my_renderer.material;
+
+        // アニメーションのためにモデルを子供に置く
+        GameObject obj = transform.GetChild(0).gameObject;
+        my_renderer = obj.GetComponent<Renderer>();
+        anim = obj.GetComponent<Animator>();
+
 
         range = 2.0f;
 
