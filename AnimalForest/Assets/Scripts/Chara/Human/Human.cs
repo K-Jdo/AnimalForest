@@ -93,7 +93,7 @@ public abstract class Human : Character
             else if(target_type == TargetType.tower)
             {
                 // TODO タワーのダメージが出来たら作る
-                //target_tower.TowerDamage(status.power);
+                target_tower.TowerDamage(status.power);
             }
             //if(target_character.status.hp <= 0)
             //{

@@ -16,6 +16,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void Update()
     {
+        tower_count = TowerManager.Instance.GetTowerNumber();
         human_count = HumanManager.Instance.GetHumanCount();
         if(tower_count <= 0)
         {
