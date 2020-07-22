@@ -43,6 +43,7 @@ public abstract class Human : Character
         if (target_object == null)
         {
             animation_type = AnimaionType.walk;
+            anim.SetBool("isIdol", false);
             SetSpeed(status.speed);
             // ここで新しいタワーの目標を決める
             target_object = TowerManager.Instance.SearchTowerObject(transform.position);
