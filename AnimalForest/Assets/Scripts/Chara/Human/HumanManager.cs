@@ -80,4 +80,6 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     {
         humans.Add(obj);
     }
+
+    public int GetHumanCount() { return humans.Count; }
 }

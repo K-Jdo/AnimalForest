@@ -1,8 +1,10 @@
 ﻿// K.Joudo. 2020
 
 using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 // ギズモの描画
 // 参考:うら干物書き
 //      [Unity]扇状のギズモを作ってみる

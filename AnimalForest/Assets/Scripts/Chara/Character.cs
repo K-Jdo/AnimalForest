@@ -216,17 +216,21 @@ public abstract class Character : MonoBehaviour
     }
 
     public Status GetStatus() { return status; }
-    public virtual void SetDamage(int d)
+    public void SetDamage(int d, bool gimick = false)
     {
         //Debug.Log($"{status.name}が当たった。残りHP{status.hp}");
         if (this == null)
         {
             return;
         }
+        status.hp -= d;
+        if (gimick && character_type == CharacterType.human)
+        {
+            return;
+        }
         Sound.Instance.PlaySound(Sound.SoundName.damage);
         my_renderer.material = damage_material;
         is_damage = true;
-        status.hp -= d;
         //Debug.Log($"{status.hp}");
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
         if (character_type == CharacterType.human && animation_type != AnimaionType.attack)

@@ -1279,10 +1279,25 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5282080125885833142, guid: de9b089623cc2d04f90f91b048938803,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282080125885833142, guid: de9b089623cc2d04f90f91b048938803,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5868579469622602602, guid: de9b089623cc2d04f90f91b048938803,
         type: 3}
       propertyPath: m_Name
       value: human3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868579469622602602, guid: de9b089623cc2d04f90f91b048938803,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7433815947302377849, guid: de9b089623cc2d04f90f91b048938803,
         type: 3}
