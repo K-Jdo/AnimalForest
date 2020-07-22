@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fox_idol
+  m_Name: pig_walk
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,43 +20,43 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 119.784996, z: 0}
-        outSlope: {x: 0, y: 119.784996, z: 0}
+        inSlope: {x: 0, y: 0, z: 41.683}
+        outSlope: {x: 0, y: 0, z: 41.683}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.20579962, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.11319282}
       - serializedVersion: 3
-        time: 0.25
-        value: {x: 0, y: 17, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        time: 0.33333334
+        value: {x: 0, y: 0, z: 7}
+        inSlope: {x: 0, y: 0, z: -19.049643}
+        outSlope: {x: 0, y: 0, z: -19.049643}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.11070451}
       - serializedVersion: 3
-        time: 0.75
-        value: {x: 0, y: -17, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        time: 0.6666667
+        value: {x: 0, y: 0, z: -7}
+        inSlope: {x: 0, y: 0, z: 1.7248453}
+        outSlope: {x: 0, y: 0, z: 1.7248453}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.10873675}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.120007046}
       - serializedVersion: 3
         time: 1
         value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 107.30709, z: 0}
-        outSlope: {x: 0, y: 107.30709, z: 0}
+        inSlope: {x: 0, y: 0, z: 41.166874}
+        outSlope: {x: 0, y: 0, z: 41.166874}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.16430831, z: 0.33333334}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.101792164}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: fox_tail
+    path: 
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -69,7 +69,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 236582574
+      path: 0
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -103,47 +103,47 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 119.784996
-        outSlope: 119.784996
+        inSlope: 41.683
+        outSlope: 41.683
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.20579962
+        outWeight: 0.11319282
       - serializedVersion: 3
-        time: 0.25
-        value: 17
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        time: 0.33333334
+        value: 7
+        inSlope: -19.049643
+        outSlope: -19.049643
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.11070451
       - serializedVersion: 3
-        time: 0.75
-        value: -17
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
+        time: 0.6666667
+        value: -7
+        inSlope: 1.7248453
+        outSlope: 1.7248453
+        tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0.10873675
+        outWeight: 0.120007046
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: 107.30709
-        outSlope: 107.30709
+        inSlope: 41.166874
+        outSlope: 41.166874
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.16430831
+        inWeight: 0.101792164
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: fox_tail
+    attribute: localEulerAnglesRaw.z
+    path: 
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []
-  m_HasGenericRootTransform: 0
+  m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events: []
