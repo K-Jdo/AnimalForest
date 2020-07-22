@@ -30,7 +30,7 @@ public class Shit : GimmickManager
                 human = i.transform.GetComponent<Human>();
                 defence = human.GetStatus().defence;
                 damage = power - defence;
-                human.SetDamage(damage);
+                human.SetDamage(damage, true);
             }
         }
         //衝突する度にオブジェクトリストをリセットする
