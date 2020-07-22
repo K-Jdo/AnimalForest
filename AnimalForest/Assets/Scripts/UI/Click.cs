@@ -8,10 +8,6 @@ public class Click : MonoBehaviour
 {
     //複製したいものを入れる
     public GameObject obj;
-    //クリックされたオブジェクトを入れる
-    GameObject clicked_object;
-    //ボタンを押した
-    private bool trigger = false;
     //使うコスト
     public int use_cost;
     //テキストを表示
@@ -20,56 +16,36 @@ public class Click : MonoBehaviour
     public int max_num;
     //現在配置している数
     private int obj_num = 0;
-
+    //ツリーを入れる
+    private GameObject tree;
+    //ポジションを入れる
+    private Vector3 pos;
     private void Start()
     {
         //ボタンにテキスト表示
         use_cost_text.text = use_cost.ToString() + "P";
+        tree = GameObject.Find("wood2_spring");
+        pos = tree.transform.position;
+        pos.x -= 1f;
+        pos.z += 1.5f;
     }
+
     //ボタンを押したときの処理
-    public void OnClick()
-    {
-        trigger = true;
-    }
-    void Update()
-    {
-        if (trigger == true)
-        {
-            if (Input.GetMouseButton(0))
-            {
-                OnClicked();
-            }
-        }
-    }
     public void OnClicked()
     {
-        //スクリーンから見たマウスの座標を得る
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //クリックされた座標を格納する
-        RaycastHit hit;
-
-        //rayが当たっていたら
-        if (Physics.Raycast(ray, out hit))
+        if (CostManager.Instance.cost >= use_cost)
         {
-            //クリックされた座標
-            Vector3 pos = hit.point;
-            //クリックされたゲームオブジェクト
-            clicked_object = hit.collider.gameObject;
-            //クリックされたものが指定されたレイヤーなら
-            if (clicked_object.layer == 8)
+            if (max_num > obj_num)
             {
-                if (CostManager.Instance.cost >= use_cost)
-                {
-                    if (max_num >= obj_num)
-                    {
-                        //オブジェクトを複製
-                        AnimalManager.Instance.SetAnimal(Instantiate(obj, pos, Quaternion.identity));
-                        CostManager.Instance.cost -= use_cost;
-                        obj_num++;
-                    }
-                }
+                //オブジェクトを複製
+                AnimalManager.Instance.SetAnimal(Instantiate(obj, pos, Quaternion.identity));
+                CostManager.Instance.cost -= use_cost;
+                obj_num++;
+                Sound.Instance.PlaySound(Sound.SoundName.spawn);
+                return;
             }
-        }
-        trigger = false;
+           
+        }  
+            Sound.Instance.PlaySound(Sound.SoundName.cansel);
     }
 }
