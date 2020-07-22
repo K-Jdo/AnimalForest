@@ -111,4 +111,6 @@ public abstract class Human : Character
 
         base.Attack();
     }
+
+    public TargetType GetTarget() { return target_type; }
 }
