@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿// K.Joudo 2020
+using UnityEngine;
 
+// キリンのアニメーションで実行するプログラム
 public class HitBoxGiraffe : MonoBehaviour
 {
     BoxCollider boxCollider;
