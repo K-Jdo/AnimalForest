@@ -92,7 +92,6 @@ public abstract class Human : Character
             }
             else if(target_type == TargetType.tower)
             {
-                // TODO タワーのダメージが出来たら作る
                 target_tower.TowerDamage(status.power);
             }
             //if(target_character.status.hp <= 0)
@@ -101,15 +100,6 @@ public abstract class Human : Character
             //}
             attack_time = 0.0f;
         }
-
-
-        // これはTowerを参照するようになったら消す
-        if (target_object.name == "wood1")
-        {
-            return;
-        }
-
-        base.Attack();
     }
 
     public TargetType GetTarget() { return target_type; }

@@ -61,12 +61,11 @@ public abstract class Character : MonoBehaviour
         animation_type = AnimaionType.walk;
         agent = GetComponent<NavMeshAgent>();
 
-        default_material = my_renderer.material;
-
         // アニメーションのためにモデルを子供に置く
         GameObject obj = transform.GetChild(0).gameObject;
         my_renderer = obj.GetComponent<Renderer>();
         anim = obj.GetComponent<Animator>();
+        default_material = my_renderer.material;
 
 
         range = 2.0f;
@@ -153,8 +152,6 @@ public abstract class Character : MonoBehaviour
             return;
         }
 
-
-        // TODO ここのアニメーション処理はモデル完成後に作る
         // 今はタイプを変更するだけ
         float distance = Vector3.Distance(transform.position, target_object.transform.position);
         //Debug.Log($"{status.name}の対象との距離{distance}");
