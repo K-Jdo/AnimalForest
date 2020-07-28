@@ -22,4 +22,6 @@ public class TimeManager : MonoBehaviour
 		}
 		time_text.text = minute.ToString() + ":" + ((int)seconds).ToString("00");
 	}
+
+	public int GetMinute() { return minute; }
 }

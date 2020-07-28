@@ -115,11 +115,13 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
                         Instantiate(obj, pos, Quaternion.identity);
                         CostManager.Instance.cost -= use_cost;
                         obj_num++;
-                        Debug.Log(obj_num);
+                        Sound.Instance.PlaySound(Sound.SoundName.spawn);
+                        return;
                     }
                 }
             }
         }
+        Sound.Instance.PlaySound(Sound.SoundName.cansel);
     }
 
 }

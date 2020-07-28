@@ -48,52 +48,6 @@ public class BossHuman : Human
     /// </summary>
     protected override void Attack()
     {
-        attack_time += Time.deltaTime;
-        // 攻撃のアニメーションが終わると攻撃が完了
-        // アニメーションが出来たらこの条件に変えておく
-        //if(anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && 
-        //    anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-        if (attack_time >= 1.5f)
-        {
-            if (target_type == TargetType.animal)
-            {
-                // 範囲内にいる敵を攻撃
-                // 処理中に母数が変わる可能性があるのでforeachは使えない
-                var range_character = my_range_attack.characters;
-                for (int i = 0; i < range_character.Count; i++)
-                {
-                    if (range_character[i] == null)
-                    {
-                        my_range_attack.characters.Remove(range_character[i]);
-                        continue;
-                    }
-                    // 自分と同じタイプだと味方なので攻撃しない
-                    if (range_character[i].character_type == character_type)
-                    {
-                        continue;
-                    }
-                    // ダメージ計算
-                    int damage = status.power - range_character[i].GetStatus().defence;
-                    if (damage <= 0)
-                    {
-                        damage = 1;
-                    }
-                    else
-                    {
-                        // 乱数によって振れ幅を付ける(-5, 5)
-                        int r = Random.Range(-5, 6);
-                        damage += r;
-                    }
-                    range_character[i].SetDamage(damage);
-                }
-            }
-            else if (target_type == TargetType.tower)
-            {
-                // TODO タワーのダメージが出来たら作る
-            }
-
-            attack_time = 0.0f;
-        }
+        // 攻撃方法は別に持っているので何もしない
     }
-
 }

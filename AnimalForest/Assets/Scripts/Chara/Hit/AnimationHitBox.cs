@@ -2,7 +2,7 @@
 using UnityEngine;
 
 // キリンのアニメーションで実行するプログラム
-public class HitBoxGiraffe : MonoBehaviour
+public class AnimationHitBox : MonoBehaviour
 {
     BoxCollider boxCollider;
 

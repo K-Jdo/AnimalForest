@@ -1,22 +1,27 @@
 ﻿// K.Joud. 2020
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditorInternal;
 // 人間を管理するクラス
 public class HumanManager : SingletonMonoBehaviour<HumanManager>
 {
     [SerializeField] GameObject[] test_objects = default;       // テスト用に初期配置するための
     List<GameObject> humans = new List<GameObject>();
-    // これ何に使うか忘れた
-    // 特に使わんのなら消す
-    //public int Counter { private get; set; }
+
+    [SerializeField] GameObject time;
+    TimeManager time_manager;
+
     public bool Is_spawn { get; private set; }
+    public bool Boss_spwan { get; set; }
+    public bool Boss_check { get; set; }
 
     protected override void Awake()
     {
         base.Awake();
-        //Counter = 0;
+        time_manager = time.GetComponent<TimeManager>();
         Is_spawn = true;
-
+        Boss_spwan = false;
+        Boss_check = true;
         // 初期配置のやつら
         // 初期配置はなしのなのでテスト用
         foreach (GameObject obj in test_objects)
@@ -27,6 +32,14 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
 
     private void Update()
     {
+        for(int i = 0; i < humans.Count; i++)
+        {
+            if(humans[i] == null)
+            {
+                humans.RemoveAt(i);
+            }
+        }
+
         if (humans.Count > 2)
         {
             Is_spawn = false;
@@ -34,6 +47,12 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
         else
         {
             Is_spawn = true;
+        }
+
+        // 4分を過ぎるとボスが出現
+        if (time_manager.GetMinute() >= 4)
+        {
+            Boss_spwan = true;
         }
     }
 
