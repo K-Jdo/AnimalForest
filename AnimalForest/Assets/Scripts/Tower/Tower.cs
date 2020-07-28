@@ -16,9 +16,6 @@ public class Tower : MonoBehaviour
     public UnityEngine.UI.Slider slider;
     protected int hp;
     protected int max_hp;
-    int damage;
-
-
 
     private void Start()
     {
@@ -35,7 +32,7 @@ public class Tower : MonoBehaviour
     }
 
     //タワーダメージ計算
-    public void TowerDamage()
+    public void TowerDamage(int damage)
     {
         hp -= damage;
         //HPが0になると破壊。
