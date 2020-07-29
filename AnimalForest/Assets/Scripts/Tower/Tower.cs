@@ -12,7 +12,6 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Tower : MonoBehaviour
 {
-    private Sound sound;
     public UnityEngine.UI.Slider slider;
     protected int hp;
     protected int max_hp;
@@ -39,8 +38,8 @@ public class Tower : MonoBehaviour
         //ADD エフェクト処理追加する
         if (hp <= 0)
         {
+            Sound.Instance.PlaySound(Sound.SoundName.tree_break);
             Destroy(gameObject);
-            sound.PlaySound(Sound.SoundName.tree_break);
         }
     }
 

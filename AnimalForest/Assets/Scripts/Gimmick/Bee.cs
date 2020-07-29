@@ -33,10 +33,11 @@ public class Bee : GimmickManager
 
             for (int x = 0; x < 30; x++)
             {
-                if (hit_objects == null)
+                if (hit_objects == null || x > 30)
                 {
                     flag = false;
                     x = 30;
+                    Destroy(gameObject);
                 }
                 else if (timeElapsed >= 1.0f)
                 {
@@ -63,6 +64,8 @@ public class Bee : GimmickManager
                 if (i.gameObject.CompareTag("CharaEnemy"))
                 {
                     human = i.transform.GetComponent<Human>();
+                    this.transform.parent = i.transform; 
+
                     flag = true;
                 }
             }
