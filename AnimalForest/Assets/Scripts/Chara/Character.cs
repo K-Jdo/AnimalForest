@@ -1,5 +1,5 @@
 ﻿// K.Joudo. 2020
-using Boo.Lang;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -74,6 +74,11 @@ public abstract class Character : MonoBehaviour
         var child_objects = GetComponentsInChildren<Transform>().Select(t => t.gameObject).ToArray();
         foreach(GameObject child in child_objects)
         {
+            // レンダラーがなければ削除する
+            if (child.GetComponent<Renderer>() == null)
+            {
+                continue;
+            }
             child_renderer_list.Add(child.GetComponent<Renderer>());
         }
 
@@ -116,7 +121,11 @@ public abstract class Character : MonoBehaviour
             return;
         }
 
-        agent.SetDestination(target_object.transform.position);
+        // navメッシュの処理ができるかを判定
+        if (agent.pathStatus != NavMeshPathStatus.PathInvalid)
+        {
+            agent.SetDestination(target_object.transform.position);
+        }
 
         // 死んだら死亡アニメーションが終わるとオブジェクトを消す
         // 今はアニメーションがないから時間経過で消している

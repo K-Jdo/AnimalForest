@@ -43,6 +43,19 @@ public class BossHuman : Human
 
     }
 
+    protected override void Deth()
+    {
+        animation_type = AnimaionType.death;
+        // TODO ここで死亡アニメーションを再生
+        SetSpeed(0);
+        HumanManager.Instance.kill_count++;
+        CostManager.Instance.cost += status.cost;
+        GameManager.Instance.Is_boss_defeat = true;
+        Destroy(gameObject);
+
+    }
+
+
     /// <summary>
     /// 範囲攻撃に上書き
     /// </summary>
