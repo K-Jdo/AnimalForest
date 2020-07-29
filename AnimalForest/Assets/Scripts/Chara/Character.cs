@@ -1,4 +1,6 @@
 ﻿// K.Joudo. 2020
+using Boo.Lang;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -39,7 +41,8 @@ public abstract class Character : MonoBehaviour
     protected Animator anim;        // アニメーション
 
     Material default_material;
-    protected Renderer my_renderer;
+    //protected Renderer my_renderer;
+    List<Renderer> child_renderer_list = new List<Renderer>();
     [SerializeField] Material damage_material = null;
     const float DAMAGE_TIME = 0.5f;
     float damage_timer;
@@ -63,10 +66,16 @@ public abstract class Character : MonoBehaviour
 
         // アニメーションのためにモデルを子供に置く
         GameObject obj = transform.GetChild(0).gameObject;
-        my_renderer = obj.GetComponent<Renderer>();
+        //my_renderer = obj.GetComponent<Renderer>();
         anim = obj.GetComponent<Animator>();
-        default_material = my_renderer.material;
+        default_material = GetComponent<Renderer>().material;
 
+        // 子供のレンダラーをすべて取得
+        var child_objects = GetComponentsInChildren<Transform>().Select(t => t.gameObject).ToArray();
+        foreach(GameObject child in child_objects)
+        {
+            child_renderer_list.Add(child.GetComponent<Renderer>());
+        }
 
         range = 2.0f;
 
@@ -92,7 +101,10 @@ public abstract class Character : MonoBehaviour
             damage_timer += Time.deltaTime;
             if(damage_timer >= DAMAGE_TIME)
             {
-                my_renderer.material = default_material;
+                for(int i = 0; i < child_renderer_list.Count; i++)
+                {
+                    child_renderer_list[i].material = default_material;
+                }
                 damage_timer = 0.0f;
                 is_damage = false;
             }
@@ -226,7 +238,11 @@ public abstract class Character : MonoBehaviour
             return;
         }
         Sound.Instance.PlaySound(Sound.SoundName.damage);
-        my_renderer.material = damage_material;
+        for (int i = 0; i < child_renderer_list.Count; i++)
+        {
+            child_renderer_list[i].material = damage_material;
+        }
+
         is_damage = true;
         //Debug.Log($"{status.hp}");
         //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");

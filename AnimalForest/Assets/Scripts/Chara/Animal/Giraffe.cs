@@ -1,7 +1,5 @@
 ﻿// K.Joudo. 2020
 
-using UnityEngine;
-
 // シマウマの処理をするクラス
 // 範囲攻撃の実装対象
 public class Giraffe : Animal

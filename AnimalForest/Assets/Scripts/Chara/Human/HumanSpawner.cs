@@ -67,8 +67,10 @@ public class HumanSpawner : MonoBehaviour
             // ここか一度しか通らない
             if (HumanManager.Instance.Boss_spwan && HumanManager.Instance.Boss_check)
             {
+                // ボスのチェックを外し、一体しか出ないように調整
                 HumanManager.Instance.Boss_spwan = false;
                 HumanManager.Instance.Boss_check = false;
+                // ボス出現の座標などを調整
                 GameObject boss = Instantiate(humans[4]);
                 boss.transform.parent = transform;
                 boss.transform.localPosition = spawn_point;
