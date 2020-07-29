@@ -118,14 +118,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spwan_time: 3
   humans:
+  - {fileID: 4828290896594248275, guid: 5717f3bba1c009d4eb3fd770ed140065, type: 3}
+  - {fileID: 4828290896594248275, guid: 0f35a19d130bf174497bc61256f193fa, type: 3}
+  - {fileID: 4828290896594248275, guid: a3b80a00fdc7dcf46af0e5cd2eae50c1, type: 3}
   - {fileID: 4828290896594248275, guid: f98c3e2bb2691f049a1a3fbf9bb11e38, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 4297206007641345867, guid: e4114b12656539140b54415bde6b1eea, type: 3}
   small_spwan_rate: 60
   middle_spwan_rate: 25
   big_spwan_rate: 14
+  rare_spwan_rate: 1
 --- !u!1001 &4781142680892406541
 PrefabInstance:
   m_ObjectHideFlags: 0

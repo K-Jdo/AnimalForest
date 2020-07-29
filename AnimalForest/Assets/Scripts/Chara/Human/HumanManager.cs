@@ -1,14 +1,13 @@
 ﻿// K.Joud. 2020
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEditorInternal;
 // 人間を管理するクラス
 public class HumanManager : SingletonMonoBehaviour<HumanManager>
 {
     [SerializeField] GameObject[] test_objects = default;       // テスト用に初期配置するための
     List<GameObject> humans = new List<GameObject>();
 
-    [SerializeField] GameObject time;
+    [SerializeField] GameObject time = default;
     TimeManager time_manager;
 
     public bool Is_spawn { get; private set; }

@@ -19,10 +19,4 @@ public class Giraffe : Animal
     {
         // キリンは当たり変更を別にするためここでは上書きして何もしなくする
     }
-
-    protected override void Update()
-    {
-        base.Update();
-        Debug.Log(status.hp);
-    }
 }
