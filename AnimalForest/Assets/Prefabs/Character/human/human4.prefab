@@ -33,6 +33,7 @@ GameObject:
   - component: {fileID: 3467883773321263722}
   - component: {fileID: 3467883773321263733}
   - component: {fileID: 3467883773321263732}
+  - component: {fileID: 4898262771911647884}
   m_Layer: 0
   m_Name: human4
   m_TagString: Untagged
@@ -153,6 +154,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4898262771911647884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828290896594248275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ae6d4eb2876454aad89690310a29c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animation_type: 0
+  character_type: 0
+  damage_material: {fileID: 2100000, guid: 39b3e77fb23186a41923f046a69d009d, type: 2}
+  can_speed_change: 0
+  debug_speed: 0
 --- !u!1001 &3467883773211342313
 PrefabInstance:
   m_ObjectHideFlags: 0
