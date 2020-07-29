@@ -1335,7 +1335,6 @@ MonoBehaviour:
   clear_panel: {fileID: 0}
   help_canvas: {fileID: 2116563842}
   parent: {fileID: 1322642319}
-  clear: 0
 --- !u!1 &1322642318
 GameObject:
   m_ObjectHideFlags: 0

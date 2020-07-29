@@ -16,7 +16,7 @@ public abstract class Human : Character
         target_type = TargetType.tower;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         // 最初のタワーの目標を決める
         target_object = TowerManager.Instance.SearchTowerObject(transform.position);

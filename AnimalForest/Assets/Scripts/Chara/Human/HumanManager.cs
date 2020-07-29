@@ -17,6 +17,8 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     public int kill_count;
 
     [SerializeField] int max = 5;
+    const int MAX_ENEMY = 30;
+    int enemy_count = 0;
 
     protected override void Awake()
     {
@@ -44,6 +46,19 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
             }
         }
 
+        // 残りの敵が一定数を下回るとボスが出現
+        if (MAX_ENEMY - enemy_count <= 5)
+        {
+            Boss_spwan = true;
+        }
+
+        // 敵の数が上限に達すると湧かなくなる
+        if(enemy_count >= MAX_ENEMY)
+        {
+            Is_spawn = false;
+            return;
+        }
+
         // 人間が湧く上限
         if (humans.Count > max - 1)
         {
@@ -54,11 +69,6 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
             Is_spawn = true;
         }
 
-        // 4分を過ぎるとボスが出現
-        if (time_manager.GetMinute() >= 4)
-        {
-            Boss_spwan = true;
-        }
     }
 
     /// <summary>
@@ -103,6 +113,7 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     public void SetObject(GameObject obj)
     {
         humans.Add(obj);
+        enemy_count++;
     }
 
     public int GetHumanCount() { return humans.Count; }
