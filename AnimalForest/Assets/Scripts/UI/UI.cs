@@ -34,11 +34,9 @@ public class UI : MonoBehaviour
     private static int scene_num = 0;
     //遊び方番号
     private int help_num = 1;
-    //チェック用
-    public bool c=false;
     private void Update()
     {
-        if (/*GameManager.Instance.Is_clear*/ c)
+        if (GameManager.Instance.Is_clear)
         {
             Time.timeScale = 0;
             clear_panel.SetActive(true);

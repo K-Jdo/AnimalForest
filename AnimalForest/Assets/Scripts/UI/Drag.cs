@@ -27,6 +27,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     public int max_num;
     //現在配置している数
     private int obj_num = 0;
+    private List<GameObject> obj_nums = new List<GameObject>();
     //レイ
     private Ray ray;
     //クリックされた座標を格納する
@@ -42,6 +43,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [SerializeField]
     [Header("ステージへ使用するギミック")]
     private bool to_stage = false;
+
     private void Start()
     {
         //ボタンにテキスト表示
@@ -116,7 +118,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
                     if (max_num > obj_num)
                     {
                         //オブジェクトを複製
-                        Instantiate(obj, pos, Quaternion.identity);
+                        obj_nums.Add(Instantiate(obj, pos, Quaternion.identity));
                         CostManager.Instance.cost -= use_cost;
                         obj_num++;
                         Sound.Instance.PlaySound(Sound.SoundName.spawn);
@@ -126,6 +128,18 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             }
         }
         Sound.Instance.PlaySound(Sound.SoundName.cansel);
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < obj_nums.Count; i++)
+        {
+            if (obj_nums[i] == null)
+            {
+                obj_nums.RemoveAt(i);
+                obj_num -= 1;
+            }
+        }
     }
 
 }
