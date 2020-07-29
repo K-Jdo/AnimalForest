@@ -140,6 +140,11 @@ public abstract class Character : MonoBehaviour
             animation_type = AnimaionType.death;
             // TODO ここで死亡アニメーションを再生
             SetSpeed(0);
+            // 時間があればここをHuman側で処理したい
+            if(character_type == CharacterType.human)
+            {
+                HumanManager.Instance.kill_count++;
+            }
             Destroy(gameObject);
             return;
         }

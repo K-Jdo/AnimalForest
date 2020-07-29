@@ -15,6 +15,10 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     public bool Boss_spwan { get; set; }
     public bool Boss_check { get; set; }
 
+    public int kill_count;
+
+    [SerializeField] int max = 5;
+
     protected override void Awake()
     {
         base.Awake();
@@ -22,6 +26,7 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
         Is_spawn = true;
         Boss_spwan = false;
         Boss_check = true;
+        kill_count = 0;
         // 初期配置のやつら
         // 初期配置はなしのなのでテスト用
         foreach (GameObject obj in test_objects)
@@ -40,7 +45,8 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
             }
         }
 
-        if (humans.Count > 2)
+        // 人間が湧く上限
+        if (humans.Count > max - 1)
         {
             Is_spawn = false;
         }

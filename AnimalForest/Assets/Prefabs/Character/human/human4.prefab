@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4898262771911647884}
   m_Layer: 0
   m_Name: human4
-  m_TagString: Untagged
+  m_TagString: CharaEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

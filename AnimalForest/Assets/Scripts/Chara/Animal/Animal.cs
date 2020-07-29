@@ -1,6 +1,5 @@
 ﻿// K.Joudo. 2020
 
-using UnityEngine;
 // 動物に共通する動作をする抽象クラス
 public abstract class Animal : Character
 {
