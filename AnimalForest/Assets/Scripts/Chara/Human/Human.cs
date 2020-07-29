@@ -102,5 +102,16 @@ public abstract class Human : Character
         }
     }
 
+    protected override void Deth()
+    {
+        animation_type = AnimaionType.death;
+        // TODO ここで死亡アニメーションを再生
+        SetSpeed(0);
+        HumanManager.Instance.kill_count++;
+        CostManager.Instance.cost += status.cost;
+        Destroy(gameObject);
+
+    }
+
     public TargetType GetTarget() { return target_type; }
 }

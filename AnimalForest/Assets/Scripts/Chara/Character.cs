@@ -137,15 +137,7 @@ public abstract class Character : MonoBehaviour
     {
         if(status.hp <= 0.0f)
         {
-            animation_type = AnimaionType.death;
-            // TODO ここで死亡アニメーションを再生
-            SetSpeed(0);
-            // 時間があればここをHuman側で処理したい
-            if(character_type == CharacterType.human)
-            {
-                HumanManager.Instance.kill_count++;
-            }
-            Destroy(gameObject);
+            Deth();
             return;
         }
 
@@ -242,6 +234,14 @@ public abstract class Character : MonoBehaviour
         {
             animation_type = AnimaionType.damage;
         }
+    }
+
+    protected virtual void Deth()
+    {
+        animation_type = AnimaionType.death;
+        // TODO ここで死亡アニメーションを再生
+        SetSpeed(0);
+        Destroy(gameObject);
     }
 
     public void SetSpeed(float s)

@@ -30,11 +30,6 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
                 animals.RemoveAt(i);
             }
         }
-
-        foreach(var animal in animals)
-        {
-            Debug.Log(animal);
-        }
     }
 
     /// <summary>
