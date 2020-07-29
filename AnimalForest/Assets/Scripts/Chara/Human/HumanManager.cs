@@ -50,7 +50,7 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
         }
 
         // 4分を過ぎるとボスが出現
-        if (time_manager.GetMinute() <= 4)
+        if (time_manager.GetMinute() >= 4)
         {
             Boss_spwan = true;
         }

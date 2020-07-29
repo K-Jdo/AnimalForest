@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &5225111316528601622
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4297206007228056348}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39f4d590cb0d23942a12ae4edca8dded, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4297206007641345867
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +33,7 @@ GameObject:
   - component: {fileID: 5225111315532240457}
   - component: {fileID: 5225111315532240462}
   - component: {fileID: 5225111315532240463}
+  - component: {fileID: 7742404725230897358}
   m_Layer: 0
   m_Name: humanBoss
   m_TagString: Untagged
@@ -134,25 +154,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &5225111316528601622
-Animator:
-  serializedVersion: 3
+--- !u!114 &7742404725230897358
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4297206007228056348}
+  m_GameObject: {fileID: 4297206007641345867}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 39f4d590cb0d23942a12ae4edca8dded, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1157fa03557284a99daef3b89b4145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animation_type: 0
+  character_type: 0
+  damage_material: {fileID: 2100000, guid: 39b3e77fb23186a41923f046a69d009d, type: 2}
+  can_speed_change: 0
+  debug_speed: 0
 --- !u!1001 &5225111314627393040
 PrefabInstance:
   m_ObjectHideFlags: 0

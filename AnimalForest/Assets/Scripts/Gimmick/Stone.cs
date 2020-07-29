@@ -8,7 +8,9 @@ using UnityEngine;
 public class Stone : GimmickManager
 {
     private List<GameObject> hit_objects = new List<GameObject>();
-    private TryMove try_box;
+    private Human human;
+
+    float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +32,9 @@ public class Stone : GimmickManager
             {
                 gameObject.SetActive(false);
 
-                try_box = i.GetComponent<TryMove>();
-                try_box.enabled = false;
+                human = i.GetComponent<Human>();
+                speed = human.GetStatus().speed;
+                human.SetSpeed(0);
 
                 Invoke("Release", gimmicktime);
             }
@@ -43,7 +46,7 @@ public class Stone : GimmickManager
 
     void Release()
     {
-        try_box.enabled = true;
+        human.SetSpeed(speed);
     }
 
     //void StanEffect()
