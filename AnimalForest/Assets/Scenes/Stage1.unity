@@ -571,11 +571,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5581004388720357828, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4531fa364ea87364ab3a97b477a7a830,
+        type: 3}
+    - target: {fileID: 5581004388720357828, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5581004388720357830, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: obj
       value: 
       objectReference: {fileID: 8255592162985187792, guid: f4a43fdc7b30db84d902bdde9751aff7,
+        type: 3}
+    - target: {fileID: 5581004388769539425, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cedf5d5366f3cba49a4021fda8906202,
         type: 3}
     - target: {fileID: 5581004388769539426, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
@@ -591,6 +608,28 @@ PrefabInstance:
     - target: {fileID: 5581004388769539426, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: to_enemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581004388855824839, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: baa99440d9992c244bd68ac4d6c03905,
+        type: 3}
+    - target: {fileID: 5581004388957393320, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581004389106297827, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 86f062b5eddf3044c860eeb119ed1169,
+        type: 3}
+    - target: {fileID: 5581004389106297827, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5581004389106297829, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
@@ -726,23 +765,68 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2142076168676068372, guid: 28829fcf2125e214393bf270ac4dc5f3,
         type: 3}
+    - target: {fileID: 5581004389469044109, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 53ddb18232421e24880231a4cde35f12,
+        type: 3}
+    - target: {fileID: 5581004389469044109, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5581004389469044111, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: obj
       value: 
       objectReference: {fileID: 2312381509194175828, guid: 05eed7460d3eb3241a01c39a572c3dfd,
         type: 3}
+    - target: {fileID: 5581004389474314950, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 50ae6aabfc3f12f4997bd43d272ae883,
+        type: 3}
+    - target: {fileID: 5581004389474314950, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5581004389474314952, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: obj
       value: 
       objectReference: {fileID: 3606075803884834192, guid: a37a3915747ee2c4587929f29b7b9a8b,
         type: 3}
+    - target: {fileID: 5581004389480651207, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 06a11b1aba96f204b8bc6d6f3c9b4e65,
+        type: 3}
     - target: {fileID: 5581004389480651208, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: to_enemy
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5581004389480651208, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: obj
+      value: 
+      objectReference: {fileID: 7117929650704714198, guid: 565240d9eaa6d364594faf07f2af645b,
+        type: 3}
+    - target: {fileID: 5581004389777876944, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581004389984981289, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d1d266396a25bc34fbb7d7df7339b555,
+        type: 3}
     - target: {fileID: 5581004389984981290, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: to_stage
@@ -759,6 +843,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9060710201773646798, guid: e4ff05e065ccb4043a57554343b1ec30,
         type: 3}
+    - target: {fileID: 5581004390136358152, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581004390136358152, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581004390136358152, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581004390136358152, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5581004390181309655, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: to_enemy
@@ -768,6 +872,23 @@ PrefabInstance:
         type: 3}
       propertyPath: to_stage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581004390181309657, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9566151e042bab0419f1e4623653e9e3,
+        type: 3}
+    - target: {fileID: 5581004390435020451, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fd40a44a2bfafe74ead98e02b2f19ae8,
+        type: 3}
+    - target: {fileID: 5581004390435020451, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e, type: 3}
