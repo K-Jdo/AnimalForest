@@ -2756,7 +2756,7 @@ MonoBehaviour:
   use_cost_text: {fileID: 5581004390348937829}
   max_num: 999
   to_animal: 1
-  to_enemy: 1
+  to_enemy: 0
   to_stage: 0
 --- !u!23 &5581004389480651209
 MeshRenderer:
@@ -3496,7 +3496,7 @@ MonoBehaviour:
   use_cost_text: {fileID: 5581004389472637939}
   max_num: 3
   to_animal: 0
-  to_enemy: 1
+  to_enemy: 0
   to_stage: 1
 --- !u!23 &5581004389984981291
 MeshRenderer:
@@ -3926,7 +3926,7 @@ MonoBehaviour:
   use_cost_text: {fileID: 5581004390490828118}
   max_num: 5
   to_animal: 0
-  to_enemy: 1
+  to_enemy: 0
   to_stage: 1
 --- !u!23 &5581004390181309654
 MeshRenderer:
