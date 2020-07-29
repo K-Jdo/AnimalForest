@@ -1,19 +1,22 @@
 ﻿// K.Joud. 2020
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEditorInternal;
 // 人間を管理するクラス
 public class HumanManager : SingletonMonoBehaviour<HumanManager>
 {
     [SerializeField] GameObject[] test_objects = default;       // テスト用に初期配置するための
     List<GameObject> humans = new List<GameObject>();
 
-    [SerializeField] GameObject time;
+    [SerializeField] GameObject time = default;
     TimeManager time_manager;
 
     public bool Is_spawn { get; private set; }
     public bool Boss_spwan { get; set; }
     public bool Boss_check { get; set; }
+
+    public int kill_count;
+
+    [SerializeField] int max = 5;
 
     protected override void Awake()
     {
@@ -22,6 +25,7 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
         Is_spawn = true;
         Boss_spwan = false;
         Boss_check = true;
+        kill_count = 0;
         // 初期配置のやつら
         // 初期配置はなしのなのでテスト用
         foreach (GameObject obj in test_objects)
@@ -40,7 +44,8 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
             }
         }
 
-        if (humans.Count > 2)
+        // 人間が湧く上限
+        if (humans.Count > max - 1)
         {
             Is_spawn = false;
         }

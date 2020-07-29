@@ -80,7 +80,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             //今マウスポインターに当たっているゲームオブジェクト
             draged_object = hit.collider.gameObject;
             //マウスポインターのある場所が指定されたタグであれば
-            if (draged_object.tag == obj_name)
+            if (draged_object.CompareTag(obj_name))
             {
                 image_obj.color = new Color(0.0f, 0.5f, 0.0f, 0.6f);
             }
@@ -88,6 +88,10 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             {
                 image_obj.color = new Color(0.7f, 0.5f, 0.5f, 0.6f);
             }
+        }
+        else
+        {
+            image_obj.color = new Color(0.7f, 0.5f, 0.5f, 0.6f);
         }
     }
     public void OnEndDrag(PointerEventData eventData)
@@ -105,7 +109,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             //ドロップされたゲームオブジェクト
             draged_object = hit.collider.gameObject;
             //ドロップ時が指定されたタグであれば
-            if (draged_object.tag == obj_name)
+            if (draged_object.CompareTag(obj_name))
             {
                 if (CostManager.Instance.cost >= use_cost)
                 {
