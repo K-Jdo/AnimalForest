@@ -571,6 +571,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5581004388565451451, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Text
+      value: '
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 5581004388720357828, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: m_Sprite
@@ -747,6 +754,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UICanvas 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581004389357569849, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 547b6a31671df1f47aa933ec6dc9b79e,
+        type: 3}
+    - target: {fileID: 5581004389357569849, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581004389357569851, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581004389357569851, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 334
       objectReference: {fileID: 0}
     - target: {fileID: 5581004389446434611, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
