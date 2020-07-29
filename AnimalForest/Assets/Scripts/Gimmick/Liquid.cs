@@ -32,7 +32,6 @@ public class Liquid : GimmickManager
                 atk += 10;
                 //実装
                 //ADD SetPowerの追加;
-                //animal.SetPower(atk);
             }
             else if(timeElapsed > 10.0f)
             {

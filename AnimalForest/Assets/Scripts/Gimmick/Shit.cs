@@ -8,6 +8,7 @@ public class Shit : GimmickManager
 {
     private List<GameObject> hit_objects = new List<GameObject>();
     private Human human;
+    protected Animation anim;
 
     int defence;
     int damage;
@@ -16,6 +17,7 @@ public class Shit : GimmickManager
     {
         cost = 30;
         power = 10;
+        anim = gameObject.GetComponent<Animation>();
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -31,10 +33,11 @@ public class Shit : GimmickManager
                 defence = human.GetStatus().defence;
                 damage = power - defence;
                 human.SetDamage(damage, true);
+
+                Destroy(gameObject);
             }
         }
         //衝突する度にオブジェクトリストをリセットする
         hit_objects.Clear();
     }
-
 }

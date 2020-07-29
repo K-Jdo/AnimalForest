@@ -8,6 +8,7 @@ public class Bee : GimmickManager
 {
     private List<GameObject> hit_objects = new List<GameObject>();
     private Human human;
+    //protected Animator animator;
 
     private float timeElapsed;
 
@@ -21,6 +22,7 @@ public class Bee : GimmickManager
     {
         cost = 1000;
         power = 10;
+        //animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -45,8 +47,10 @@ public class Bee : GimmickManager
                     damage = power - defence;
                     human.SetDamage(damage, true);
 
-                    timeElapsed = 0f;
+                    //animator.SetBool("is_attack", true);
 
+
+                    timeElapsed = 0f;
                 }
             }
         }
@@ -64,8 +68,7 @@ public class Bee : GimmickManager
                 if (i.gameObject.CompareTag("CharaEnemy"))
                 {
                     human = i.transform.GetComponent<Human>();
-                    this.transform.parent = i.transform; 
-
+                    this.transform.parent = i.transform;
                     flag = true;
                 }
             }
