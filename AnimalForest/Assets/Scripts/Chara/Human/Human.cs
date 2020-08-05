@@ -47,9 +47,7 @@ public abstract class Human : Character
             SetSpeed(status.speed);
             // ここで新しいタワーの目標を決める
             target_object = TowerManager.Instance.SearchTowerObject(transform.position);
-            // とりあえず最初のタワーをいれておく
             target_tower = target_object.GetComponent<Tower>();
-            //target_object = TestManager.Instance.tower;
             target_type = TargetType.tower;
         }
         else if (animation_type == AnimaionType.damage)
@@ -57,6 +55,8 @@ public abstract class Human : Character
             animation_type = AnimaionType.attack;
             SetSpeed(0);
             target_object = AnimalManager.Instance.SearchNearObject(transform.position);
+            // 攻撃時にターゲットの方向を向く
+            transform.LookAt(target_object.transform);
             if (target_object != null)
             {
                 target_character = target_object.GetComponent<Character>();
