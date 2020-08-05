@@ -49,7 +49,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         //ボタンにテキスト表示
         use_cost_text.text = use_cost.ToString() + "P";
         //canvasを探す
-        image_transform = FindObjectOfType<Canvas>().transform;
+        image_transform = FindObjectOfType<UI>().transform;
         if (to_animal)
         {
             obj_name = "CharaAnimal";
@@ -68,6 +68,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         //画像複製
         image_obj = Instantiate(drag_obj, image_transform);
         image_obj.color = new Color(0.7f, 0.5f, 0.5f, 0.6f);
+        image_obj.transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -84,7 +85,13 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             //マウスポインターのある場所が指定されたタグであれば
             if (draged_object.CompareTag(obj_name))
             {
-                image_obj.color = new Color(0.0f, 0.5f, 0.0f, 0.6f);
+                if (CostManager.Instance.cost >= use_cost)
+                {
+                    if (max_num > obj_num)
+                    {
+                        image_obj.color = new Color(0.0f, 0.5f, 0.0f, 0.6f);
+                    }
+                }
             }
             else
             {
@@ -95,6 +102,7 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         {
             image_obj.color = new Color(0.7f, 0.5f, 0.5f, 0.6f);
         }
+        image_obj.transform.SetAsLastSibling();
     }
     public void OnEndDrag(PointerEventData eventData)
     {
