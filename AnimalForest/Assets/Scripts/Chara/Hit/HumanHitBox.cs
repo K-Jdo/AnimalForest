@@ -9,8 +9,17 @@ public class HumanHitBox : HitBox
     protected override void Awake()
     {
         human = transform.root.gameObject.GetComponent<Human>();
-        power = human.GetStatus().power;
         target_type = Human.TargetType.notTarget;
+    }
+
+    private void Start()
+    {
+        power = human.GetStatus().power;
+    }
+
+    private void Update()
+    {
+        target_type = human.GetTarget();
     }
 
     protected override void OnTriggerExit(Collider other)
@@ -24,6 +33,16 @@ public class HumanHitBox : HitBox
         }
         else if (other.transform.tag.Contains("Tower")
             && target_type == Human.TargetType.tower)
+        {
+            TowerDamage(other);
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag.Contains("Tower")
+               && target_type == Human.TargetType.tower)
         {
             TowerDamage(other);
         }

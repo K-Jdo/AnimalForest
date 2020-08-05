@@ -8,6 +8,7 @@ public class Bee : GimmickManager
 {
     private List<GameObject> hit_objects = new List<GameObject>();
     private Human human;
+    private Drag drag;
     //protected Animator animator;
 
     private float timeElapsed;
@@ -55,6 +56,13 @@ public class Bee : GimmickManager
             }
         }
     }
+
+    //
+    private void TrapJudgment()
+    {
+        
+    }
+
 
     private void OnTriggerStay(Collider collider)
     {

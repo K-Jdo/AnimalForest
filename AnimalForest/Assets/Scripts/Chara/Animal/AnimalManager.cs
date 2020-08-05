@@ -71,6 +71,7 @@ public class AnimalManager : SingletonMonoBehaviour<AnimalManager>
     public void SetAnimal(GameObject obj)
     {
         // 子供がいれば当たり判定を分けているので一番上の子供を取得する
+        // これ必要ないかも
         //if (obj.transform.childCount > 0)
         //{
         //    animals.Add(obj.transform.GetChild(0).gameObject);
