@@ -43,4 +43,12 @@ public abstract class Animal : Character
             }
         }
     }
+
+    /// <summary>
+    /// 液体Xの効果でパワーの変更
+    /// </summary>
+    public void SetPower(int power)
+    {
+        status.power = power;
+    }
 }
