@@ -316,9 +316,9 @@ RectTransform:
   m_Father: {fileID: 2116563843}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -245, y: -160}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 25, y: 25}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &210211932
@@ -1326,13 +1326,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1297157785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdbacee90cb0ad44bb64555a090e4b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 95254a92d68de7f4c9949626e82ff351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animal_canvas: {fileID: 0}
-  trap_canvas: {fileID: 0}
-  pause_panel: {fileID: 0}
-  clear_panel: {fileID: 0}
   help_canvas: {fileID: 2116563842}
   parent: {fileID: 1322642319}
 --- !u!1 &1322642318
@@ -1559,9 +1555,9 @@ RectTransform:
   m_Father: {fileID: 2116563843}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 245, y: -160}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -25, y: 25}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1709533738
@@ -2002,10 +1998,10 @@ RectTransform:
   m_Father: {fileID: 2075994611}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 624, y: 307}
+  m_SizeDelta: {x: 631, y: 355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116563844
 MonoBehaviour:
