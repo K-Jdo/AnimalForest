@@ -57,6 +57,8 @@ public abstract class Human : Character
             animation_type = AnimaionType.attack;
             SetSpeed(0);
             target_object = AnimalManager.Instance.SearchNearObject(transform.position);
+            // 攻撃時にターゲットの方向を向く
+            transform.LookAt(target_object.transform);
             if (target_object != null)
             {
                 target_character = target_object.GetComponent<Character>();

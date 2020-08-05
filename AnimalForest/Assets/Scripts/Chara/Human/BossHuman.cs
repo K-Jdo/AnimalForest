@@ -15,34 +15,34 @@ public class BossHuman : Human
         //range = my_range_attack.SearchRadius;
     }
 
-    protected override void ChangeTarget()
-    {
-        // ターゲットを撃破する、もしくは攻撃を受けると標的を変更
-        if (/*my_range_attack.characters.Count <= 0 || */target_object == null)
-        {
-            animation_type = AnimaionType.walk;
-            anim.SetBool("isIdol", false);
-            SetSpeed(status.speed);
-            // ここで新しいタワーの目標を決める
-            target_object = TowerManager.Instance.SearchTowerObject(transform.position);
-            // とりあえず最初のタワーをいれておく
-            //target_object = TestManager.Instance.tower;
-            target_tower = target_object.GetComponent<Tower>();
-            target_type = TargetType.tower;
-        }
-        else if (animation_type == AnimaionType.damage)
-        {
-            animation_type = AnimaionType.attack;
-            SetSpeed(0);
-            target_object = AnimalManager.Instance.SearchNearObject(transform.position);
-            if (target_object != null)
-            {
-                target_character = target_object.GetComponent<Character>();
-                target_type = TargetType.animal;
-            }
-        }
+    //protected override void ChangeTarget()
+    //{
+    //    // ターゲットを撃破する、もしくは攻撃を受けると標的を変更
+    //    if (/*my_range_attack.characters.Count <= 0 || */target_object == null)
+    //    {
+    //        animation_type = AnimaionType.walk;
+    //        anim.SetBool("isIdol", false);
+    //        SetSpeed(status.speed);
+    //        // ここで新しいタワーの目標を決める
+    //        target_object = TowerManager.Instance.SearchTowerObject(transform.position);
+    //        // とりあえず最初のタワーをいれておく
+    //        //target_object = TestManager.Instance.tower;
+    //        target_tower = target_object.GetComponent<Tower>();
+    //        target_type = TargetType.tower;
+    //    }
+    //    else if (animation_type == AnimaionType.damage)
+    //    {
+    //        animation_type = AnimaionType.attack;
+    //        SetSpeed(0);
+    //        target_object = AnimalManager.Instance.SearchNearObject(transform.position);
+    //        if (target_object != null)
+    //        {
+    //            target_character = target_object.GetComponent<Character>();
+    //            target_type = TargetType.animal;
+    //        }
+    //    }
 
-    }
+    //}
 
     protected override void Deth()
     {
