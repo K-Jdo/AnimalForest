@@ -14,7 +14,7 @@ public class Liquid : GimmickManager
     bool flag = false;
 
     int atk;
-
+    int originalatk;
 
     private void Start()
     {
@@ -29,9 +29,8 @@ public class Liquid : GimmickManager
             if(timeElapsed <= 10.0f)
             {
                 atk = animal.GetStatus().power;
+                atk = originalatk;
                 atk += 10;
-                //実装
-                //ADD SetPowerの追加;
             }
             else if(timeElapsed > 10.0f)
             {

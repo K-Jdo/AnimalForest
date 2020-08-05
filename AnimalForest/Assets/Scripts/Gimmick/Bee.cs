@@ -16,7 +16,7 @@ public class Bee : GimmickManager
     bool triggerflag = true;
     bool flag = false;
 
-    int defence;
+    int count;
     int damage;
 
     void Start()
@@ -30,28 +30,23 @@ public class Bee : GimmickManager
     {
         //ADD オブジェクトを透過？追尾？をさせる
         //ADD 一体当たったら次に通ったキャラには反応しないようにする
-        if (flag == true)
+        if (flag)
         {
             timeElapsed += Time.deltaTime;
 
-            for (int x = 0; x < 30; x++)
+            if (hit_objects == null)
             {
-                if (hit_objects == null || x > 30)
+                Destroy(gameObject);
+            }
+            if (timeElapsed >= 1.0f)
+            {
+                human.SetDamage(damage, true);
+                count++;
+                //animator.SetBool("is_attack", true);
+                timeElapsed = 0f;
+                if (count > 30)
                 {
-                    flag = false;
-                    x = 30;
                     Destroy(gameObject);
-                }
-                else if (timeElapsed >= 1.0f)
-                {
-                    defence = human.GetStatus().defence;
-                    damage = power - defence;
-                    human.SetDamage(damage, true);
-
-                    //animator.SetBool("is_attack", true);
-
-
-                    timeElapsed = 0f;
                 }
             }
         }
@@ -60,7 +55,7 @@ public class Bee : GimmickManager
     //
     private void TrapJudgment()
     {
-        
+
     }
 
 
@@ -76,6 +71,8 @@ public class Bee : GimmickManager
                 if (i.gameObject.CompareTag("CharaEnemy"))
                 {
                     human = i.transform.GetComponent<Human>();
+                    int defence = human.GetStatus().defence;
+                    damage = power - defence;
                     this.transform.parent = i.transform;
                     flag = true;
                 }
