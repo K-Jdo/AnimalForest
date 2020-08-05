@@ -29,11 +29,13 @@ public class Liquid : GimmickManager
             if(timeElapsed <= 10.0f)
             {
                 atk = animal.GetStatus().power;
-                atk = originalatk;
+                originalatk = atk;
                 atk += 10;
+                animal.SetPower(atk);
             }
             else if(timeElapsed > 10.0f)
             {
+                animal.SetPower(originalatk);
                 Destroy(gameObject);
             }
         }

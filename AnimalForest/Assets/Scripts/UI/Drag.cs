@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Assertions.Must;
+using System.Linq;
 
 public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -127,6 +128,8 @@ public class Drag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
                     {
                         //オブジェクトを複製
                         obj_nums.Add(Instantiate(obj, pos, Quaternion.identity));
+                        //追加
+                        obj_nums.Last().transform.parent = draged_object.transform;
                         CostManager.Instance.cost -= use_cost;
                         obj_num++;
                         Sound.Instance.PlaySound(Sound.SoundName.spawn);
