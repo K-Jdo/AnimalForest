@@ -47,6 +47,10 @@ public abstract class Human : Character
             SetSpeed(status.speed);
             // ここで新しいタワーの目標を決める
             target_object = TowerManager.Instance.SearchTowerObject(transform.position);
+            if(target_object == null)
+            {
+                return;
+            }
             target_tower = target_object.GetComponent<Tower>();
             target_type = TargetType.tower;
         }

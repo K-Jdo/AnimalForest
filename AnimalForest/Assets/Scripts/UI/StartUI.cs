@@ -68,4 +68,9 @@ public class StartUI : MonoBehaviour
             child[help_num].gameObject.SetActive(true);
         }
     }
+
+    public void EndGame()
+    {
+        Application.Quit();
+    }
 }
