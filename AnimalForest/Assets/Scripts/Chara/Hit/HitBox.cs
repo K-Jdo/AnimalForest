@@ -7,6 +7,7 @@ public class HitBox : MonoBehaviour
     protected int power;
     protected virtual void Awake()
     {
+        // 親からパワーを取得
         GameObject obj = transform.root.gameObject;
         Character parent = obj.GetComponent<Character>();
         power = parent.GetStatus().power;
@@ -20,6 +21,10 @@ public class HitBox : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ぶつかったキャラクターとのダメージ計算を行う
+    /// </summary>
+    /// <param name="other"></param>
     protected void CharacterDamage(Collider other)
     {
         Character character = other.GetComponent<Character>();

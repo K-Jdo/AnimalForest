@@ -2,7 +2,6 @@
 
 using UnityEngine;
 // 人間に共通する動作をする抽象クラス
-
 public abstract class Human : Character
 {
     public enum TargetType { tower, animal, notTarget }
@@ -28,13 +27,6 @@ public abstract class Human : Character
     {
         base.Update();
         ChangeTarget();
-        //Debug.Log($"{status.name}のタイプ:{animation_type}");
-
-        if (animation_type == AnimaionType.death)
-        {
-            // ここでコストを増やす処理をする
-            //CostManager.Instance.cost += 50;
-        }
     }
 
     protected override void ChangeTarget()
@@ -49,6 +41,7 @@ public abstract class Human : Character
             target_object = TowerManager.Instance.SearchTowerObject(transform.position);
             if(target_object == null)
             {
+                // 見つからなければ何もしない
                 return;
             }
             target_tower = target_object.GetComponent<Tower>();
@@ -56,6 +49,7 @@ public abstract class Human : Character
         }
         else if (animation_type == AnimaionType.damage)
         {
+            // ダメージを受けたらターゲットを動物に変更
             animation_type = AnimaionType.attack;
             SetSpeed(0);
             target_object = AnimalManager.Instance.SearchNearObject(transform.position);
@@ -73,10 +67,6 @@ public abstract class Human : Character
     {
         attack_time += Time.deltaTime;
 
-        // 攻撃のアニメーションが終わると攻撃が完了
-        // アニメーションが出来たらこの条件に変えておく
-        //if(anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && 
-        //    anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         if (attack_time >= 1.5f)
         {
             if (target_type == TargetType.animal)
@@ -98,10 +88,6 @@ public abstract class Human : Character
             {
                 target_tower.TowerDamage(status.power);
             }
-            //if(target_character.status.hp <= 0)
-            //{
-            //    target_object = null;
-            //}
             attack_time = 0.0f;
         }
     }
@@ -109,7 +95,6 @@ public abstract class Human : Character
     protected override void Deth()
     {
         animation_type = AnimaionType.death;
-        // TODO ここで死亡アニメーションを再生
         SetSpeed(0);
         HumanManager.Instance.kill_count++;
         CostManager.Instance.cost += status.cost;

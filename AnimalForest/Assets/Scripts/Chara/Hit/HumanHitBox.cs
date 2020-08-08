@@ -39,16 +39,6 @@ public class HumanHitBox : HitBox
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.tag.Contains("Tower")
-               && target_type == Human.TargetType.tower)
-        {
-            TowerDamage(other);
-        }
-
-    }
-
     void TowerDamage(Collider other)
     {
         Tower tower = other.GetComponent<Tower>();

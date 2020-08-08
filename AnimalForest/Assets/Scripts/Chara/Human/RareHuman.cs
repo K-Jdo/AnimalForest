@@ -44,10 +44,6 @@ public class RareHuman : Human
     {
         attack_time += Time.deltaTime;
 
-        // 攻撃のアニメーションが終わると攻撃が完了
-        // アニメーションが出来たらこの条件に変えておく
-        //if(anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && 
-        //    anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         if (attack_time >= 1.5f)
         {
             if (target_type == TargetType.animal)
