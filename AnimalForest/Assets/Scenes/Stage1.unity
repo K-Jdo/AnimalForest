@@ -633,7 +633,7 @@ PrefabInstance:
         type: 3}
       propertyPath: obj
       value: 
-      objectReference: {fileID: 8509343150088917083, guid: 468ceedfd5a2af24bb8bb4170c9b8436,
+      objectReference: {fileID: 8509343150088917083, guid: a4a082612ececf5448476eb26eabbcd1,
         type: 3}
     - target: {fileID: 5581004388769539426, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
@@ -650,6 +650,12 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: baa99440d9992c244bd68ac4d6c03905,
+        type: 3}
+    - target: {fileID: 5581004388855824840, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: obj
+      value: 
+      objectReference: {fileID: 1745994433432171418, guid: 9b563d19b6a7cc04d837eb242e789a6c,
         type: 3}
     - target: {fileID: 5581004388957393320, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
@@ -886,18 +892,18 @@ PrefabInstance:
     - target: {fileID: 5581004389984981290, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: to_stage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5581004389984981290, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: to_enemy
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5581004389984981290, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: obj
       value: 
-      objectReference: {fileID: 9060710201773646798, guid: e4ff05e065ccb4043a57554343b1ec30,
+      objectReference: {fileID: 3162472194119206013, guid: 4ed077ed8e8503c469482f659619f304,
         type: 3}
     - target: {fileID: 5581004390136358152, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
@@ -929,6 +935,12 @@ PrefabInstance:
       propertyPath: to_stage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5581004390181309655, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
+        type: 3}
+      propertyPath: obj
+      value: 
+      objectReference: {fileID: 8989668783934821196, guid: 311f015350513d54a96ba4d24f33ed41,
+        type: 3}
     - target: {fileID: 5581004390181309657, guid: 5d6a2f2d50b16654fb0365ebaa3f1a5e,
         type: 3}
       propertyPath: m_Sprite
@@ -1014,6 +1026,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431354, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63cd9775163ca4948b8da7494435f639, type: 3}
@@ -1225,7 +1242,12 @@ PrefabInstance:
     - target: {fileID: 4554401983188590214, guid: 1f244d81ba97f474eb6e835aaffa7b0d,
         type: 3}
       propertyPath: m_Name
-      value: BsttleBGM
+      value: BattleBGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 4554401983188590215, guid: 1f244d81ba97f474eb6e835aaffa7b0d,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f244d81ba97f474eb6e835aaffa7b0d, type: 3}
@@ -1276,6 +1298,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1428430155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 9569fa6958b134149bfc2e7ede925b50,
+    type: 3}
+  m_PrefabInstance: {fileID: 390570550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1428430159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428430155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.6, y: 3.9, z: 12.6}
+  m_Center: {x: 0, y: 1.95, z: 0}
 --- !u!1 &1473175655 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 77ec2c9a69f534f4f98a00473e5404d4,

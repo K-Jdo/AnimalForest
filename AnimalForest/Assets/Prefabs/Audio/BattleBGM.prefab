@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4554401983188590212}
   - component: {fileID: 4554401983188590215}
   m_Layer: 0
-  m_Name: BsttleBGM
+  m_Name: BattleBGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f41ed7ca006f19142aab7e85f20b9d0e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0

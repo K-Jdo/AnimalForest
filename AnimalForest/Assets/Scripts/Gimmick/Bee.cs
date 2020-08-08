@@ -12,9 +12,6 @@ public class Bee : GimmickManager
 
     private float timeElapsed;
 
-    bool triggerflag = true;
-    bool flag = false;
-
     int count;
 
     void Start()
