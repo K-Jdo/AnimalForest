@@ -198,8 +198,37 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ad55f5ed6f953574083569523b889ad3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stage
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ad55f5ed6f953574083569523b889ad3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad55f5ed6f953574083569523b889ad3, type: 3}
+--- !u!1 &52969088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: ad55f5ed6f953574083569523b889ad3,
+    type: 3}
+  m_PrefabInstance: {fileID: 52969087}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &52969089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52969088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.6, y: 3.9, z: 12.6}
+  m_Center: {x: 0, y: -1.9473937, z: 0}
 --- !u!1001 &91333520
 PrefabInstance:
   m_ObjectHideFlags: 0
