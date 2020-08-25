@@ -74,7 +74,8 @@ public abstract class Character : MonoBehaviour
         foreach(GameObject child in child_objects)
         {
             // レンダラーがなければ削除する
-            if (child.GetComponent<Renderer>() == null)
+            // ブタのエフェクトも例外
+            if (child.GetComponent<Renderer>() == null || child.name == "pig_poop")
             {
                 continue;
             }
