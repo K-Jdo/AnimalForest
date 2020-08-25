@@ -4,11 +4,7 @@ using System.Collections.Generic;
 // 人間を管理するクラス
 public class HumanManager : SingletonMonoBehaviour<HumanManager>
 {
-    [SerializeField] GameObject[] test_objects = default;       // テスト用に初期配置するための
     List<GameObject> humans = new List<GameObject>();
-
-    [SerializeField] GameObject time = default;
-    TimeManager time_manager;
 
     public bool Is_spawn { get; private set; }
     public bool Boss_spwan { get; set; }
@@ -23,17 +19,10 @@ public class HumanManager : SingletonMonoBehaviour<HumanManager>
     protected override void Awake()
     {
         base.Awake();
-        time_manager = time.GetComponent<TimeManager>();
         Is_spawn = true;
         Boss_spwan = false;
         Boss_check = true;
         kill_count = 0;
-        // 初期配置のやつら
-        // 初期配置はなしのなのでテスト用
-        foreach (GameObject obj in test_objects)
-        {
-            humans.Add(obj);
-        }
     }
 
     private void Update()

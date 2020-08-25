@@ -8,68 +8,40 @@ public class Bee : GimmickManager
 {
     private List<GameObject> hit_objects = new List<GameObject>();
     private Human human;
+    //protected Animator animator;
 
     private float timeElapsed;
 
-    bool triggerflag = true;
-    bool flag = false;
-
-    int defence;
-    int damage;
+    int count;
 
     void Start()
     {
         cost = 1000;
         power = 10;
+        //animator = GetComponent<Animator>();
+        human = transform.parent.GetComponent<Human>();
     }
 
     private void Update()
     {
         //ADD オブジェクトを透過？追尾？をさせる
         //ADD 一体当たったら次に通ったキャラには反応しないようにする
-        if (flag == true)
+        timeElapsed += Time.deltaTime;
+
+        if (hit_objects == null)
         {
-            timeElapsed += Time.deltaTime;
-
-            for (int x = 0; x < 30; x++)
-            {
-                if (hit_objects == null || x > 30)
-                {
-                    flag = false;
-                    x = 30;
-                    Destroy(gameObject);
-                }
-                else if (timeElapsed >= 1.0f)
-                {
-                    defence = human.GetStatus().defence;
-                    damage = power - defence;
-                    human.SetDamage(damage, true);
-
-                    timeElapsed = 0f;
-
-                }
-            }
+            Destroy(gameObject);
         }
-    }
-
-    private void OnTriggerStay(Collider collider)
-    {
-        if (triggerflag)
+        if (timeElapsed >= 1.0f)
         {
-            triggerflag = false;
-            //衝突しているオブジェクトをリストに登録
-            hit_objects.Add(collider.gameObject);
-            foreach (GameObject i in hit_objects)
+            human.SetDamage(power, true);
+            count++;
+            //animator.SetBool("is_attack", true);
+            timeElapsed = 0f;
+            if (count > 30)
             {
-                if (i.gameObject.CompareTag("CharaEnemy"))
-                {
-                    human = i.transform.GetComponent<Human>();
-                    this.transform.parent = i.transform; 
-
-                    flag = true;
-                }
+                Destroy(gameObject);
             }
-            hit_objects.Clear();
         }
     }
 }

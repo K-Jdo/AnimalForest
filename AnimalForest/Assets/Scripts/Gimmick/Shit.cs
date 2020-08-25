@@ -8,33 +8,23 @@ public class Shit : GimmickManager
 {
     private List<GameObject> hit_objects = new List<GameObject>();
     private Human human;
-
-    int defence;
-    int damage;
+    protected Animator anim;
 
     void Start()
     {
         cost = 30;
         power = 10;
+        human = transform.parent.GetComponent<Human>();
+        anim = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void Update()
     {
-        //衝突しているオブジェクトをリストに登録
-        hit_objects.Add(collider.gameObject);
-
-        foreach (GameObject i in hit_objects)
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("poop_attack") &&
+            anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         {
-            if (i.gameObject.CompareTag("CharaEnemy"))
-            {
-                human = i.transform.GetComponent<Human>();
-                defence = human.GetStatus().defence;
-                damage = power - defence;
-                human.SetDamage(damage, true);
-            }
+            human.SetDamage(power, true);
+            Destroy(gameObject);
         }
-        //衝突する度にオブジェクトリストをリセットする
-        hit_objects.Clear();
     }
-
 }

@@ -11,6 +11,7 @@ public class AnimationHitBox : MonoBehaviour
         boxCollider = transform.GetChild(0).gameObject.GetComponent<BoxCollider>();
     }
 
+    // Animationで実行するメソッド
     void ActivOnCollision()
     {
         boxCollider.enabled = true;

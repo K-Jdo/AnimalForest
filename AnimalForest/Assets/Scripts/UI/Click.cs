@@ -27,7 +27,7 @@ public class Click : MonoBehaviour
 
         //ボタンにテキスト表示
         use_cost_text.text = use_cost.ToString() + "P";
-        tree = GameObject.Find("wood2_spring");
+        tree = GameObject.Find("wood2");
         pos = tree.transform.position;
         pos.x -= 1f;
         pos.z += 1.5f;

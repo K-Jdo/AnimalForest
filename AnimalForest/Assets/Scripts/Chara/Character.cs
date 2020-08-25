@@ -41,7 +41,6 @@ public abstract class Character : MonoBehaviour
     protected Animator anim;        // アニメーション
 
     Material default_material;
-    //protected Renderer my_renderer;
     List<Renderer> child_renderer_list = new List<Renderer>();
     [SerializeField] Material damage_material = null;
     const float DAMAGE_TIME = 0.5f;
@@ -55,6 +54,7 @@ public abstract class Character : MonoBehaviour
     protected float death_time;
     protected float attack_time;
 
+    // デバッグ用
     public bool can_speed_change;
     public float debug_speed;
     
@@ -66,7 +66,6 @@ public abstract class Character : MonoBehaviour
 
         // アニメーションのためにモデルを子供に置く
         GameObject obj = transform.GetChild(0).gameObject;
-        //my_renderer = obj.GetComponent<Renderer>();
         anim = obj.GetComponent<Animator>();
         default_material = GetComponent<Renderer>().material;
 
@@ -101,6 +100,8 @@ public abstract class Character : MonoBehaviour
         }
 
         AnimationControl();
+        
+        // ダメージを受けていたらマテリアルを使って表現
         if (is_damage)
         {
             damage_timer += Time.deltaTime;
@@ -146,8 +147,6 @@ public abstract class Character : MonoBehaviour
             agent.velocity = Vector3.zero;
             Attack();
         }
-        //Debug.Log($"{status.name}のタイプ{animation_type}");
-        //Debug.Log($"{status.name}のvelocity{agent.velocity}");
     }
 
 
@@ -162,6 +161,7 @@ public abstract class Character : MonoBehaviour
             return;
         }
 
+        // ターゲットが見つからないならアイドル状態に
         if(target_object == null)
         {
             animation_type = AnimaionType.idol;
@@ -170,9 +170,7 @@ public abstract class Character : MonoBehaviour
             return;
         }
 
-        // 今はタイプを変更するだけ
         float distance = Vector3.Distance(transform.position, target_object.transform.position);
-        //Debug.Log($"{status.name}の対象との距離{distance}");
 
         if(animation_type == AnimaionType.damage)
         {
@@ -207,10 +205,6 @@ public abstract class Character : MonoBehaviour
     protected virtual void Attack()
     {
         attack_time += Time.deltaTime;
-        // 攻撃のアニメーションが終わると攻撃が完了
-        // アニメーションが出来たらこの条件に変えておく
-        //if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&
-        //    anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         if (attack_time >= 1.5f)
         {
             int damage = status.power - target_character.GetStatus().defence;
@@ -225,36 +219,38 @@ public abstract class Character : MonoBehaviour
                 damage += r;
             }
             target_character.SetDamage(damage);
-            //if(target_character.status.hp <= 0)
-            //{
-            //    target_object = null;
-            //}
             attack_time = 0.0f;
         }
     }
 
     public Status GetStatus() { return status; }
+
+    /// <summary>
+    /// ダメージを受けるメソッド(ダメージ量, ギミックかどうか)
+    /// </summary>
+    /// <param name="d"></param>
+    /// <param name="gimick"></param>
     public void SetDamage(int d, bool gimick = false)
     {
-        //Debug.Log($"{status.name}が当たった。残りHP{status.hp}");
         if (this == null)
         {
             return;
         }
         status.hp -= d;
+        // ギミックだと音と、ダメージの表現がなし
         if (gimick && character_type == CharacterType.human)
         {
             return;
         }
         Sound.Instance.PlaySound(Sound.SoundName.damage);
+        // 他の部位も色を変更
         for (int i = 0; i < child_renderer_list.Count; i++)
         {
             child_renderer_list[i].material = damage_material;
         }
 
         is_damage = true;
-        //Debug.Log($"{status.hp}");
-        //Debug.Log($"{status.name}:ダメージを受けた！残り{status.hp}");
+        // 人間ならタイプをダメージに変更
         if (character_type == CharacterType.human && animation_type != AnimaionType.attack)
         {
             animation_type = AnimaionType.damage;
@@ -264,7 +260,6 @@ public abstract class Character : MonoBehaviour
     protected virtual void Deth()
     {
         animation_type = AnimaionType.death;
-        // TODO ここで死亡アニメーションを再生
         SetSpeed(0);
         Destroy(gameObject);
     }

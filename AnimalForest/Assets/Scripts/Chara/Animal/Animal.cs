@@ -11,6 +11,7 @@ public abstract class Animal : Character
 
     private void Start()
     {
+        // 最初のターゲットを探す
         target_object = HumanManager.Instance.SearchNearObject(transform.position);
         if (target_object != null)
         {
@@ -23,10 +24,6 @@ public abstract class Animal : Character
     {
         ChangeTarget();
         base.Update();
-        //if(animation_type == AnimaionType.attack)
-        //{
-        //    Debug.Log($"{status.name}が攻撃している");
-        //}
     }
 
     protected override void ChangeTarget()
@@ -42,5 +39,13 @@ public abstract class Animal : Character
                 target_character = target_object.GetComponent<Character>();
             }
         }
+    }
+
+    /// <summary>
+    /// 液体Xの効果でパワーの変更
+    /// </summary>
+    public void SetPower(int power)
+    {
+        status.power = power;
     }
 }

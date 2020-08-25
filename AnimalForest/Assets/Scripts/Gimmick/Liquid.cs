@@ -14,7 +14,7 @@ public class Liquid : GimmickManager
     bool flag = false;
 
     int atk;
-
+    int originalatk;
 
     private void Start()
     {
@@ -29,13 +29,13 @@ public class Liquid : GimmickManager
             if(timeElapsed <= 10.0f)
             {
                 atk = animal.GetStatus().power;
+                originalatk = atk;
                 atk += 10;
-                //実装
-                //ADD SetPowerの追加;
-                //animal.SetPower(atk);
+                animal.SetPower(atk);
             }
             else if(timeElapsed > 10.0f)
             {
+                animal.SetPower(originalatk);
                 Destroy(gameObject);
             }
         }

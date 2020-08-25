@@ -343,6 +343,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &344501680
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5877541644813431348, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_Name
+      value: SE
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.031362914
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.10596905
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877541644813431353, guid: 63cd9775163ca4948b8da7494435f639,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 63cd9775163ca4948b8da7494435f639, type: 3}
 --- !u!1 &651113990
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,12 +588,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 981000441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bdbacee90cb0ad44bb64555a090e4b1, type: 3}
+  m_Script: {fileID: 11500000, guid: b3f24fa166280074e80f26eb30091596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animal_canvas: {fileID: 0}
-  trap_canvas: {fileID: 0}
-  pause_panel: {fileID: 0}
 --- !u!1 &1001481977
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,8 +708,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 4.14, y: -1.81}
+  m_SizeDelta: {x: 168.2713, y: 33.62976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523970692
 MonoBehaviour:
@@ -666,10 +732,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -677,7 +743,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30B7\u30FC\u30F3\u5207\u308A\u66FF\u3048\u30C6\u30B9\u30C8\n"
+  m_Text: "\u30AF\u30EA\u30A2\uFF01\n"
 --- !u!222 &1523970693
 CanvasRenderer:
   m_ObjectHideFlags: 0
