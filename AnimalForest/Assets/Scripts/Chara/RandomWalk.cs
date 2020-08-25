@@ -15,9 +15,7 @@ public class RandomWalk : MonoBehaviour
     const float STAGE_SIZE = 5.5f;
     private void Awake()
     {
-        //walk_time = Random.Range(2.0f, 5.0f);
         elapsed_walk_time = 0.0f;
-        //rotate_time = Random.Range(0.5f, 2.0f);
         elapsed_rotate_time = 9999.0f;
         move_vector = new Vector3(0.0f, 0.0f, speed);
 
@@ -37,18 +35,15 @@ public class RandomWalk : MonoBehaviour
             if (transform.position.x >= STAGE_SIZE ||
                 transform.position.x <= -STAGE_SIZE)
             {
-                move_vector.x *= -1;
                 transform.Rotate(0.0f, 180.0f, 0.0f);
             }
             if (transform.position.z >= STAGE_SIZE ||
                 transform.position.z <= -STAGE_SIZE)
             {
-                move_vector.z *= -1;
                 transform.Rotate(0.0f, 180.0f, 0.0f);
             }
 
             transform.Translate(move_vector);
-            //transform.localPosition += move_vector;
             elapsed_walk_time += Time.deltaTime;
         }
 
@@ -73,5 +68,10 @@ public class RandomWalk : MonoBehaviour
             is_walk = true;
             elapsed_walk_time = 0.0f;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        transform.Rotate(0.0f, 180.0f, 0.0f);
     }
 }
