@@ -5,14 +5,15 @@ public class RandomWalk : MonoBehaviour
 {
     [SerializeField] float walk_time = 5.0f;
     float elapsed_walk_time;
-    [SerializeField] float rotate_time = 5.0f;
+    [SerializeField] float rotate_time = 3.0f;
     float elapsed_rotate_time;
     [SerializeField] float speed = 0.01f;
     Vector3 move_vector;
     bool is_walk;
     bool is_rotate;
 
-    const float STAGE_SIZE = 5.5f;
+    const float STAGE_SIZE_X = 8.0f;
+    const float STAGE_SIZE_Y = 6.0f;
     private void Awake()
     {
         elapsed_walk_time = 0.0f;
@@ -32,13 +33,13 @@ public class RandomWalk : MonoBehaviour
         if (is_walk)
         {
             // バウンスボールと同じ要領で壁際で反転
-            if (transform.position.x >= STAGE_SIZE ||
-                transform.position.x <= -STAGE_SIZE)
+            if (transform.position.x >= STAGE_SIZE_X ||
+                transform.position.x <= -STAGE_SIZE_X)
             {
                 transform.Rotate(0.0f, 180.0f, 0.0f);
             }
-            if (transform.position.z >= STAGE_SIZE ||
-                transform.position.z <= -STAGE_SIZE)
+            if (transform.position.z >= STAGE_SIZE_Y ||
+                transform.position.z <= -STAGE_SIZE_Y)
             {
                 transform.Rotate(0.0f, 180.0f, 0.0f);
             }
