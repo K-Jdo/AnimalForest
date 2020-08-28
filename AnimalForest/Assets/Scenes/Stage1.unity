@@ -985,6 +985,16 @@ PrefabInstance:
       propertyPath: spwan_time
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3327925042607013792, guid: 9798f8d7acbe7c041978093d3d76c4e5,
+        type: 3}
+      propertyPath: rare_spwan_rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3327925042607013792, guid: 9798f8d7acbe7c041978093d3d76c4e5,
+        type: 3}
+      propertyPath: small_spwan_rate
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9798f8d7acbe7c041978093d3d76c4e5, type: 3}
 --- !u!1001 &1199315025
