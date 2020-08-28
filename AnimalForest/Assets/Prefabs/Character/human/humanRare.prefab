@@ -4768,7 +4768,7 @@ GameObject:
   - component: {fileID: 3467883773321263722}
   - component: {fileID: 3467883773321263733}
   - component: {fileID: 3467883773321263732}
-  - component: {fileID: 4898262771911647884}
+  - component: {fileID: 2090681747719954958}
   m_Layer: 0
   m_Name: humanRare
   m_TagString: CharaEnemy
@@ -4889,7 +4889,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4898262771911647884
+--- !u!114 &2090681747719954958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4898,11 +4898,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4828290896594248275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ae6d4eb2876454aad89690310a29c2, type: 3}
+  m_Script: {fileID: 11500000, guid: aa0676cfa9284e744aca7b01cd0ac77d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animation_type: 0
-  character_type: 0
+  character_type: 1
   damage_material: {fileID: 2100000, guid: 39b3e77fb23186a41923f046a69d009d, type: 2}
   can_speed_change: 0
   debug_speed: 0
